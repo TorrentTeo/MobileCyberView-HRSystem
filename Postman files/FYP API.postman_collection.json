@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "aea61944-a647-474e-ac9c-a9751097dd7d",
+		"name": "FYP API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API REGISTER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "Application/Json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"name\": \"teo dickmaster six9\",\r\n    \"email\": \"teo@dickmaster.com\",\r\n    \"password\": \"somegaypassword\",\r\n    \"role\": \"JustAnEmployee\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email Verification",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "Application/Json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/verify/RNkg56UoFDb9qtMpjjUjD15ersejqrfkcPIlYd1J4qvAnm0leb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"verify",
+						"RNkg56UoFDb9qtMpjjUjD15ersejqrfkcPIlYd1J4qvAnm0leb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "Application/Json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"teo@dickmaster.com\",\r\n    \"password\": \"somegaypassword\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resend Verification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "Application/Json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"teo@dickmaster.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/verify/resend",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"verify",
+						"resend"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JWT Token auth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "Application/Json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwN2ZlOTczZGNlY2Y1M2I4MWIzZTYxIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb0BkaWNrbWFzdGVyLmNvbSJ9LCJpYXQiOjE2MTExMzgwNjEsImV4cCI6MTYxMTE0MTY2MX0.0l6PHBU2mJfSe_6Ly1jOCgzRQDD2v90be2Xr5Mn19xw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forgot Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"teo@dickmaster.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/password/forgot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"password",
+						"forgot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employee Attendance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwN2ZlOTczZGNlY2Y1M2I4MWIzZTYxIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb0BkaWNrbWFzdGVyLmNvbSJ9LCJpYXQiOjE2MTExNDc1MDgsImV4cCI6MTYxMTE1NDcwOH0.TcGfnCesjgsq6AhP-zfDo2G3tyxRQei9nXJ4G7nLonw",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Application/Json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": \"12345\" \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/employee/Attendance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employee",
+						"Attendance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Attendance Code",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwN2ZlOTczZGNlY2Y1M2I4MWIzZTYxIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb0BkaWNrbWFzdGVyLmNvbSJ9LCJpYXQiOjE2MTExNTE5NzMsImV4cCI6MTYxMTE1OTE3M30.S-Z7KLepDz-0nM3FNiogGtwyWiyGAk5pQWmukiseKtY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/employee/Attendance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employee",
+						"Attendance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
