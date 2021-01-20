@@ -18,7 +18,7 @@ exports.register = async (req, res) => {
     if (!errors.isEmpty())
         return res.status(422).json(validation(errors.array()));
 
-    const { name, email, password, role } = req.body;
+    const { name, email, password, role, contact, emergancyContact } = req.body;
 
     try {
         let user = await User.findOne({ email: email.toLowerCase() });
@@ -33,7 +33,9 @@ exports.register = async (req, res) => {
             name,
             email: email.toLowerCase().replace(/\s+/, ""),
             password,
-            role
+            role,
+            contact, 
+            emergancyContact
         });
 
         // Hash the password
@@ -63,6 +65,8 @@ exports.register = async (req, res) => {
                         name: newUser.name,
                         email: newUser.email,
                         role: newUser.role,
+                        contact: newUser.contact,
+                        emergancyContact: newUser.emergancyContact,
                         verified: newUser.verified,
                         verifiedAt: newUser.verifiedAt,
                         createdAt: newUser.createdAt,

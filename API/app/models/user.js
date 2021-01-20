@@ -21,6 +21,19 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
+    required: true,
+    minlength: 1,
+    maxlength: 20,
+  },
+  contact:{
+    type: String,
+    required: true,
+    minlength: 1,
+    maxlength: 20,
+  },
+  emergancyContact:{
+    type: String,
+    required: true,
     minlength: 1,
     maxlength: 20,
   },
