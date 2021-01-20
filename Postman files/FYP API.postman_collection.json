@@ -241,6 +241,38 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Attendance Code",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwN2ZlOTczZGNlY2Y1M2I4MWIzZTYxIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb0BkaWNrbWFzdGVyLmNvbSJ9LCJpYXQiOjE2MTExNTE5NzMsImV4cCI6MTYxMTE1OTE3M30.S-Z7KLepDz-0nM3FNiogGtwyWiyGAk5pQWmukiseKtY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/employee/Attendance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employee",
+						"Attendance"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
