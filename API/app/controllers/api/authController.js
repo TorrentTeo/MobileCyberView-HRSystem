@@ -166,7 +166,7 @@ exports.login = async (req, res) => {
         jwt.sign(
             payload,
             config.get("jwtSecret"),
-            { expiresIn: 3600 },
+            { expiresIn: 7200 },
             (err, token) => {
                 if (err) throw err;
 
@@ -242,10 +242,8 @@ exports.getAuthenticatedUser = async (req, res) => {
         if (!user)
             return res.status(404).json(error("User not found", res.statusCode));
 
-        // Send the response
-        res
-            .status(200)
-            .json(success(`Hello ${user.name}`, { user }, res.statusCode));
+        // Send the response to check if working with postman
+        res.status(200).json(success(`Hello ${user.name}`, { user }, res.statusCode));       
     } catch (err) {
         console.error(err.message);
         res.status(500).json(error("Server error", res.statusCode));

@@ -55,3 +55,10 @@ exports.auth = async (req, res, next) => {
         res.status(401).json(error("Unauthorized", res.statusCode));
     }
 };
+
+exports.adminOnly = async function (req, res, next) {
+    if( req.user.role === "Admin" ){
+        return res.status(401).send("Unauthorized!");
+    }  
+    next();
+}

@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-
+const config = require('config');
 // Make connection to MongoDB
 const connectToMongoDB = async () => {
   try {
-    mongoose.connect("mongodb://localhost/HRMS", {
+    mongoose.connect(config.get("DbConnectionString"), {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
