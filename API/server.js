@@ -1,19 +1,20 @@
-var express = require('express');        
-var app = express();                 
-var bodyParser = require('body-parser');
+const express = require("express");
+const app = express();
+const connectToMongoDB = require("./config/db");
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// Accept incoming request
+app.use(express.json({ extended: false }));
 
-var port = process.env.PORT || 8080;        
+// Connect to MongoDB
+connectToMongoDB();
 
-var router = express.Router();              
+// Routes
+app.use("/api/auth", require("./routes/api/auth"));
+app.use("/api/password", require("./routes/api/forgotPassword"));
 
-router.get('/', function(req, res) {
-    res.json({ message: 'API CALL GET' });   
-});
 
-app.use('/api', router);
 
-app.listen(port);
-console.log('Magic happens on port ' + port);
+var port = process.env.PORT || 5000;        
+
+
+app.listen(port, () => console.log(`Server running on port: ` + port));
