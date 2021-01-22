@@ -14,7 +14,8 @@ app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/password", require("./routes/api/forgotPassword"));
 app.use("/api/employee", require("./routes/api/employee"));
 app.use("/api/profile", require("./routes/api/profile"))
-
+app.use("/api/feedback", require("./routes/api/feedback"))
+app.use("/api/clientcontract", require("./routes/api/clientContract"))
 
 var now = new Date();
 var night = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
