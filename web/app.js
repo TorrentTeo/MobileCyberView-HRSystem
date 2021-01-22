@@ -46,13 +46,18 @@ router.post('/login', (req, res) => {
         console.log(`statusCode: ${response.data.code}`)
         console.log(response.data)
         var resData = response.data;
+        // token from response
         var token = resData.results.token;
+        // set session
         var sess = req.session;
+        // set session variable
         sess.email= resData.results.user.email;
         sess.role = resData.results.user.role;
         sess.name = resData.results.user.name;
         sess.uid = resData.results.user.id;
-        res.cookie('authcookie',token,{maxAge:900000,httpOnly:true})      
+        // set token on cookie
+        res.cookie('authcookie',token,{maxAge:900000,httpOnly:true}) 
+        //login success redirect to dashboard     
         res.redirect('/dashboard');
     }).catch((error) => {
         console.log("error")
