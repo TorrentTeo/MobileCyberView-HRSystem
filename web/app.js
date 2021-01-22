@@ -63,7 +63,7 @@ router.post('/login', (req, res) => {
 
 router.get('/dashboard', (req, res) => {
     var sess = req.session;
-    res.render('dashboard', {output: {email: sess.email, name: sess.name, role: sess.role, id: sess.uid}});
+    res.render('dashboard', { output: { email: sess.email, name: sess.name, role: sess.role, id: sess.uid}});
 })
 //listen on port
 app.listen(port, () => console.info('Listening on port ' + port))
