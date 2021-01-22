@@ -62,13 +62,14 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
+
 </head>
 <body>
-	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST" action="/login">
 					<span class="login100-form-title p-b-70">
 						HR System for Administrator
 					</span>
@@ -87,27 +88,24 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" id="submit">
 							Login
 						</button>
 					</div>
-
+					
 					<!-- <ul class="login-more p-t-190">
 						<li class="m-b-8">
 							<span class="txt1">
 								Forgot
 							</span>
-
 							<a href="#" class="txt2">
 								Username / Password?
 							</a>
 						</li>
-
 						<li>
 							<span class="txt1">
 								Don’t have an account?
 							</span>
-
 							<a href="#" class="txt2">
 								Sign up
 							</a>
@@ -117,8 +115,6 @@
 			</div>
 		</div>
 	</div>
-	
-
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
@@ -137,6 +133,5 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
 </body>
 </html>
