@@ -32,4 +32,6 @@ router.post("/profile", auth, profilePost);
 //router.get("/profile", auth, profileGet);
 //router.put("/profile", auth, profilePut);
 //router.delete("/profile", auth, profileDelete);
+
+
 module.exports = router;
