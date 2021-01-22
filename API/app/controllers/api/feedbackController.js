@@ -3,7 +3,7 @@ const feedbackmodel = require("../../models/feedback");
 const Verification = require("../../models/Verification");
 const config = require('config');
 
-exports.createNew = async (req, res, next) => {
+exports.feedbackPost = async (req, res, next) => {
     const { regarding, content, id } = req.body;
     try {
         let newFeedback = new feedbackmodel({
