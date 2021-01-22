@@ -1,3 +1,5 @@
+const Attendance = require("../models/attendanceCode");
+
 exports.randomString = (length) => {
     let result = "";
     let characters =
@@ -7,4 +9,19 @@ exports.randomString = (length) => {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+};
+exports.makeAttendanceCode = (code) => {
+    var dt = new Date();
+    dt2 = dt;
+    console.log(dt2.toString());
+    dt2.setHours(dt2.getHours() + 6);
+    console.log(dt2.toString());
+    // console.log("here 1")
+    let newCode = new Attendance({
+        code: code.toUpperCase(),
+        createdAt: dt,
+        expiry: dt2
+    });
+    newCode.save()
+    console.log(newCode)
 };
