@@ -3,7 +3,7 @@ const { success, error, validation } = require("../../helpers/responseApi");
 
 
 exports.createNew = async (req, res) => {
-    const { category, description, date, createdAt, toWho } = req.body;
+    let { category, description, date, createdAt, toWho } = req.body;
     try {
             let newEntry = new Profile({
                 category,
@@ -13,22 +13,18 @@ exports.createNew = async (req, res) => {
                 writtenBy: req.user.name,
                 createdAt
             })
-          /*  let review = await Profile.findOne({ category: "Review" });
-
-        // if the category is review, update the id to who user is trying to write the review on
-        if (review)
+        
+            await newEntry.save();   
+            
+            // if the category is review, update the id to who user is trying to write the review on
+            if (newEntry.category == "Review")
         {
-            let shit = await Profile.findOne({ _id: newEntry.userid }).select(
-                "-password"
-            );
-            shit = await Profile.findByIdAndUpdate(shit._id, {
+            newEntry = await Profile.findByIdAndUpdate(newEntry._id,{
                 $set: {
                     userid: toWho
                 },
             });
-        }*/
-            await newEntry.save();   
-
+        }
             res.status(201).json(success("New record added successfully!",
                 {
                     newEntry
