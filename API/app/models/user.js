@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
     minlength: 1,
     maxlength: 20,
   },
-  emergancyContact:{
+  emergencyContact:{
     type: String,
     required: true,
     minlength: 1,
