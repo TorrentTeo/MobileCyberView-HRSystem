@@ -9,8 +9,6 @@ exports.registerValidation = [
     check("email", "Email is required").not().isEmpty(),
     check("password", "Password is required").not().isEmpty(),
     check("role", "Role is required").not().isEmpty(),
-    check("contact", "Contact is required").not().isEmpty(),
-    check("emergencyContact", "Emergency Contact is required").not().isEmpty(),
 ];
 
 exports.loginValidation = [

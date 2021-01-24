@@ -18,7 +18,7 @@ exports.register = async (req, res) => {
     if (!errors.isEmpty())
         return res.status(422).json(validation(errors.array()));
 
-    const { name, email, password, role, contact, emergencyContact } = req.body;
+    const { name, email, password, role, contact, emergancyContact } = req.body;
 
     try {
         let user = await User.findOne({ email: email.toLowerCase() });
@@ -35,7 +35,7 @@ exports.register = async (req, res) => {
             password,
             role,
             contact, 
-            emergencyContact
+            emergancyContact
         });
 
         // Hash the password
@@ -66,7 +66,7 @@ exports.register = async (req, res) => {
                         email: newUser.email,
                         role: newUser.role,
                         contact: newUser.contact,
-                        emergencyContact: newUser.emergencyContact,
+                        emergancyContact: newUser.emergancyContact,
                         verified: newUser.verified,
                         verifiedAt: newUser.verifiedAt,
                         createdAt: newUser.createdAt,
@@ -176,14 +176,7 @@ exports.login = async (req, res) => {
 
                 res
                     .status(200)
-                    .json(success("Login success", { token, 
-                        user: {
-                            id: user._id, 
-                            name: user.name, 
-                            email: user.email, 
-                            role: user.role
-                        } 
-                    }, res.statusCode));
+                    .json(success("Login success", { token }, res.statusCode));
             }
         );
     } catch (err) {

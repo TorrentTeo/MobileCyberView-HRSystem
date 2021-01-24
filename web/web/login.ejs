@@ -1,3 +1,39 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <h2 style="text-align: right;">HR System for Administrator</h2>
+
+<form action="/action_page.php" method="post" style="width: 600px; margin: 0 auto;">
+  <div class="imgcontainer">
+    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+        
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <span class="psw" style="margin: 0 auto;">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +62,13 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-
-
 </head>
 <body>
+	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85">
-
-				<form class="login100-form validate-form" method="POST" action="/login">
-
+				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-70">
 						HR System for Administrator
 					</span>
@@ -54,33 +87,38 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" id="submit">
+						<button class="login100-form-btn">
 							Login
 						</button>
 					</div>
+
 					<!-- <ul class="login-more p-t-190">
 						<li class="m-b-8">
 							<span class="txt1">
 								Forgot
 							</span>
+
 							<a href="#" class="txt2">
 								Username / Password?
 							</a>
 						</li>
+
 						<li>
 							<span class="txt1">
 								Don’t have an account?
 							</span>
+
 							<a href="#" class="txt2">
 								Sign up
 							</a>
 						</li>
 					</ul> -->
-
 				</form>
 			</div>
 		</div>
 	</div>
+	
+
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
@@ -99,5 +137,6 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
 </body>
 </html>
