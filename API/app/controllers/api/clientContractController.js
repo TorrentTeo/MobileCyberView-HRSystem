@@ -3,7 +3,7 @@ const ClientContract = require("../../models/clientContract");
 const Verification = require("../../models/Verification");
 const config = require('config');
 
-exports.createNew = async (req, res, next) => {
+exports.clientContractPost = async (req, res, next) => {
     const { title, terms, parties, id  } = req.body;
     try {
         let newClientContract = new ClientContract({

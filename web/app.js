@@ -1,5 +1,6 @@
 //import
 const express = require('express')
+
 const app = express()
 const port = 3000
 
@@ -52,6 +53,45 @@ app.get('/feedback', (req, res) => {
 
 app.get('/rewards', (req, res) => {
     res.render('rewards')
+})
+
+=======
+//POST
+router.post('/login', (req, res) => {
+    var { username, pass } = req.body;
+    if(!username || !pass)
+        res.render('login',{ error: true, message: "Username & password are required" })
+    axios.post('http://localhost:5000/api/auth/login', {
+        email: username,
+        password: pass
+    }).then((response) => {
+        console.log(`statusCode: ${response.data.code}`)
+        console.log(response.data)
+        var resData = response.data;
+        // token from response
+        var token = resData.results.token;
+        // set session
+        var sess = req.session;
+        // set session variable
+        sess.email= resData.results.user.email;
+        sess.role = resData.results.user.role;
+        sess.name = resData.results.user.name;
+        sess.uid = resData.results.user.id;
+        // set token on cookie
+        res.cookie('authcookie',token,{maxAge:900000,httpOnly:true}) 
+        //login success redirect to dashboard     
+        res.redirect('/dashboard');
+    }).catch((error) => {
+        console.log("error")
+        console.error(error)
+        res.render('login')
+    })
+});
+
+//GET
+router.get('/dashboard', (req, res) => {
+    var sess = req.session;
+    res.render('dashboard', { output: { email: sess.email, name: sess.name, role: sess.role, id: sess.uid}});
 })
 
 //listen on port
