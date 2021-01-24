@@ -15,6 +15,7 @@ app.use("/api/password", require("./routes/api/forgotPassword"));
 app.use("/api/employee", require("./routes/api/employee"));
 app.use("/api/profile", require("./routes/api/profile"))
 app.use("/api/reward", require("./routes/api/reward"))
+app.use("/api/account", require("./routes/api/account"))
 
 
 var now = new Date();

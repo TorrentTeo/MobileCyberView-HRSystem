@@ -41,7 +41,7 @@ exports.viewReward = async (req, res) => {
 
             let reward = await Reward.find({userid:user._id});
             
-            res.status(201).json(success("View reward",
+            res.status(200).json(success("View reward",
                 {
                     reward
                 },
@@ -66,7 +66,7 @@ exports.viewWallet = async (req, res) => {
 
             let wallet = await Wallet.find({userid:user._id});
             
-            res.status(201).json(success("View wallet",
+            res.status(200).json(success("View wallet",
                 {
                     wallet
                 },
