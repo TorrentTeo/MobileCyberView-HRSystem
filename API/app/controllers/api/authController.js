@@ -7,13 +7,9 @@ const User = require("../../models/User");
 const Verification = require("../../models/Verification");
 const config = require('config');
 
-/**
- * @desc    Register a new user
- * @method  POST api/auth/register
- * @access  public 
- */
+
 exports.register = async (req, res) => {
-    // Validation
+
     const errors = validationResult(req);
     if (!errors.isEmpty())
         return res.status(422).json(validation(errors.array()));
@@ -22,8 +18,6 @@ exports.register = async (req, res) => {
 
     try {
         let user = await User.findOne({ email: email.toLowerCase() });
-
-        // Check the user email
         if (user)
             return res
                 .status(422)
@@ -38,24 +32,17 @@ exports.register = async (req, res) => {
             emergencyContact
         });
 
-        // Hash the password
         const hash = await bcrypt.genSalt(10);
         newUser.password = await bcrypt.hash(password, hash);
 
-        // Save the user
         await newUser.save();
 
-        // Save token for user to start verificating the account
         let verification = new Verification({
             token: randomString(50),
             userId: newUser._id,
             type: "Register New Account",
         });
-
-        // Save the verification data
         await verification.save();
-
-        // Send the response to server
         res.status(201).json(
             success(
                 "Registration was success, please activate your account.",
@@ -89,16 +76,11 @@ exports.verify = async (req, res) => {
             token,
             type: "Register New Account",
         });
-
-        // Check the verification data
         if (!verification)
             return res
                 .status(404)
                 .json(error("Token is not valid", res.statusCode));
 
-        // If verification data exists
-        // Get the user data
-        // And activate the account
         let user = await User.findOne({ _id: verification.userId }).select(
             "-password"
         );
@@ -108,12 +90,7 @@ exports.verify = async (req, res) => {
                 verifiedAt: new Date(),
             },
         });
-
-        // After user successfully verified
-        // Remove the verification data from database
         verification = await Verification.findByIdAndRemove(verification._id);
-
-        // Send the response
         res
             .status(200)
             .json(

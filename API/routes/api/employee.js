@@ -6,7 +6,7 @@ const { getAuthenticatedUser } = require("../../app/controllers/api/employeeCont
 const { feedbackPost } = require("../../app/controllers/api/feedbackController");
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
 const { profilePost } = require("../../app/controllers/api/profileController");
-
+const { submitMCPost } = require("../../app/controllers/api/calendarController");
 // Middleware
 const { auth } = require("../../app/middlewares/auth");
 
@@ -32,6 +32,16 @@ router.post("/profile", auth, profilePost);
 //router.get("/profile", auth, profileGet);
 //router.put("/profile", auth, profilePut);
 //router.delete("/profile", auth, profileDelete);
+
+//calendar route
+//router.get("/calendar", auth, )
+
+
+
+
+//leave Route
+//router.post("/leave", auth)
+//router.get("/leave", auth, )
 
 
 module.exports = router;
