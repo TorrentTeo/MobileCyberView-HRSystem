@@ -3,17 +3,28 @@ const { success, error, validation } = require("../../helpers/responseApi");
 
 
 exports.profilePost = async (req, res) => {
-    const { category, description, date, userid, createdAt } = req.body;
+    let { category, description, date, createdAt, toWho } = req.body;
     try {
             let newEntry = new Profile({
                 category,
                 description,
                 date,
                 userid: req.user.id,
+                writtenBy: req.user.name,
                 createdAt
             })
-            await newEntry.save();
-
+        
+            await newEntry.save();   
+            
+            // if the category is review, update the id to who user is trying to write the review on
+            if (newEntry.category == "Review")
+        {
+            newEntry = await Profile.findByIdAndUpdate(newEntry._id,{
+                $set: {
+                    userid: toWho
+                },
+            });
+        }
             res.status(201).json(success("New record added successfully!",
                 {
                     newEntry

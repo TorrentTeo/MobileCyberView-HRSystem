@@ -6,7 +6,9 @@ const { getAuthenticatedUser } = require("../../app/controllers/api/employeeCont
 const { feedbackPost } = require("../../app/controllers/api/feedbackController");
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
 const { profilePost } = require("../../app/controllers/api/profileController");
-
+const { submitMCPost } = require("../../app/controllers/api/calendarController");
+const { rewardPost, rewardGet, walletGet } = require("../../app/controllers/api/rewardController");
+const { accountGet, editAccount } = require("../../app/controllers/api/accountController");
 // Middleware
 const { auth } = require("../../app/middlewares/auth");
 
@@ -32,6 +34,27 @@ router.post("/profile", auth, profilePost);
 //router.get("/profile", auth, profileGet);
 //router.put("/profile", auth, profilePut);
 //router.delete("/profile", auth, profileDelete);
+
+//calendar route
+//router.get("/calendar", auth, )
+
+//reward routes with wallet
+router.post("/reward", auth, rewardPost);
+router.get("/reward", auth, rewardGet);
+router.get("/wallet", auth, walletGet);
+//router.put("/reward", auth, rewardPut);
+//router.delete("/reward", auth, rewardDelete);
+
+//account routes
+router.get("/account", auth, accountGet);
+router.post("/account", auth, editAccount);
+//router.put("/account", auth, accountPut);
+//router.delete("/account", auth, accountDelete);
+
+
+//leave Route
+//router.post("/leave", auth)
+//router.get("/leave", auth, )
 
 
 module.exports = router;

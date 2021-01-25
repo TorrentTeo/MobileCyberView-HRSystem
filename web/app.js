@@ -1,46 +1,61 @@
 //import
 const express = require('express')
-const session = require('express-session');
-
 
 const app = express()
 const port = 3000
 
-const axios = require('axios')
-const router = express.Router();
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const uuid = require('uuid');
-const {httpPost} = require("./helpers/HttpRequestHelper")
-
-
-app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 //Static files
-
 app.use(express.static('public'))
-app.use("/", router);
-
 app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/img', express.static(__dirname + 'public/img'))
-app.use("/", router);
 
-app.use(cookieParser());
-
-app.set('views', './web')
+//Set Views
+app.set('views', './')
 app.set('view engine', 'ejs')
 
-router.get('', (req, res) => {
-    res.render('index')
-})
-
-router.get('/login', (req, res) => {
+app.get('/login', (req, res) => {
     res.render('login')
 })
 
+app.get('/home', (req, res) => {
+    res.render('home')
+})
+
+app.get('/employee', (req, res) => {
+    res.render('employee')
+})
+
+app.get('/attendance', (req, res) => {
+    res.render('attendance')
+})
+
+app.get('/benefit', (req, res) => {
+    res.render('benefit')
+})
+
+app.get('/calendar', (req, res) => {
+    res.render('calendar')
+})
+
+app.get('/medical', (req, res) => {
+    res.render('medical')
+})
+
+app.get('/contracts', (req, res) => {
+    res.render('contracts')
+})
+
+app.get('/feedback', (req, res) => {
+    res.render('feedback')
+})
+
+app.get('/rewards', (req, res) => {
+    res.render('rewards')
+})
+
+=======
 //POST
 router.post('/login', (req, res) => {
     var { username, pass } = req.body;
@@ -81,6 +96,3 @@ router.get('/dashboard', (req, res) => {
 
 //listen on port
 app.listen(port, () => console.info('Listening on port ' + port))
-
-
-
