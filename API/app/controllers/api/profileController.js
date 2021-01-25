@@ -2,7 +2,7 @@ const Profile = require("../../models/profile")
 const { success, error, validation } = require("../../helpers/responseApi");
 
 
-exports.createNew = async (req, res) => {
+exports.profilePost = async (req, res) => {
     let { category, description, date, createdAt, toWho } = req.body;
     try {
             let newEntry = new Profile({
