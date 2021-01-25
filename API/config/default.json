@@ -1,4 +1,0 @@
-{
-    "jwtSecret": "ApplicationSecret",
-    "DbConnectionString": "mongodb://localhost/HRMS"
-}
