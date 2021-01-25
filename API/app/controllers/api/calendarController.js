@@ -32,6 +32,10 @@ exports.postLeave = async (req,res,next) => {
         return res.status(422).json(validation(errors.array()));
 }
 
+exports.putLeave = async (req,res,next)=>{
+    
+}
+
 exports.getCalendar = async (req, res,next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty())
