@@ -55,7 +55,7 @@ app.get('/rewards', (req, res) => {
     res.render('rewards')
 })
 
-=======
+
 //POST
 router.post('/login', (req, res) => {
     var { username, pass } = req.body;
