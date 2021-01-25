@@ -1,23 +1,21 @@
 const mongoose = require("mongoose");
 
-const ProfileSchema = new mongoose.Schema({
-    category: {
+const clientContractSchema = new mongoose.Schema({
+    title: {
         type: String,
         required: true,
-        minlength: 1,
-        maxlength: 20
+        minlength: 5
     },
-    description: {
+    terms: {
         type: String,
         required: true,
-        minlength: 1,
-        maxlength: 50,
+        minlength: 5
     },
-    date: {
-        type: Date,
+    parties:{
+        type: {},
         required: true
-    },
-    userid:{
+      },
+      userid:{
         type: String,
         required: true,
         minlength: 5,
@@ -29,4 +27,4 @@ const ProfileSchema = new mongoose.Schema({
       }
 });
 
-module.exports = mongoose.model("Profile", ProfileSchema);
+module.exports = mongoose.model("ClientContract", clientContractSchema);

@@ -1,21 +1,15 @@
 const mongoose = require("mongoose");
 
-const ProfileSchema = new mongoose.Schema({
-    category: {
+const feedbackSchema = new mongoose.Schema({
+    regarding: {
         type: String,
         required: true,
-        minlength: 1,
-        maxlength: 20
+        minlength: 5
     },
-    description: {
+    content: {
         type: String,
         required: true,
-        minlength: 1,
-        maxlength: 50,
-    },
-    date: {
-        type: Date,
-        required: true
+        minlength: 5
     },
     userid:{
         type: String,
@@ -29,4 +23,4 @@ const ProfileSchema = new mongoose.Schema({
       }
 });
 
-module.exports = mongoose.model("Profile", ProfileSchema);
+module.exports = mongoose.model("Feedback", feedbackSchema);
