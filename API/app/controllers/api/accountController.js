@@ -27,7 +27,7 @@ exports.accountGet = async (req, res) => {
     }
 };
 
-exports.editAccount = async (req, res) => {
+exports.accountPut = async (req, res) => {
     // 
     //let {contact, email, emergencyContact} = req.body;
     const updateOps = {};
