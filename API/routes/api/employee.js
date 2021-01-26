@@ -8,9 +8,11 @@ const { clientContractPost } = require("../../app/controllers/api/clientContract
 const { profilePost } = require("../../app/controllers/api/profileController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
 const { rewardPost, rewardGet, walletGet } = require("../../app/controllers/api/rewardController");
-const { accountGet, editAccount } = require("../../app/controllers/api/accountController");
+const { accountGet, accountPut } = require("../../app/controllers/api/accountController");
+const { medicalLeavePut, medicalLeaveGet, medicalPlanGet, medicalPlanPost, clinicListGet, clinicListPost, insuranceCoverageGet, insuranceCoveragePost } = require("../../app/controllers/api/medicalPortalController");
+
 // Middleware
-const { auth } = require("../../app/middlewares/auth");
+const { auth, adminOnly } = require("../../app/middlewares/auth");
 
 // Routes
 router.get("/", auth, dashboard);
@@ -47,9 +49,23 @@ router.get("/wallet", auth, walletGet);
 
 //account routes
 router.get("/account", auth, accountGet);
-router.post("/account", auth, editAccount);
-//router.put("/account", auth, accountPut);
+//router.post("/account", auth, accountPost);
+router.put("/account", auth, accountPut);
 //router.delete("/account", auth, accountDelete);
+
+//medical portal routes
+router.put("/medicalLeave", auth, medicalLeavePut);
+router.get("/medicalLeave", auth, medicalLeaveGet);
+//router.delete("/medicalPortal", auth, profileDelete);
+
+router.get("/medicalPlan", auth, medicalPlanGet);
+router.post("/medicalPlan", adminOnly, medicalPlanPost);
+
+router.get("/clinicList", auth, clinicListGet);
+router.post("/clinicList", adminOnly, clinicListPost);
+
+router.get("/insuranceCoverage", auth, insuranceCoverageGet);
+router.post("/insuranceCoverage", adminOnly, insuranceCoveragePost);
 
 
 //leave Route
