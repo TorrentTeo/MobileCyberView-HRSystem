@@ -56,17 +56,23 @@ router.put("/account", auth, accountPut);
 //medical portal routes
 router.put("/medicalLeave", auth, medicalLeavePut);
 router.get("/medicalLeave", auth, medicalLeaveGet);
-//router.delete("/medicalPortal", auth, profileDelete);
+//router.delete("/medicalPortal", auth, medicalLeaveDelete);
 
 router.get("/medicalPlan", auth, medicalPlanGet);
-router.post("/medicalPlan", adminOnly, medicalPlanPost);
+router.post("/medicalPlan", auth, adminOnly, medicalPlanPost);
+//router.put("/medicalPlan", auth, adminOnly, medicalPlanPut);
+//router.delete("/medicalPlan", auth, adminOnly, medicalPlanDelete);
 
 router.get("/clinicList", auth, clinicListGet);
-router.post("/clinicList", adminOnly, clinicListPost);
+router.post("/clinicList", auth, adminOnly, clinicListPost);
+//router.put("/clinicList", auth, adminOnly, clinicListPut);
+//router.delete("/clinicList", auth, adminOnly, clinicListDelete);
 
 router.get("/insuranceCoverage", auth, insuranceCoverageGet);
-router.post("/insuranceCoverage", adminOnly, insuranceCoveragePost);
-
+router.post("/insuranceCoverage", auth, adminOnly, insuranceCoveragePost);
+//router.put("/insuranceCoverage", auth, adminOnly, insuranceCoveragePut);
+//router.delete("/insuranceCoverage", auth, adminOnly, insuranceCoverageDelete);
+//end of medical portal routes
 
 //leave Route
 //router.post("/leave", auth)
