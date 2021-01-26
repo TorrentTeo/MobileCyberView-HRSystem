@@ -1,15 +1,32 @@
 //import
 const express = require('express')
+const session = require('express-session');
 
 const app = express()
 const port = 3000
 
 
+const axios = require('axios')
+const router = express.Router();
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const uuid = require('uuid');
+const {httpPost} = require("./helpers/HttpRequestHelper")
+
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
 //Static files
 app.use(express.static('public'))
+app.use("/", router);
+
 app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/img', express.static(__dirname + 'public/img'))
+
+app.use(cookieParser());
 
 //Set Views
 app.set('views', './')
@@ -55,7 +72,7 @@ app.get('/rewards', (req, res) => {
     res.render('rewards')
 })
 
-=======
+
 //POST
 router.post('/login', (req, res) => {
     var { username, pass } = req.body;
