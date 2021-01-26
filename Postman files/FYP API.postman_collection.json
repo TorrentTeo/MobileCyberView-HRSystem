@@ -14,7 +14,15 @@
 		"f2935e4a-9178-238e-3dd5-36f14c6042d4",
 		"7b204ccd-c829-326d-bffc-2a903813f481",
 		"87a8179c-5bfb-1dfd-77be-a5fb903f2522",
-		"2cd10430-62bc-2efc-2e58-d70223edaf2d"
+		"2cd10430-62bc-2efc-2e58-d70223edaf2d",
+		"9c738d6c-da69-5878-212f-76438cdc0b60",
+		"a8d928cf-1f1a-7b37-4fed-e87fff14e785",
+		"f3faeaec-f09b-585a-88d5-d8ca425d34b4",
+		"fd0bd821-cb77-f8a7-56f4-d4bf544a8b9f",
+		"8eeef1d2-266d-e315-540c-10e46f25c2fc",
+		"ca590133-75bd-098a-ef0a-5f27372fdc5f",
+		"e41d65a3-5f51-11d1-eb4b-5d914935fa2e",
+		"29597224-a3af-c57a-0e29-c86132cbba27"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -69,12 +77,49 @@
 			"collection_id": "32c63258-bac2-5e81-d41a-fc71902c8f08"
 		},
 		{
-			"id": "2cd10430-62bc-2efc-2e58-d70223edaf2d",
-			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTU4MTM2OSwiZXhwIjoxNjExNTg4NTY5fQ.oh7Z7R2o3hE32VsmZXmxJaPd0rfLLY8wVOP-ZqUdKyI\nContent-Type: Application/Json\n",
+			"id": "29597224-a3af-c57a-0e29-c86132cbba27",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94\nContent-Type: application/json\n",
 			"headerData": [
 				{
 					"key": "Authorization",
-					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTU4MTM2OSwiZXhwIjoxNjExNTg4NTY5fQ.oh7Z7R2o3hE32VsmZXmxJaPd0rfLLY8wVOP-ZqUdKyI",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/medicalPlan/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Medical Plan",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611651568374,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{ \n\t\"medicalPlanName\": \"T12ESTTEST\", \n\t\"medicalCardFront\": \"123\",\n\t\"medicalCardBack\": \"123\",\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
+		},
+		{
+			"id": "2cd10430-62bc-2efc-2e58-d70223edaf2d",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTY1MTY4MiwiZXhwIjoxNjExNjU4ODgyfQ.SCZvOZoAij41d_8tTCYfj1c2Dpo3xpraOKOzV8I4vKQ\nContent-Type: Application/Json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTY1MTY4MiwiZXhwIjoxNjExNjU4ODgyfQ.SCZvOZoAij41d_8tTCYfj1c2Dpo3xpraOKOzV8I4vKQ",
 					"description": "",
 					"enabled": true
 				},
@@ -90,19 +135,19 @@
 			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"method": "POST",
+			"method": "PUT",
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1611582062675,
+			"time": 1611651820442,
 			"name": "AccountEdit",
 			"description": "",
 			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
 			"responses": [],
-			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"emergencyContact\",\r\n    \"value\": \"6942069420\"\r\n\t}\r\n]"
+			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"emergencyContact\",\r\n    \"value\": \"202002\"\r\n\t}\r\n]"
 		},
 		{
 			"id": "54179d82-5724-758e-95c8-008f0e1e9799",
@@ -213,6 +258,80 @@
 			"rawModeData": "{\r\n    \"category\": \"Review\",\r\n    \"description\": \"allo\",\r\n    \"date\": \"01/01/2021\",\r\n    \"toWho\": \"sdewvv\"\r\n}"
 		},
 		{
+			"id": "8eeef1d2-266d-e315-540c-10e46f25c2fc",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/clinicList/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Clinic List",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611650710054,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{ \n\t\"clinicName\": \"TESTTEST\", \n\t\"location\": [{\"lat\": 12321323,\n\t\t\t\t\"lng\": 123213123}],\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
+		},
+		{
+			"id": "9c738d6c-da69-5878-212f-76438cdc0b60",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTY0MzcwMiwiZXhwIjoxNjExNjUwOTAyfQ.AKYtgrGGNpyDMo1r9hbu2KdGimTyJ-c55HqPm4YaHus\nContent-Type: Application/Json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTY0MzcwMiwiZXhwIjoxNjExNjUwOTAyfQ.AKYtgrGGNpyDMo1r9hbu2KdGimTyJ-c55HqPm4YaHus",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/Json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/medicalLeave/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "MedicalLeave",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611643797768,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"emergencyContact\",\r\n    \"value\": \"6942069420\"\r\n\t}\r\n]"
+		},
+		{
 			"id": "9e0191b2-8576-9ac4-bf36-b09a2e474a58",
 			"name": "Employee Attendance",
 			"description": "",
@@ -239,6 +358,43 @@
 				}
 			],
 			"collection_id": "32c63258-bac2-5e81-d41a-fc71902c8f08"
+		},
+		{
+			"id": "a8d928cf-1f1a-7b37-4fed-e87fff14e785",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTY1MTY4MiwiZXhwIjoxNjExNjU4ODgyfQ.SCZvOZoAij41d_8tTCYfj1c2Dpo3xpraOKOzV8I4vKQ\nContent-Type: Application/Json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTY1MTY4MiwiZXhwIjoxNjExNjU4ODgyfQ.SCZvOZoAij41d_8tTCYfj1c2Dpo3xpraOKOzV8I4vKQ",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/Json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/medicalLeave/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "MedicalLeave",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611651949934,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"emergencyContact\",\r\n    \"value\": \"202002\"\r\n\t}\r\n]"
 		},
 		{
 			"id": "b3a40873-c0bb-30eb-52a1-5a8ef7552bb5",
@@ -291,6 +447,43 @@
 			"collection_id": "32c63258-bac2-5e81-d41a-fc71902c8f08"
 		},
 		{
+			"id": "ca590133-75bd-098a-ef0a-5f27372fdc5f",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/clinicList/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Clinic List",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611651607277,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{ \n\t\"clinicName\": \"TESTTEST\", \n\t\"location\": [{\"lat\": 12321323,\n\t\t\t\t\"lng\": 123213123}],\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
+		},
+		{
 			"id": "d58d8c65-2620-dfb6-0b83-0097c30d3241",
 			"name": "Login",
 			"description": "",
@@ -312,6 +505,43 @@
 				}
 			],
 			"collection_id": "32c63258-bac2-5e81-d41a-fc71902c8f08"
+		},
+		{
+			"id": "e41d65a3-5f51-11d1-eb4b-5d914935fa2e",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/medicalPlan/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Medical Plan",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611651520414,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{ \n\t\"medicalPlanName\": \"T12ESTTEST\", \n\t\"medicalCardFront\": \"123\",\n\t\"medicalCardBack\": \"123\",\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
 		},
 		{
 			"id": "f25b979d-360a-6162-c3e6-e20ed7e91bad",
@@ -371,6 +601,79 @@
 			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
 			"responses": [],
 			"rawModeData": "{\r\n    \"name\": \"BIG reward\",\r\n    \"description\": \"BIG dic\",\r\n    \"validFrom\": \"12/12/2022\",\r\n    \"expiryDate\": \"04/12/2023\"\r\n}"
+		},
+		{
+			"id": "f3faeaec-f09b-585a-88d5-d8ca425d34b4",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMTY0Njk4OCwiZXhwIjoxNjExNjU0MTg4fQ.WsOLZftCtixJA9G6rVcnW00rNl_b5TvBvgU9O3pTN94",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/insuranceCoverage/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1611649821949,
+			"name": "Insurance Coverage",
+			"description": "",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"responses": [],
+			"rawModeData": "{ \n\t\"typeofInsurance\": \"TESTTEST\", \n\t\"description\": \"123213\", \n\t\"contactPerson\": \"123123\", \n\t\"contactNumber\": \"123213\",\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
+		},
+		{
+			"id": "fd0bd821-cb77-f8a7-56f4-d4bf544a8b9f",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTY0OTc4NCwiZXhwIjoxNjExNjU2OTg0fQ.F6zXQu0vx0EwUVFKBqfZ4prPbHxp3xn3p60WAZvfuOQ\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTY0OTc4NCwiZXhwIjoxNjExNjU2OTg0fQ.F6zXQu0vx0EwUVFKBqfZ4prPbHxp3xn3p60WAZvfuOQ",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/insuranceCoverage/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Insurance Coverage",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611650326545,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{ \n\t\"typeofInsurance\": \"TESTTEST\", \n\t\"description\": \"123213\", \n\t\"contactPerson\": \"123123\", \n\t\"contactNumber\": \"123213\",\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
 		}
 	]
 }
