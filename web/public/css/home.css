@@ -42,30 +42,53 @@ body {
   margin-left: 40px;
 }
 
-table,
-th,
-td {
-  border: 1px solid black;
+.grid-container {
+  display: grid;
+  grid-gap: 50px;
+  padding: 10px;
+}
+
+.content-table {
   border-collapse: collapse;
+  margin: 0 0px 0 40px;
+  font-size: 1.2em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
-th,
-td {
-  padding: 5px;
+
+.content-table thead tr {
+  background-color: #3cd45d;
+  color: white;
   text-align: left;
+  font-weight: bold;
 }
 
-table {
-  width: 70%;
-  margin-left: 40px;
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
 }
 
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #3cd45d;
+}
 h1 {
   margin-left: 40px;
 }
 
 .button1,
 .button2 {
-  background-color: #4caf50;
+  background-color: #3cd45d;
 }
 
 .logo-img {
