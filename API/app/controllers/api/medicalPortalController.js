@@ -74,7 +74,7 @@ exports.medicalPlanGet = async (req, res) => {
 
             let medicalPlan = await MedicalPlan.find({userid:user._id});
             
-            res.status(200).json(success("View reward",
+            res.status(200).json(success("View medical plan",
                 {
                     medicalPlan
                 },
