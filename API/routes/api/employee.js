@@ -12,7 +12,7 @@ const { accountGet, editAccount } = require("../../app/controllers/api/accountCo
 const { postCalendar, putCalendar, deleteCalendar, getCalendar } = require("../../app/controllers/api/calendarController");
 const { postLeave, putLeave, deleteLeave, getLeave } = require("../../app/controllers/api/leaveController");
 // Middleware
-const { auth } = require("../../app/middlewares/auth");
+const { auth, adminOnly } = require("../../app/middlewares/auth");
 
 // Routes
 router.get("/", auth, dashboard);
@@ -39,7 +39,7 @@ router.post("/profile", auth, profilePost);
 
 //calendar route
 router.get("/calendar", auth, getCalendar)
-router.post("/calendar", auth, postCalendar)
+router.post("/calendar", auth, adminOnly, postCalendar)
 router.put("/calendar", auth, putCalendar)
 router.delete("/calendar", auth, deleteCalendar)
 

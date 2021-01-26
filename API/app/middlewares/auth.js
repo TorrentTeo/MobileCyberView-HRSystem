@@ -59,7 +59,7 @@ exports.auth = async (req, res, next) => {
 };
 
 exports.adminOnly = async function (req, res, next) {
-    if( req.user.role === "Admin" ){
+    if(req.body.user.role !== "Admin" ){
         return res.status(401).send("Unauthorized!");
     }  
     next();
