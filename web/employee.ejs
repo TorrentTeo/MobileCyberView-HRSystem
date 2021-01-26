@@ -28,7 +28,8 @@
       <a href="http://localhost:3000/rewards">Rewards</a>
       <a href="logout">Log Out</a>
       </div>
-
+<div class="grid-container">
+  <div>
       <h1>Performance</h1>
 
       <div class="dropdown">
@@ -45,7 +46,8 @@
       <br>
 
 
-      <table>
+      <table class="content-table">
+        <thead>
         <tr>
           <th>Name</th>
           <th>Achievement</th>
@@ -54,6 +56,8 @@
           <th>Education</th>
           <th>Reviews</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td>L</td>
           <td></td>
@@ -70,12 +74,14 @@
             <td></td>
             <td></td>
           </tr>
+          </tbody>
       </table>
-
+</div>
+<div>
       <h1>Personal Information</h1>
 
-      <div1>
-        <button class="button button1"  >Add</button>
+      <div>
+        <button class="button button1">Add</button>
         <button class="button button2">Edit</button>
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter by....
           <span class="caret"></span></button>
@@ -84,9 +90,11 @@
             <li><a href="#">Date</a></li>
             <li><a href="#">Timing</a></li>
           </ul> 
-      </div1>
+      </div>
 <br>
-      <table>
+
+      <table class="content-table">
+        <thead>
         <tr>
           <th>Name</th>
           <th>Phone</th>
@@ -94,12 +102,14 @@
           <th>Emergency Contact</th>
           <th>Joined Date</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td>L</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>0111</td>
+          <td>re@name.com</td>
+          <td>02222</td>
+          <td>02-02-02</td>
         </tr>
         <tr>
             <td>D</td>
@@ -108,9 +118,17 @@
             <td></td>
             <td></td>
           </tr>
+          <tr>
+            <td>L</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
       </table>
-      
-      
+    </div>
+  </div>
       
 </body>
 </html>
