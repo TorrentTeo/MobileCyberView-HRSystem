@@ -5,7 +5,7 @@ const { dashboard, attendance, getAttendanceCode } = require("../../app/controll
 const { getAuthenticatedUser } = require("../../app/controllers/api/employeeController");
 const { feedbackPost } = require("../../app/controllers/api/feedbackController");
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
-const { profilePost } = require("../../app/controllers/api/profileController");
+const { profilePost, profileGet, profileGetById, profilePut, profileDelete } = require("../../app/controllers/api/profileController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
 const { rewardPost, rewardGet, walletGet } = require("../../app/controllers/api/rewardController");
 const { accountGet, accountPut } = require("../../app/controllers/api/accountController");
@@ -33,19 +33,20 @@ router.post("/clientcontract", auth, clientContractPost);
 
 //profile routes
 router.post("/profile", auth, profilePost);
-//router.get("/profile", auth, profileGet);
-//router.put("/profile", auth, profilePut);
-//router.delete("/profile", auth, profileDelete);
+router.get("/profile", auth, profileGet);
+router.get("/profile/:_id", auth, profileGetById);
+router.put("/profile/:_id", auth, profilePut);
+router.delete("/profile/:_id", auth, profileDelete);
 
 //calendar route
 //router.get("/calendar", auth, )
 
 //reward routes with wallet
-router.post("/reward", auth, rewardPost);
+router.post("/reward", auth, adminOnly, rewardPost);
 router.get("/reward", auth, rewardGet);
+//router.put("/reward", auth, adminOnly, rewardPut);
+//router.delete("/reward", auth, adminOnly, rewardDelete);
 router.get("/wallet", auth, walletGet);
-//router.put("/reward", auth, rewardPut);
-//router.delete("/reward", auth, rewardDelete);
 
 //account routes
 router.get("/account", auth, accountGet);
