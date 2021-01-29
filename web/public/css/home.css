@@ -50,12 +50,11 @@ body {
 
 .content-table {
   border-collapse: collapse;
-  margin: 0 0px 0 40px;
+  margin: 0 40px 0 40px;
   font-size: 1.2em;
-  min-width: 400px;
   border-radius: 5px 5px 0 0;
-
   overflow: hidden;
+  width: -webkit-fill-available;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -84,10 +83,16 @@ body {
 }
 h1 {
   margin-left: 40px;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 .button1,
-.button2 {
+.button2,
+.button3,
+.button4,
+.button5,
+.button6 {
   background-color: #3cd45d;
 }
 
