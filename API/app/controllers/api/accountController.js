@@ -48,7 +48,7 @@ exports.accountPut = async (req, res) => {
 
                 res.status(200).json(success("Edited successfully",
                 {
-                    user
+                    
                 },
                 res.statusCode
             )
