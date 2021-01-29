@@ -7,7 +7,7 @@ const { feedbackPost } = require("../../app/controllers/api/feedbackController")
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
 const { profilePost, profileGet, profileGetById, profilePut, profileDelete } = require("../../app/controllers/api/profileController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
-const { rewardPost, rewardGet, walletGet } = require("../../app/controllers/api/rewardController");
+const { rewardPost, rewardGet, rewardGetById, rewardPut, rewardDelete, walletGet } = require("../../app/controllers/api/rewardController");
 const { accountGet, accountPut } = require("../../app/controllers/api/accountController");
 const { medicalLeavePut, medicalLeaveGet, medicalPlanGet, medicalPlanPost, clinicListGet, clinicListPost, insuranceCoverageGet, insuranceCoveragePost } = require("../../app/controllers/api/medicalPortalController");
 
@@ -42,10 +42,11 @@ router.delete("/profile/:_id", auth, profileDelete);
 //router.get("/calendar", auth, )
 
 //reward routes with wallet
-router.post("/reward", auth, adminOnly, rewardPost);
+router.post("/reward", adminOnly, rewardPost);
 router.get("/reward", auth, rewardGet);
-//router.put("/reward", auth, adminOnly, rewardPut);
-//router.delete("/reward", auth, adminOnly, rewardDelete);
+router.get("/reward/:_id", auth, rewardGetById);
+router.put("/reward/:_id", adminOnly, rewardPut);
+router.delete("/reward/:_id", adminOnly, rewardDelete);
 router.get("/wallet", auth, walletGet);
 
 //account routes
