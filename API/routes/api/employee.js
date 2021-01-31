@@ -45,17 +45,17 @@ router.delete("/profile/:_id", auth, profileDelete);
 //router.get("/calendar", auth, )
 
 //reward routes with wallet
-router.post("/reward", adminOnly, rewardPost);
+router.post("/reward", auth, adminOnly, rewardPost);
 router.get("/reward", auth, rewardGet);
 router.get("/reward/:_id", auth, rewardGetById);
-router.put("/reward/:_id", adminOnly, rewardPut);
-router.delete("/reward/:_id", adminOnly, rewardDelete);
+router.put("/reward/:_id", auth, adminOnly, rewardPut);
+router.delete("/reward/:_id", auth, adminOnly, rewardDelete);
 router.get("/wallet", auth, walletGet);
 
 //account routes
 router.get("/account", auth, accountGet);
 router.put("/account/:_id", auth, accountPut);
-router.delete("/account/:_id", adminOnly, accountDelete);
+router.delete("/account/:_id", auth, adminOnly, accountDelete);
 
 //medical portal routes
 router.put("/medicalLeave/:_id", auth, medicalLeavePut);
@@ -63,19 +63,19 @@ router.get("/medicalLeave", auth, medicalLeaveGet);
 router.delete("/medicalLeave/:_id", auth, medicalLeaveDelete);
 
 router.get("/medicalPlan", auth, medicalPlanGet);
-router.post("/medicalPlan", adminOnly, medicalPlanPost);
-router.put("/medicalPlan/:_id", adminOnly, medicalPlanPut);
-router.delete("/medicalPlan/:_id", adminOnly, medicalPlanDelete);
+router.post("/medicalPlan", auth, adminOnly, medicalPlanPost);
+router.put("/medicalPlan/:_id", auth, adminOnly, medicalPlanPut);
+router.delete("/medicalPlan/:_id", auth, adminOnly, medicalPlanDelete);
 
 router.get("/clinicList", auth, clinicListGet);
-router.post("/clinicList", adminOnly, clinicListPost);
-router.put("/clinicList/:_id", adminOnly, clinicListPut);
-router.delete("/clinicList/:_id", adminOnly, clinicListDelete);
+router.post("/clinicList", auth, adminOnly, clinicListPost);
+router.put("/clinicList/:_id", auth, adminOnly, clinicListPut);
+router.delete("/clinicList/:_id", auth, adminOnly, clinicListDelete);
 
 router.get("/insuranceCoverage", auth, insuranceCoverageGet);
-router.post("/insuranceCoverage", adminOnly, insuranceCoveragePost);
-router.put("/insuranceCoverage/:_id", adminOnly, insuranceCoveragePut);
-router.delete("/insuranceCoverage/:_id", adminOnly, insuranceCoverageDelete);
+router.post("/insuranceCoverage", auth, adminOnly, insuranceCoveragePost);
+router.put("/insuranceCoverage/:_id", auth, adminOnly, insuranceCoveragePut);
+router.delete("/insuranceCoverage/:_id", auth, adminOnly, insuranceCoverageDelete);
 //end of medical portal routes
 
 //leave Route
