@@ -20,25 +20,82 @@
 		"a01c7161-cca4-aa4a-1023-06a8fc778f2b",
 		"a2f25dba-3712-f478-883f-647449c3555a",
 		"948759ac-afed-d12d-bc38-645c11ff4d65",
-		"7b204ccd-c829-326d-bffc-2a903813f481",
-		"87a8179c-5bfb-1dfd-77be-a5fb903f2522",
-		"2cd10430-62bc-2efc-2e58-d70223edaf2d",
-		"ca2da43c-da6c-798a-1ea3-2ba3ed52c1e4",
-		"9c738d6c-da69-5878-212f-76438cdc0b60",
-		"a8d928cf-1f1a-7b37-4fed-e87fff14e785",
-		"f3faeaec-f09b-585a-88d5-d8ca425d34b4",
-		"fd0bd821-cb77-f8a7-56f4-d4bf544a8b9f",
-		"8eeef1d2-266d-e315-540c-10e46f25c2fc",
-		"ca590133-75bd-098a-ef0a-5f27372fdc5f",
-		"e41d65a3-5f51-11d1-eb4b-5d914935fa2e",
-		"29597224-a3af-c57a-0e29-c86132cbba27"
+		"7b204ccd-c829-326d-bffc-2a903813f481"
 	],
-	"folders": [],
-	"folders_order": [],
+	"folders": [
+		{
+			"name": "MedicalPortal",
+			"description": "",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"order": [
+				"f3faeaec-f09b-585a-88d5-d8ca425d34b4",
+				"fd0bd821-cb77-f8a7-56f4-d4bf544a8b9f",
+				"db95c5ed-ce19-96d2-2c8f-31f48aaedeef",
+				"05108d2b-593d-2603-bb35-0d4a764c8bd3",
+				"9c738d6c-da69-5878-212f-76438cdc0b60",
+				"a8d928cf-1f1a-7b37-4fed-e87fff14e785",
+				"87a8179c-5bfb-1dfd-77be-a5fb903f2522",
+				"2cd10430-62bc-2efc-2e58-d70223edaf2d",
+				"ca2da43c-da6c-798a-1ea3-2ba3ed52c1e4",
+				"8eeef1d2-266d-e315-540c-10e46f25c2fc",
+				"ca590133-75bd-098a-ef0a-5f27372fdc5f",
+				"a7712858-ea8a-a167-eafa-53b02f5381bb",
+				"0f7a5cc5-d9ae-217e-f8a1-ebf8f0679794",
+				"e41d65a3-5f51-11d1-eb4b-5d914935fa2e",
+				"29597224-a3af-c57a-0e29-c86132cbba27",
+				"b7d39c2f-5174-6aec-4079-cd6dcf9b7320",
+				"fc639ae9-9c7b-c861-bc84-2c9aa6e4ec1f"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "f9e5a141-802a-1194-49bd-5f3556e2bfbe"
+		}
+	],
+	"folders_order": [
+		"f9e5a141-802a-1194-49bd-5f3556e2bfbe"
+	],
 	"timestamp": 0,
 	"owner": 0,
 	"public": false,
 	"requests": [
+		{
+			"id": "05108d2b-593d-2603-bb35-0d4a764c8bd3",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/insuranceCoverage/600fc9af6bb5a33e40ea7948",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Insurance Coverage",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1612082708098,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
+			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"userid\",\r\n    \"value\": [\"600fbf38c088fc221cf7fba7\",\r\n\t\t\t\t\"6009a49b5205e32cec6fc880\",\r\n\t\t\t\t\"BAAAASED\"]\r\n\t}\r\n]"
+		},
 		{
 			"id": "0b3b061c-ba60-e47f-626a-028beaf2db0a",
 			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTg4NDA2NCwiZXhwIjoxNjExODkxMjY0fQ.ilDfhLXi7lkXDBp9Jls0VTVWJYmrFhUum7HPyrB4EAQ\nContent-Type: Application/Json\n",
@@ -111,6 +168,44 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"rawModeData": ""
+		},
+		{
+			"id": "0f7a5cc5-d9ae-217e-f8a1-ebf8f0679794",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/clinicList/600fd65f35a54a1b649468dd",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Clinic List",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1612081404688,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
+			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"location\",\r\n    \"value\": [{\"lat\":\"600fbf38c088fc221cf7fba7\",\r\n\t\t\t\t\"lng\":\"6009a49b5205e32cec6fc880\"}]\r\n\t}\r\n]"
 		},
 		{
 			"id": "10b4595d-cad9-caac-61ec-f95a359bd20b",
@@ -193,6 +288,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "29597224-a3af-c57a-0e29-c86132cbba27",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"rawModeData": "{ \n\t\"medicalPlanName\": \"T12ESTTEST\", \n\t\"medicalCardFront\": \"123\",\n\t\"medicalCardBack\": \"123\",\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
 		},
 		{
@@ -213,6 +311,7 @@
 				}
 			],
 			"url": "http://localhost:5000/api/employee/account/",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -229,6 +328,8 @@
 			"description": "",
 			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
 			"responses": [],
+			"isFromCollection": true,
+			"collectionRequestId": "2cd10430-62bc-2efc-2e58-d70223edaf2d",
 			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"emergencyContact\",\r\n    \"value\": \"202002\"\r\n\t}\r\n]"
 		},
 		{
@@ -448,6 +549,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "87a8179c-5bfb-1dfd-77be-a5fb903f2522",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"rawModeData": "{\r\n    \"category\": \"Review\",\r\n    \"description\": \"allo\",\r\n    \"date\": \"01/01/2021\",\r\n    \"toWho\": \"sdewvv\"\r\n}"
 		},
 		{
@@ -485,6 +589,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "8eeef1d2-266d-e315-540c-10e46f25c2fc",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"rawModeData": "{ \n\t\"clinicName\": \"TESTTEST\", \n\t\"location\": [{\"lat\": 12321323,\n\t\t\t\t\"lng\": 123213123}],\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
 		},
 		{
@@ -559,6 +666,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "9c738d6c-da69-5878-212f-76438cdc0b60",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"emergencyContact\",\r\n    \"value\": \"6942069420\"\r\n\t}\r\n]"
 		},
 		{
@@ -664,6 +774,46 @@
 			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"description\",\r\n    \"value\": \"BASEDDDDDD\"\r\n\t}\r\n]"
 		},
 		{
+			"id": "a7712858-ea8a-a167-eafa-53b02f5381bb",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/clinicList/600fd65f35a54a1b649468dd",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Clinic List",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1612081363048,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "a7712858-ea8a-a167-eafa-53b02f5381bb",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
+			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"location\",\r\n    \"value\": [{\"lat\":\"600fbf38c088fc221cf7fba7\",\r\n\t\t\t\t\"lng\":\"6009a49b5205e32cec6fc880\"}]\r\n\t}\r\n]"
+		},
+		{
 			"id": "a8d928cf-1f1a-7b37-4fed-e87fff14e785",
 			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwOWE0OWI1MjA1ZTMyY2VjNmZjODgwIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb3Rlb0Bwb2cuY29tIn0sImlhdCI6MTYxMTY1MTY4MiwiZXhwIjoxNjExNjU4ODgyfQ.SCZvOZoAij41d_8tTCYfj1c2Dpo3xpraOKOzV8I4vKQ\nContent-Type: Application/Json\n",
 			"headerData": [
@@ -698,6 +848,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "a8d928cf-1f1a-7b37-4fed-e87fff14e785",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"emergencyContact\",\r\n    \"value\": \"202002\"\r\n\t}\r\n]"
 		},
 		{
@@ -722,6 +875,46 @@
 				}
 			],
 			"collection_id": "32c63258-bac2-5e81-d41a-fc71902c8f08"
+		},
+		{
+			"id": "b7d39c2f-5174-6aec-4079-cd6dcf9b7320",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/medicalPlan/600fd7e9192b61652cf4353f",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Medical Plan",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1612080487856,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "b7d39c2f-5174-6aec-4079-cd6dcf9b7320",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
+			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"userid\",\r\n    \"value\": [\"600fbf38c088fc221cf7fba7\",\r\n\t\t\t\t\"6009a49b5205e32cec6fc880\",\r\n\t\t\t\t\"BAAAASED\"]\r\n\t}\r\n]"
 		},
 		{
 			"id": "be27fca6-dd4a-732e-d782-39c22109ef87",
@@ -785,6 +978,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "ca2da43c-da6c-798a-1ea3-2ba3ed52c1e4",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"rawModeData": "{\r\n    \"category\": \"Review\",\r\n    \"description\": \"allo\",\r\n    \"date\": \"01/01/2021\",\r\n    \"toWho\": \"sdewvv\"\r\n}"
 		},
 		{
@@ -822,6 +1018,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "ca590133-75bd-098a-ef0a-5f27372fdc5f",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"rawModeData": "{ \n\t\"clinicName\": \"TESTTEST\", \n\t\"location\": [{\"lat\": 12321323,\n\t\t\t\t\"lng\": 123213123}],\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
 		},
 		{
@@ -846,6 +1045,46 @@
 				}
 			],
 			"collection_id": "32c63258-bac2-5e81-d41a-fc71902c8f08"
+		},
+		{
+			"id": "db95c5ed-ce19-96d2-2c8f-31f48aaedeef",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/insuranceCoverage/600fc9af6bb5a33e40ea7948",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Insurance Coverage",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1612082696216,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "db95c5ed-ce19-96d2-2c8f-31f48aaedeef",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
+			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"userid\",\r\n    \"value\": [\"600fbf38c088fc221cf7fba7\",\r\n\t\t\t\t\"6009a49b5205e32cec6fc880\",\r\n\t\t\t\t\"BAAAASED\"]\r\n\t}\r\n]"
 		},
 		{
 			"id": "e41d65a3-5f51-11d1-eb4b-5d914935fa2e",
@@ -882,6 +1121,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "e41d65a3-5f51-11d1-eb4b-5d914935fa2e",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"rawModeData": "{ \n\t\"medicalPlanName\": \"T12ESTTEST\", \n\t\"medicalCardFront\": \"123\",\n\t\"medicalCardBack\": \"123\",\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
 		},
 		{
@@ -961,6 +1203,7 @@
 				}
 			],
 			"url": "http://localhost:5000/api/employee/insuranceCoverage/",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -977,7 +1220,47 @@
 			"description": "",
 			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
 			"responses": [],
+			"isFromCollection": true,
+			"collectionRequestId": "f3faeaec-f09b-585a-88d5-d8ca425d34b4",
 			"rawModeData": "{ \n\t\"typeofInsurance\": \"TESTTEST\", \n\t\"description\": \"123213\", \n\t\"contactPerson\": \"123123\", \n\t\"contactNumber\": \"123213\",\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
+		},
+		{
+			"id": "fc639ae9-9c7b-c861-bc84-2c9aa6e4ec1f",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwZmJmMzhjMDg4ZmMyMjFjZjdmYmE3IiwibmFtZSI6IjEyMzEyMyIsImVtYWlsIjoiMTIzMTIzIn0sImlhdCI6MTYxMjA3OTcwMywiZXhwIjoxNjEyMDg2OTAzfQ.DAusTdTcSel5B2lLKjIZalUtmxAIpJPJFc2KRFWgLGs",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/employee/medicalPlan/600fd7e9192b61652cf4353f",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "32c63258-bac2-5e81-d41a-fc71902c8f08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Medical Plan",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1612080607162,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
+			"rawModeData": "[\r\n\t{\r\n    \"propName\": \"userid\",\r\n    \"value\": [\"600fbf38c088fc221cf7fba7\",\r\n\t\t\t\t\"6009a49b5205e32cec6fc880\",\r\n\t\t\t\t\"BAAAASED\"]\r\n\t}\r\n]"
 		},
 		{
 			"id": "fd0bd821-cb77-f8a7-56f4-d4bf544a8b9f",
@@ -1014,6 +1297,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"isFromCollection": true,
+			"collectionRequestId": "fd0bd821-cb77-f8a7-56f4-d4bf544a8b9f",
+			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"rawModeData": "{ \n\t\"typeofInsurance\": \"TESTTEST\", \n\t\"description\": \"123213\", \n\t\"contactPerson\": \"123123\", \n\t\"contactNumber\": \"123213\",\n\t\"userid\": [\"600fbf38c088fc221cf7fba7\",\n\t\t\t\t\"6009a49b5205e32cec6fc880\"],\n\t\"user\": {\n            \"id\": \"600fbf38c088fc221cf7fba7\",\n            \"name\": \"123123\",\n            \"email\": \"123123\",\n            \"role\": \"Admin\"\n        }\n}"
 		}
 	]
