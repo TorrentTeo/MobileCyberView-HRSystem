@@ -9,7 +9,10 @@ const { profilePost, profileGet, profileGetById, profilePut, profileDelete } = r
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
 const { rewardPost, rewardGet, rewardGetById, rewardPut, rewardDelete, walletGet } = require("../../app/controllers/api/rewardController");
 const { accountGet, accountPut, accountDelete } = require("../../app/controllers/api/accountController");
-const { medicalLeavePut, medicalLeaveGet, medicalLeaveDelete, medicalPlanGet, medicalPlanPost, clinicListGet, clinicListPost, insuranceCoverageGet, insuranceCoveragePost } = require("../../app/controllers/api/medicalPortalController");
+const { medicalLeavePut, medicalLeaveGet, medicalLeaveDelete, 
+        medicalPlanGet, medicalPlanPost, medicalPlanPut, medicalPlanDelete, 
+        clinicListGet, clinicListPost, clinicListPut, clinicListDelete, 
+        insuranceCoverageGet, insuranceCoveragePost, insuranceCoveragePut, insuranceCoverageDelete} = require("../../app/controllers/api/medicalPortalController");
 
 // Middleware
 const { auth, adminOnly } = require("../../app/middlewares/auth");
@@ -61,18 +64,18 @@ router.delete("/medicalLeave/:_id", auth, medicalLeaveDelete);
 
 router.get("/medicalPlan", auth, medicalPlanGet);
 router.post("/medicalPlan", adminOnly, medicalPlanPost);
-//router.put("/medicalPlan/:_id", adminOnly, medicalPlanPut);
-//router.delete("/medicalPlan/:_id", adminOnly, medicalPlanDelete);
+router.put("/medicalPlan/:_id", adminOnly, medicalPlanPut);
+router.delete("/medicalPlan/:_id", adminOnly, medicalPlanDelete);
 
 router.get("/clinicList", auth, clinicListGet);
 router.post("/clinicList", adminOnly, clinicListPost);
-//router.put("/clinicList/:_id", adminOnly, clinicListPut);
-//router.delete("/clinicList/:_id", adminOnly, clinicListDelete);
+router.put("/clinicList/:_id", adminOnly, clinicListPut);
+router.delete("/clinicList/:_id", adminOnly, clinicListDelete);
 
 router.get("/insuranceCoverage", auth, insuranceCoverageGet);
 router.post("/insuranceCoverage", adminOnly, insuranceCoveragePost);
-//router.put("/insuranceCoverage/:_id", adminOnly, insuranceCoveragePut);
-//router.delete("/insuranceCoverage/:_id", adminOnly, insuranceCoverageDelete);
+router.put("/insuranceCoverage/:_id", adminOnly, insuranceCoveragePut);
+router.delete("/insuranceCoverage/:_id", adminOnly, insuranceCoverageDelete);
 //end of medical portal routes
 
 //leave Route

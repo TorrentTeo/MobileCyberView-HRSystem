@@ -144,6 +144,56 @@ exports.medicalPlanPost = async (req, res) => {
     }
 };
 
+exports.medicalPlanPut = async (req, res) => {
+    try {   
+            const updateOps = {};
+            for (const ops of req.body) {
+            updateOps[ops.propName] = ops.value;
+            }
+            //Check whether the _id given is valid or not
+            let medicalplan = await MedicalPlan.findOne({
+                _id:req.params._id
+            });
+            if (!medicalplan) {
+                return res.status(404).json(error("_id not found in Medical Plan", res.statusCode));
+            }
+            //Update medicalplan
+            
+                medicalplan = await MedicalPlan.findByIdAndUpdate(medicalplan.id,{
+                    $set: updateOps
+                });
+                res.status(200).json(success("Edited successfully",
+                {     }, res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.medicalPlanDelete = async (req, res) => {
+    try {   
+            //Check whether the _id given is valid or not
+            let medicalplan = await MedicalPlan.findOne({
+                _id:req.params._id
+            });
+            if (!medicalplan) {
+                return res.status(404).json(error("_id not found in Medical Plan", res.statusCode));
+            }
+            //Update medicalplan
+            
+                medicalplan = await MedicalPlan.findByIdAndRemove(medicalplan.id);
+                res.status(200).json(success("Removed successfully",
+                {    }, res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
 exports.clinicListGet = async (req, res) => {
     // 
     
@@ -184,6 +234,56 @@ exports.clinicListPost = async (req, res) => {
                     newEntry
                 },
                 res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.clinicListPut = async (req, res) => {
+    try {   
+            const updateOps = {};
+            for (const ops of req.body) {
+            updateOps[ops.propName] = ops.value;
+            }
+            //Check whether the _id given is valid or not
+            let clinicList = await ClinicList.findOne({
+                _id:req.params._id
+            });
+            if (!clinicList) {
+                return res.status(404).json(error("_id not found in ClinicList", res.statusCode));
+            }
+            //Update clinicList
+            
+                clinicList = await ClinicList.findByIdAndUpdate(clinicList.id,{
+                    $set: updateOps
+                });
+                res.status(200).json(success("Edited successfully",
+                {     }, res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.clinicListDelete = async (req, res) => {
+    try {   
+            //Check whether the _id given is valid or not
+            let clinicList = await ClinicList.findOne({
+                _id:req.params._id
+            });
+            if (!clinicList) {
+                return res.status(404).json(error("_id not found in ClinicList", res.statusCode));
+            }
+            //Update clinicList
+            
+                clinicList = await ClinicList.findByIdAndRemove(clinicList.id);
+                res.status(200).json(success("Removed successfully",
+                {    }, res.statusCode
             )
         );
     } catch (err) {
@@ -234,6 +334,56 @@ exports.insuranceCoveragePost = async (req, res) => {
                     newEntry
                 },
                 res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.insuranceCoveragePut = async (req, res) => {
+    try {   
+            const updateOps = {};
+            for (const ops of req.body) {
+            updateOps[ops.propName] = ops.value;
+            }
+            //Check whether the _id given is valid or not
+            let insuranceCoverage = await InsuranceCoverage.findOne({
+                _id:req.params._id
+            });
+            if (!insuranceCoverage) {
+                return res.status(404).json(error("_id not found in InsuranceCoverage", res.statusCode));
+            }
+            //Update insuranceCoverage
+            
+                insuranceCoverage = await InsuranceCoverage.findByIdAndUpdate(insuranceCoverage.id,{
+                    $set: updateOps
+                });
+                res.status(200).json(success("Edited successfully",
+                {     }, res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.insuranceCoverageDelete = async (req, res) => {
+    try {   
+            //Check whether the _id given is valid or not
+            let insuranceCoverage = await InsuranceCoverage.findOne({
+                _id:req.params._id
+            });
+            if (!insuranceCoverage) {
+                return res.status(404).json(error("_id not found in InsuranceCoverage", res.statusCode));
+            }
+            //Update insuranceCoverage
+            
+                insuranceCoverage = await InsuranceCoverage.findByIdAndRemove(insuranceCoverage.id);
+                res.status(200).json(success("Removed successfully",
+                {    }, res.statusCode
             )
         );
     } catch (err) {
