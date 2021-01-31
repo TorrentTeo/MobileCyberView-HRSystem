@@ -7,9 +7,12 @@ const { feedbackPost } = require("../../app/controllers/api/feedbackController")
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
 const { profilePost, profileGet, profileGetById, profilePut, profileDelete } = require("../../app/controllers/api/profileController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
-const { rewardPost, rewardGet, walletGet } = require("../../app/controllers/api/rewardController");
-const { accountGet, accountPut } = require("../../app/controllers/api/accountController");
-const { medicalLeavePut, medicalLeaveGet, medicalPlanGet, medicalPlanPost, clinicListGet, clinicListPost, insuranceCoverageGet, insuranceCoveragePost } = require("../../app/controllers/api/medicalPortalController");
+const { rewardPost, rewardGet, rewardGetById, rewardPut, rewardDelete, walletGet } = require("../../app/controllers/api/rewardController");
+const { accountGet, accountPut, accountDelete } = require("../../app/controllers/api/accountController");
+const { medicalLeavePut, medicalLeaveGet, medicalLeaveDelete, 
+        medicalPlanGet, medicalPlanPost, medicalPlanPut, medicalPlanDelete, 
+        clinicListGet, clinicListPost, clinicListPut, clinicListDelete, 
+        insuranceCoverageGet, insuranceCoveragePost, insuranceCoveragePut, insuranceCoverageDelete} = require("../../app/controllers/api/medicalPortalController");
 
 // Middleware
 const { auth, adminOnly } = require("../../app/middlewares/auth");
@@ -42,37 +45,37 @@ router.delete("/profile/:_id", auth, profileDelete);
 //router.get("/calendar", auth, )
 
 //reward routes with wallet
-router.post("/reward", auth, adminOnly, rewardPost);
+router.post("/reward", adminOnly, rewardPost);
 router.get("/reward", auth, rewardGet);
-//router.put("/reward", auth, adminOnly, rewardPut);
-//router.delete("/reward", auth, adminOnly, rewardDelete);
+router.get("/reward/:_id", auth, rewardGetById);
+router.put("/reward/:_id", adminOnly, rewardPut);
+router.delete("/reward/:_id", adminOnly, rewardDelete);
 router.get("/wallet", auth, walletGet);
 
 //account routes
 router.get("/account", auth, accountGet);
-//router.post("/account", auth, accountPost);
-router.put("/account", auth, accountPut);
-//router.delete("/account", auth, accountDelete);
+router.put("/account/:_id", auth, accountPut);
+router.delete("/account/:_id", adminOnly, accountDelete);
 
 //medical portal routes
-router.put("/medicalLeave", auth, medicalLeavePut);
+router.put("/medicalLeave/:_id", auth, medicalLeavePut);
 router.get("/medicalLeave", auth, medicalLeaveGet);
-//router.delete("/medicalPortal", auth, medicalLeaveDelete);
+router.delete("/medicalLeave/:_id", auth, medicalLeaveDelete);
 
 router.get("/medicalPlan", auth, medicalPlanGet);
-router.post("/medicalPlan", auth, adminOnly, medicalPlanPost);
-//router.put("/medicalPlan", auth, adminOnly, medicalPlanPut);
-//router.delete("/medicalPlan", auth, adminOnly, medicalPlanDelete);
+router.post("/medicalPlan", adminOnly, medicalPlanPost);
+router.put("/medicalPlan/:_id", adminOnly, medicalPlanPut);
+router.delete("/medicalPlan/:_id", adminOnly, medicalPlanDelete);
 
 router.get("/clinicList", auth, clinicListGet);
-router.post("/clinicList", auth, adminOnly, clinicListPost);
-//router.put("/clinicList", auth, adminOnly, clinicListPut);
-//router.delete("/clinicList", auth, adminOnly, clinicListDelete);
+router.post("/clinicList", adminOnly, clinicListPost);
+router.put("/clinicList/:_id", adminOnly, clinicListPut);
+router.delete("/clinicList/:_id", adminOnly, clinicListDelete);
 
 router.get("/insuranceCoverage", auth, insuranceCoverageGet);
-router.post("/insuranceCoverage", auth, adminOnly, insuranceCoveragePost);
-//router.put("/insuranceCoverage", auth, adminOnly, insuranceCoveragePut);
-//router.delete("/insuranceCoverage", auth, adminOnly, insuranceCoverageDelete);
+router.post("/insuranceCoverage", adminOnly, insuranceCoveragePost);
+router.put("/insuranceCoverage/:_id", adminOnly, insuranceCoveragePut);
+router.delete("/insuranceCoverage/:_id", adminOnly, insuranceCoverageDelete);
 //end of medical portal routes
 
 //leave Route
