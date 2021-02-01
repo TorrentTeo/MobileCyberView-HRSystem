@@ -7,12 +7,12 @@ const { feedbackPost } = require("../../app/controllers/api/feedbackController")
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
 const { profilePost, profileGet, profileGetById, profilePut, profileDelete } = require("../../app/controllers/api/profileController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
-const { rewardPost, rewardGet, rewardGetById, rewardPut, rewardDelete, walletGet } = require("../../app/controllers/api/rewardController");
-const { accountGet, accountPut, accountDelete } = require("../../app/controllers/api/accountController");
-const { medicalLeavePut, medicalLeaveGet, medicalLeaveDelete, 
-        medicalPlanGet, medicalPlanPost, medicalPlanPut, medicalPlanDelete, 
-        clinicListGet, clinicListPost, clinicListPut, clinicListDelete, 
-        insuranceCoverageGet, insuranceCoveragePost, insuranceCoveragePut, insuranceCoverageDelete} = require("../../app/controllers/api/medicalPortalController");
+const { rewardGet, rewardGetById, walletGet } = require("../../app/controllers/api/rewardController");
+const { accountGet, accountPut } = require("../../app/controllers/api/accountController");
+const { medicalLeavePut, medicalLeaveGet, medicalLeaveGetById, medicalLeaveDelete, 
+        medicalPlanGet, medicalPlanGetById, 
+        clinicListGet, clinicListGetById,  
+        insuranceCoverageGet, insuranceCoverageGetById } = require("../../app/controllers/api/medicalPortalController");
 
 // Middleware
 const { auth, adminOnly } = require("../../app/middlewares/auth");
@@ -34,6 +34,9 @@ router.post("/clientcontract", auth, clientContractPost);
 //router.put("/clientcontract", auth, clientContractPut);
 //router.delete("/clientcontract", auth, clientContractDelete);
 
+//calendar route
+//router.get("/calendar", auth, )
+
 //profile routes
 router.post("/profile", auth, profilePost);
 router.get("/profile", auth, profileGet);
@@ -41,41 +44,29 @@ router.get("/profile/:_id", auth, profileGetById);
 router.put("/profile/:_id", auth, profilePut);
 router.delete("/profile/:_id", auth, profileDelete);
 
-//calendar route
-//router.get("/calendar", auth, )
-
 //reward routes with wallet
-router.post("/reward", adminOnly, rewardPost);
 router.get("/reward", auth, rewardGet);
 router.get("/reward/:_id", auth, rewardGetById);
-router.put("/reward/:_id", adminOnly, rewardPut);
-router.delete("/reward/:_id", adminOnly, rewardDelete);
 router.get("/wallet", auth, walletGet);
 
 //account routes
 router.get("/account", auth, accountGet);
 router.put("/account/:_id", auth, accountPut);
-router.delete("/account/:_id", adminOnly, accountDelete);
 
 //medical portal routes
 router.put("/medicalLeave/:_id", auth, medicalLeavePut);
 router.get("/medicalLeave", auth, medicalLeaveGet);
+router.get("/medicalLeave/:_id", auth, medicalLeaveGetById);
 router.delete("/medicalLeave/:_id", auth, medicalLeaveDelete);
 
 router.get("/medicalPlan", auth, medicalPlanGet);
-router.post("/medicalPlan", adminOnly, medicalPlanPost);
-router.put("/medicalPlan/:_id", adminOnly, medicalPlanPut);
-router.delete("/medicalPlan/:_id", adminOnly, medicalPlanDelete);
+router.get("/medicalPlan/:_id", auth, medicalPlanGetById);
 
 router.get("/clinicList", auth, clinicListGet);
-router.post("/clinicList", adminOnly, clinicListPost);
-router.put("/clinicList/:_id", adminOnly, clinicListPut);
-router.delete("/clinicList/:_id", adminOnly, clinicListDelete);
+router.get("/clinicList/:_id", auth, clinicListGetById);
 
 router.get("/insuranceCoverage", auth, insuranceCoverageGet);
-router.post("/insuranceCoverage", adminOnly, insuranceCoveragePost);
-router.put("/insuranceCoverage/:_id", adminOnly, insuranceCoveragePut);
-router.delete("/insuranceCoverage/:_id", adminOnly, insuranceCoverageDelete);
+router.get("/insuranceCoverage/:_id", auth, insuranceCoverageGetById);
 //end of medical portal routes
 
 //leave Route

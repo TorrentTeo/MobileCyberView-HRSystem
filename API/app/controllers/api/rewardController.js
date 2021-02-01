@@ -54,19 +54,38 @@ exports.rewardGet = async (req, res) => {
     }
 };
 
-exports.rewardGetById = async (req, res) => {    
+exports.rewardGetAll = async (req, res) => {
+    // 
+    
     try {
-            const user = await User.findById(req.user.id).select("-password");
+            const reward = await Reward.find();
 
             // Check the user just in case
-            if (!user)
-            return res.status(404).json(error("User not found", res.statusCode));
+            if (!reward)
+            return res.status(404).json(error("Data not found", res.statusCode));
+            
+            res.status(200).json(success("View all rewards",
+                {
+                    reward
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
 
+exports.rewardGetById = async (req, res) => {    
+    try {
+            
             let reward = await Reward.findOne({
-                userid:user._id,
                 _id:req.params._id
                 });
             
+            if (!reward)
+            return res.status(404).json(error("Data not found", res.statusCode));
             res.status(200).json(success("View reward",
                 {
                     reward

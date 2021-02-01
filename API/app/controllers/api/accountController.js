@@ -11,10 +11,53 @@ exports.accountGet = async (req, res) => {
             // Check the user just in case
             if (!user)
             return res.status(404).json(error("User not found", res.statusCode));
-
-            //let account = await User.find({userid:user._id});
             
             res.status(200).json(success("View personal information",
+                {
+                    user
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.accountGetById = async (req, res) => {    
+    try {
+            let account = await User.findOne({
+                _id:req.params._id
+                });
+            
+            if (!account)
+            return res.status(404).json(error("No data found", res.statusCode));
+            
+            res.status(200).json(success("View account",
+                {
+                    account
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.accountGetAll = async (req, res) => {
+    // 
+    
+    try {
+            const user = await User.find();
+
+            // Check the user just in case
+            if (!user)
+            return res.status(404).json(error("User not found", res.statusCode));
+            
+            res.status(200).json(success("View all users",
                 {
                     user
                 },

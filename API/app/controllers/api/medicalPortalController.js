@@ -6,8 +6,6 @@ const LeaveApplication = require("../../models/leaveApplication");
 const { success, error, validation } = require("../../helpers/responseApi");
 
 exports.medicalLeaveGet = async (req, res) => {
-    // 
-    
     try {
             const user = await User.findById(req.user.id).select("-password");
 
@@ -23,6 +21,50 @@ exports.medicalLeaveGet = async (req, res) => {
             res.status(200).json(success("View medical leave",
                 {
                     medicalLeave
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.medicalLeaveGetById = async (req, res) => {    
+    try {
+            let leave = await LeaveApplication.findOne({
+                _id:req.params._id
+                });
+            
+            if (!leave)
+            return res.status(404).json(error("Data not found", res.statusCode));
+            res.status(200).json(success("View leave",
+                {
+                    leave
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.medicalLeaveGetAll = async (req, res) => {
+    try {
+            const leave = await LeaveApplication.find({
+                reason: "Medical"
+            });
+
+            // Check the user just in case
+            if (!leave)
+            return res.status(404).json(error("Data not found", res.statusCode));
+            
+            res.status(200).json(success("View all medicalLeaves",
+                {
+                    leave
                 },
                 res.statusCode
             )
@@ -96,8 +138,6 @@ exports.medicalLeaveDelete = async (req, res) => {
 };
 
 exports.medicalPlanGet = async (req, res) => {
-    // 
-    
     try {
             const user = await User.findById(req.user.id).select("-password");
 
@@ -108,6 +148,47 @@ exports.medicalPlanGet = async (req, res) => {
             let medicalPlan = await MedicalPlan.find({userid:user.id});
             
             res.status(200).json(success("View medical plan",
+                {
+                    medicalPlan
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.medicalPlanGetById = async (req, res) => {    
+    try {
+            let medicalPlan = await MedicalPlan.findOne({
+                _id:req.params._id
+                });
+            
+            if (!medicalPlan)
+            return res.status(404).json(error("Data not found", res.statusCode));
+            res.status(200).json(success("View medicalPlan",
+                {
+                    medicalPlan
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.medicalPlanGetAll = async (req, res) => {
+    try {
+            const medicalPlan = await MedicalPlan.find();
+
+            if (!medicalPlan)
+            return res.status(404).json(error("Data not found", res.statusCode));
+            
+            res.status(200).json(success("View all medicalPlans",
                 {
                     medicalPlan
                 },
@@ -158,7 +239,6 @@ exports.medicalPlanPut = async (req, res) => {
                 return res.status(404).json(error("_id not found in Medical Plan", res.statusCode));
             }
             //Update medicalplan
-            
                 medicalplan = await MedicalPlan.findByIdAndUpdate(medicalplan.id,{
                     $set: updateOps
                 });
@@ -182,7 +262,6 @@ exports.medicalPlanDelete = async (req, res) => {
                 return res.status(404).json(error("_id not found in Medical Plan", res.statusCode));
             }
             //Update medicalplan
-            
                 medicalplan = await MedicalPlan.findByIdAndRemove(medicalplan.id);
                 res.status(200).json(success("Removed successfully",
                 {    }, res.statusCode
@@ -195,8 +274,6 @@ exports.medicalPlanDelete = async (req, res) => {
 };
 
 exports.clinicListGet = async (req, res) => {
-    // 
-    
     try {
             const user = await User.findById(req.user.id).select("-password");
 
@@ -209,6 +286,48 @@ exports.clinicListGet = async (req, res) => {
             res.status(200).json(success("View clinic",
                 {
                     clinic
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.clinicListGetById = async (req, res) => {    
+    try {
+            let clinicList = await ClinicList.findOne({
+                _id:req.params._id
+                });
+            
+            if (!clinicList)
+            return res.status(404).json(error("Data not found", res.statusCode));
+            
+            res.status(200).json(success("View clinicList",
+                {
+                    clinicList
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.clinicListGetAll = async (req, res) => {
+    try {
+            const clinicList = await ClinicList.find();
+            
+            if (!clinicList)
+            return res.status(404).json(error("Data not found", res.statusCode));
+            
+            res.status(200).json(success("View all clinicLists",
+                {
+                    clinicList
                 },
                 res.statusCode
             )
@@ -256,7 +375,6 @@ exports.clinicListPut = async (req, res) => {
                 return res.status(404).json(error("_id not found in ClinicList", res.statusCode));
             }
             //Update clinicList
-            
                 clinicList = await ClinicList.findByIdAndUpdate(clinicList.id,{
                     $set: updateOps
                 });
@@ -280,7 +398,6 @@ exports.clinicListDelete = async (req, res) => {
                 return res.status(404).json(error("_id not found in ClinicList", res.statusCode));
             }
             //Update clinicList
-            
                 clinicList = await ClinicList.findByIdAndRemove(clinicList.id);
                 res.status(200).json(success("Removed successfully",
                 {    }, res.statusCode
@@ -293,8 +410,6 @@ exports.clinicListDelete = async (req, res) => {
 };
 
 exports.insuranceCoverageGet = async (req, res) => {
-    // 
-    
     try {
             const user = await User.findById(req.user.id).select("-password");
 
@@ -305,6 +420,47 @@ exports.insuranceCoverageGet = async (req, res) => {
             let insurance = await InsuranceCoverage.find({userid:user.id});
             
             res.status(200).json(success("View insurance",
+                {
+                    insurance
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.insuranceCoverageGetById = async (req, res) => {    
+    try {
+            let insurance = await InsuranceCoverage.findOne({
+                _id:req.params._id
+                });
+            
+            if (!insurance)
+            return res.status(404).json(error("Data not found", res.statusCode));
+            res.status(200).json(success("View insurance coverage",
+                {
+                    insurance
+                },
+                res.statusCode
+            )
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.insuranceCoverageGetAll = async (req, res) => {
+    try {
+            const insurance = await InsuranceCoverage.find();
+
+            if (!insurance)
+            return res.status(404).json(error("Data not found", res.statusCode));
+            
+            res.status(200).json(success("View all insurance coverages",
                 {
                     insurance
                 },
@@ -330,11 +486,7 @@ exports.insuranceCoveragePost = async (req, res) => {
             await newEntry.save();   
 
             res.status(201).json(success("New record added successfully!",
-                {
-                    newEntry
-                },
-                res.statusCode
-            )
+                { newEntry }, res.statusCode )
         );
     } catch (err) {
         console.error(err.message);
@@ -356,7 +508,6 @@ exports.insuranceCoveragePut = async (req, res) => {
                 return res.status(404).json(error("_id not found in InsuranceCoverage", res.statusCode));
             }
             //Update insuranceCoverage
-            
                 insuranceCoverage = await InsuranceCoverage.findByIdAndUpdate(insuranceCoverage.id,{
                     $set: updateOps
                 });
@@ -380,7 +531,6 @@ exports.insuranceCoverageDelete = async (req, res) => {
                 return res.status(404).json(error("_id not found in InsuranceCoverage", res.statusCode));
             }
             //Update insuranceCoverage
-            
                 insuranceCoverage = await InsuranceCoverage.findByIdAndRemove(insuranceCoverage.id);
                 res.status(200).json(success("Removed successfully",
                 {    }, res.statusCode
