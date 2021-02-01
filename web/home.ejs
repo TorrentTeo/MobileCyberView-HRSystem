@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="css/home.css" >
-    <link rel="icon" type="image/png" href="img/cyberview.png"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="css/home.css">
+  <link rel="stylesheet" type="text/css" href="css/loading.css">
+
+  <link rel="icon" type="image/png" href="img/cyberview.png" />
 
 
 </head>
 
 <body>
-    <div class="topnav">
-      <img class=logo-img src="img/cyberview.png" alt="AVATAR" >
-      <a class="active" href="http://localhost:3000/home">Home</a>
-        <a href="http://localhost:3000/employee">Employee</a>
-        <a href="http://localhost:3000/attendance">Attendance</a>
-        <a href="http://localhost:3000/benefit">Benefit</a>
-        <a href="http://localhost:3000/calendar">Calendar</a>
-        <a href="http://localhost:3000/medical">Medical Portal</a>
-        <a href="http://localhost:3000/contracts">Contracts</a>
-        <a href="http://localhost:3000/feedback">Feedback</a>
-        <a href="http://localhost:3000/rewards">Rewards</a>
-        <a href="logout">Log Out</a>
-      </div>
+  <div class="loading"></div>
+  <div class="topnav">
+    <img class=logo-img src="img/cyberview.png" alt="AVATAR">
+    <a class="active" href="http://localhost:3000/home">Home</a>
+    <a href="http://localhost:3000/employee">Employee</a>
+    <a href="http://localhost:3000/attendance">Attendance</a>
+    <a href="http://localhost:3000/benefit">Benefit</a>
+    <a href="http://localhost:3000/calendar">Calendar</a>
+    <a href="http://localhost:3000/medical">Medical Portal</a>
+    <a href="http://localhost:3000/contracts">Contracts</a>
+    <a href="http://localhost:3000/feedback">Feedback</a>
+    <a href="http://localhost:3000/rewards">Rewards</a>
+    <a href="http://localhost:3000/login">Log Out</a>
 
-    <div class="grid-container">
+  </div>
+
+  <div class="grid-container">
+    <div>
       <div>
-      <div>
-        <h1>Feed</h1> 
+        <h1>Feed</h1>
         <button class="button button1">Add</button>
         <button class="button button2">Edit</button>
         <br></br>
@@ -41,10 +46,10 @@
             <th>Content</th>
             <th>Date</th>
             <th>Notify to ...</th>
-         </tr>
+          </tr>
         </thead>
-         <tbody>
-         <tr>
+        <tbody>
+          <tr>
             <td>Company News</td>
             <td>sum content</td>
             <td>sum date</td>
@@ -63,10 +68,12 @@
             <td>List</td>
           </tr>
         </tbody>
-        
+
       </table>
     </div>
   </div>
-      
+  <script src="js/loading.js"></script>  
+ 
 </body>
+
 </html>

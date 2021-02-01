@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/employee.css" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/employee.css" />
+    <link rel="stylesheet" type="text/css" href="css/loading.css" />
 
-    <link rel="icon" type="image/png" href="img/cyberview.png"/>
+    <link rel="icon" type="image/png" href="img/cyberview.png" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Employee</title>
-</head>
+  </head>
 
-<body>
-  
-  <div class="topnav">
-      <img class=logo-img src="img/cyberview.png" alt="AVATAR" >
+  <body>
+    <div class="loading"></div>
+
+    <div class="topnav">
+      <img class="logo-img" src="img/cyberview.png" alt="AVATAR" />
       <a href="http://localhost:3000/home">Home</a>
       <a class="active" href="http://localhost:3000/employee">Employee</a>
       <a href="http://localhost:3000/attendance">Attendance</a>
@@ -26,152 +31,168 @@
       <a href="http://localhost:3000/contracts">Contracts</a>
       <a href="http://localhost:3000/feedback">Feedback</a>
       <a href="http://localhost:3000/rewards">Rewards</a>
-      <a href="logout">Log Out</a>
-      </div>
-<div class="grid-container">
-  <div>
-      <h1>Performance</h1>
+      <a href="http://localhost:3000/login">Log Out</a>
+    </div>
+    <div class="grid-container">
+      <div>
+        <h1>Performance</h1>
 
-      <div class="dropdown">
-        <button class="button button1">Add</button>
-        <button class="button button2">Edit</button>
-         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter by....
-          <span class="caret"></span></button>
+        <div class="dropdown">
+          <button class="button button1">Add</button>
+          <button class="button button2">Edit</button>
+          <button
+            class="btn btn-primary dropdown-toggle"
+            type="button"
+            data-toggle="dropdown"
+          >
+            Filter by.... <span class="caret"></span>
+          </button>
           <ul class="dropdown-menu">
             <li><a href="#">Name</a></li>
             <li><a href="#">Date</a></li>
             <li><a href="#">Timing</a></li>
           </ul>
-      </div>
-      <br>
+        </div>
+        <br />
 
-
-      <table class="content-table table-sortable">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Achievement</th>
-          <th>Training</th>
-          <th>Skills</th>
-          <th>Education</th>
-          <th>Reviews</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Larry</td>
-          <td>nothing</td>
-          <td>1 month</td>
-          <td>Video Editing</td>
-          <td>none</td>
-          <td>bad</td>
-        </tr>
-        <tr>
-          <td>Barry</td>
-          <td>s</td>
-          <td>d</td>
-          <td>s</td>
-          <td>l</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Torrent</td>
-          <td>s</td>
-          <td>d</td>
-          <td>s</td>
-          <td>l</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Leonard</td>
-          <td>s</td>
-          <td>d</td>
-          <td>s</td>
-          <td>l</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Lee Re</td>
-          <td>s</td>
-          <td>d</td>
-          <td>s</td>
-          <td>l</td>
-          <td>s</td>
-        </tr>
-          <tr>
-            <td>Andre</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Hideki</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+        <table class="content-table table-sortable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Achievement</th>
+              <th>Training</th>
+              <th>Skills</th>
+              <th>Education</th>
+              <th>Reviews</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Larry</td>
+              <td>nothing</td>
+              <td>1 month</td>
+              <td>Video Editing</td>
+              <td>none</td>
+              <td>bad</td>
+            </tr>
+            <tr>
+              <td>Barry</td>
+              <td>s</td>
+              <td>d</td>
+              <td>s</td>
+              <td>l</td>
+              <td>s</td>
+            </tr>
+            <tr>
+              <td>Torrent</td>
+              <td>s</td>
+              <td>d</td>
+              <td>s</td>
+              <td>l</td>
+              <td>s</td>
+            </tr>
+            <tr>
+              <td>Leonard</td>
+              <td>s</td>
+              <td>d</td>
+              <td>s</td>
+              <td>l</td>
+              <td>s</td>
+            </tr>
+            <tr>
+              <td>Lee Re</td>
+              <td>s</td>
+              <td>d</td>
+              <td>s</td>
+              <td>l</td>
+              <td>s</td>
+            </tr>
+            <tr>
+              <td>Andre</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Hideki</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
           </tbody>
-      </table>
+        </table>
+      </div>
     </div>
-</div>
-<div class="grid-container">
-<div>
-      <h1>Personal Information</h1>
+    <div class="grid-container">
+      <div>
+        <h1>Personal Information</h1>
 
-      <div class="dropdown">
-        <button class="button button1">Add</button>
-        <button class="button button2">Edit</button>
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter by....
-          <span class="caret"></span></button>
+        <div class="dropdown">
+          <button class="button button1">Add</button>
+          <button class="button button2">Edit</button>
+          <button
+            class="btn btn-primary dropdown-toggle"
+            type="button"
+            data-toggle="dropdown"
+          >
+            Filter by.... <span class="caret"></span>
+          </button>
           <ul class="dropdown-menu">
             <li><a href="#">Name</a></li>
             <li><a href="#">Date</a></li>
             <li><a href="#">Timing</a></li>
-          </ul> 
-      </div>
-<br>
+          </ul>
+        </div>
+        <br />
 
-      <table class="content-table table-sortable">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Email</th>
-          <th>Emergency Contact</th>
-          <th>Joined Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>L</td>
-          <td>0111</td>
-          <td>re@name.com</td>
-          <td>02222</td>
-          <td>02-02-02</td>
-        </tr>
-        <tr>
-            <td>D</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>L</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+        <table class="content-table table-sortable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Emergency Contact</th>
+              <th>Joined Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>L</td>
+              <td>0111</td>
+              <td>re@name.com</td>
+              <td>02222</td>
+              <td>02-02-02</td>
+            </tr>
+            <tr>
+              <td>D</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>L</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>L</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <script src="js/tablesort.js"></script>  
-      
-</body>
+    <script src="js/tablesort.js"></script>
+    <script src="js/loading.js"></script>
+  </body>
 </html>
