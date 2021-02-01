@@ -45,18 +45,18 @@ body {
 
 .grid-container {
   display: grid;
-  grid-gap: 50px;
+  grid-gap: 10px;
   padding: 10px;
 }
 
 .content-table {
   border-collapse: collapse;
-  margin: 0 40px 40px 40px;
+  margin: 0 40px 0px 40px;
   font-size: 1.2em;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: max-content;
+  white-space: nowrap;
 }
 
 .content-table thead tr {
