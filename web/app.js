@@ -97,7 +97,7 @@ router.post('/login', (req, res) => {
         // set token on cookie
         res.cookie('authcookie',token,{maxAge:900000,httpOnly:true}) 
         //login success redirect to dashboard     
-        res.redirect('/dashboard');
+        res.redirect('/home');
     }).catch((error) => {
         console.log("error")
         console.error(error)
@@ -106,9 +106,9 @@ router.post('/login', (req, res) => {
 });
 
 //GET
-router.get('/dashboard', (req, res) => {
+router.get('/home', (req, res) => {
     var sess = req.session;
-    res.render('dashboard', { output: { email: sess.email, name: sess.name, role: sess.role, id: sess.uid}});
+    res.render('home', { output: { email: sess.email, name: sess.name, role: sess.role, id: sess.uid}});
 })
 
 //listen on port
