@@ -5,15 +5,22 @@ const { dashboard, attendance, getAttendanceCode } = require("../../app/controll
 const { getAuthenticatedUser } = require("../../app/controllers/api/employeeController");
 const { feedbackPost } = require("../../app/controllers/api/feedbackController");
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
-const { profilePost } = require("../../app/controllers/api/profileController");
+const { profilePost, profileGet, profileGetById, profilePut, profileDelete } = require("../../app/controllers/api/profileController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
-const { rewardPost, rewardGet, walletGet } = require("../../app/controllers/api/rewardController");
-const { accountGet, editAccount } = require("../../app/controllers/api/accountController");
+const { rewardGet, rewardGetById, walletGet } = require("../../app/controllers/api/rewardController");
+const { accountGet, accountPut } = require("../../app/controllers/api/accountController");
+const { getAllLeave, getLeave, postLeave, putLeave, deleteLeave } = require("../../app/controllers/api/leaveController");
+const { medicalLeavePut, medicalLeaveGet, medicalLeaveGetById, medicalLeaveDelete, 
+        medicalPlanGet, medicalPlanGetById, 
+        clinicListGet, clinicListGetById,  
+        insuranceCoverageGet, insuranceCoverageGetById } = require("../../app/controllers/api/medicalPortalController");
+const {getCalendar, postCalendar, putCalendar, deleteCalendar} = require("../../app/controllers/api/calendarController")
 // Middleware
-const { auth } = require("../../app/middlewares/auth");
+const { auth, adminOnly } = require("../../app/middlewares/auth");
 
 // Routes
 router.get("/", auth, dashboard);
+
 router.post("/Attendance", auth, attendance);
 router.get("/Attendance", auth, getAttendanceCode);
 
@@ -29,32 +36,48 @@ router.post("/clientcontract", auth, clientContractPost);
 //router.put("/clientcontract", auth, clientContractPut);
 //router.delete("/clientcontract", auth, clientContractDelete);
 
+//calendar route
+router.get("/calendar", auth, getCalendar)
+router.post("/calendar", auth, postCalendar)
+router.put("/calendar", auth, putCalendar)
+router.delete("/calendar", auth, deleteCalendar)
+
 //profile routes
 router.post("/profile", auth, profilePost);
-//router.get("/profile", auth, profileGet);
-//router.put("/profile", auth, profilePut);
-//router.delete("/profile", auth, profileDelete);
-
-//calendar route
-//router.get("/calendar", auth, )
+router.get("/profile", auth, profileGet);
+router.get("/profile/:_id", auth, profileGetById);
+router.put("/profile/:_id", auth, profilePut);
+router.delete("/profile/:_id", auth, profileDelete);
 
 //reward routes with wallet
-router.post("/reward", auth, rewardPost);
 router.get("/reward", auth, rewardGet);
+router.get("/reward/:_id", auth, rewardGetById);
 router.get("/wallet", auth, walletGet);
-//router.put("/reward", auth, rewardPut);
-//router.delete("/reward", auth, rewardDelete);
 
 //account routes
 router.get("/account", auth, accountGet);
-router.post("/account", auth, editAccount);
-//router.put("/account", auth, accountPut);
-//router.delete("/account", auth, accountDelete);
+router.put("/account/:_id", auth, accountPut);
 
+//medical portal routes
+router.put("/medicalLeave/:_id", auth, medicalLeavePut);
+router.get("/medicalLeave", auth, medicalLeaveGet);
+router.get("/medicalLeave/:_id", auth, medicalLeaveGetById);
+router.delete("/medicalLeave/:_id", auth, medicalLeaveDelete);
+
+router.get("/medicalPlan", auth, medicalPlanGet);
+router.get("/medicalPlan/:_id", auth, medicalPlanGetById);
+
+router.get("/clinicList", auth, clinicListGet);
+router.get("/clinicList/:_id", auth, clinicListGetById);
+
+router.get("/insuranceCoverage", auth, insuranceCoverageGet);
+router.get("/insuranceCoverage/:_id", auth, insuranceCoverageGetById);
+//end of medical portal routes
 
 //leave Route
-//router.post("/leave", auth)
-//router.get("/leave", auth, )
-
+router.post("/leave", auth, postLeave)
+router.get("/leave", auth, getLeave)
+router.put("/leave", auth, putLeave)
+router.delete("/leave", auth, deleteLeave)
 
 module.exports = router;

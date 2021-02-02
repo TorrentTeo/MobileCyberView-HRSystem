@@ -79,3 +79,20 @@ exports.getAttendanceCode = async (req, res, next) =>
         res.status(500).json(error("Server error", res.statusCode));
     }
 };
+
+exports.getAllAttendance = async (req, res, next) =>
+{
+    try {
+        await AttendanceMarking.find({}, function(err, values) {
+            var attendance = {};
+       
+            values.forEach(function(value) {
+                attendance[value._id] = value;
+            });
+            res.status(201).json(success("Code Retrived",{attendance},res.statusCode))
+          });    
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};

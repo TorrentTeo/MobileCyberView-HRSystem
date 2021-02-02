@@ -13,6 +13,8 @@ connectToMongoDB();
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/password", require("./routes/api/forgotPassword"));
 app.use("/api/employee", require("./routes/api/employee"));
+app.use("/api/admin", require("./routes/api/admin"));
+
 
 var port = process.env.PORT || 5000;
 
