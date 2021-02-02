@@ -57,13 +57,36 @@ exports.postCalendar = async (req,res,next)=> {
 }
 
 exports.putCalendar = async (req,res,next)=> {
-    const errors = validationResult(req);
-    if (!errors.isEmpty())
-        return res.status(422).json(validation(errors.array()));
+    try{
+        const errors = validationResult(req);
+        if (!errors.isEmpty())
+            return res.status(422).json(validation(errors.array()));
+        const { id, activity } = req.body;
+        let events = await Calendar.find({}).where('date').equals(date)
+        await Calendar.findByIdAndUpdate(id,{"activity": activity}, function(err, result){
+            if(err){
+                res.status(422).json(error("Error Updating Record", err, res.statusCode));
+            }
+            else{
+                res.status(201).json(success("Successfully Updated Record",null,res.statusCode));
+            } 
+        });
+    }catch(err){
+        console.log(err)
+    }
 }
 
 exports.deleteCalendar = async (req,res,next)=> {
     const errors = validationResult(req);
     if (!errors.isEmpty())
         return res.status(422).json(validation(errors.array()));
+    const { id } = req.body;
+    await Calendar.remove({ _id: id}, function(err) {
+        if(err){
+            res.status(422).json(error("Error Deleting Record", err, res.statusCode));
+        }
+        else{
+            res.status(201).json(success("Successfully Deleted Record",null,res.statusCode));
+        } 
+    });
 }
