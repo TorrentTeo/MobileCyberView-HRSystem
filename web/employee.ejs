@@ -7,8 +7,15 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" type="text/css" href="css/employee.css" />
     <link rel="stylesheet" type="text/css" href="css/loading.css" />
+    <link rel="stylesheet" type="text/css" href="css/search.css" />
 
     <link rel="icon" type="image/png" href="img/cyberview.png" />
 
@@ -40,19 +47,13 @@
         <div class="dropdown">
           <button class="button button1">Add</button>
           <button class="button button2">Edit</button>
-          <button
-            class="btn btn-primary dropdown-toggle"
-            type="button"
-            data-toggle="dropdown"
-          >
-            Filter by.... <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="#">Name</a></li>
-            <li><a href="#">Date</a></li>
-            <li><a href="#">Timing</a></li>
-          </ul>
+
+          <form action="">
+            <input type="text" name="search" id="search" />
+            <i class="fa fa-search"></i>
+          </form>
         </div>
+
         <br />
 
         <table class="content-table table-sortable">
@@ -66,7 +67,7 @@
               <th>Reviews</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="table_body">
             <tr>
               <td>Larry</td>
               <td>nothing</td>
@@ -108,6 +109,30 @@
               <td>s</td>
             </tr>
             <tr>
+              <td>Larry</td>
+              <td>nothing</td>
+              <td>1 month</td>
+              <td>Video Editing</td>
+              <td>none</td>
+              <td>bad</td>
+            </tr>
+            <tr>
+              <td>Larry</td>
+              <td>nothing</td>
+              <td>1 month</td>
+              <td>Video Editing</td>
+              <td>none</td>
+              <td>bad</td>
+            </tr>
+            <tr>
+              <td>Larry</td>
+              <td>nothing</td>
+              <td>1 month</td>
+              <td>Video Editing</td>
+              <td>none</td>
+              <td>bad</td>
+            </tr>
+            <tr>
               <td>Andre</td>
               <td></td>
               <td></td>
@@ -134,18 +159,11 @@
         <div class="dropdown">
           <button class="button button1">Add</button>
           <button class="button button2">Edit</button>
-          <button
-            class="btn btn-primary dropdown-toggle"
-            type="button"
-            data-toggle="dropdown"
-          >
-            Filter by.... <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="#">Name</a></li>
-            <li><a href="#">Date</a></li>
-            <li><a href="#">Timing</a></li>
-          </ul>
+
+          <form action="">
+            <input type="text" name="search2" id="search2" />
+            <i class="fa fa-search"></i>
+          </form>
         </div>
         <br />
 
@@ -159,7 +177,7 @@
               <th>Joined Date</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="table_body2">
             <tr>
               <td>L</td>
               <td>0111</td>
@@ -169,17 +187,17 @@
             </tr>
             <tr>
               <td>D</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>0111</td>
+              <td>re@name.com</td>
+              <td>02222</td>
+              <td>02-02-02</td>
             </tr>
             <tr>
               <td>L</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>0111</td>
+              <td>re@name.com</td>
+              <td>02222</td>
+              <td>02-02-02</td>
             </tr>
             <tr>
               <td>L</td>
@@ -194,5 +212,6 @@
     </div>
     <script src="js/tablesort.js"></script>
     <script src="js/loading.js"></script>
+    <script src="js/search.js"></script>
   </body>
 </html>
