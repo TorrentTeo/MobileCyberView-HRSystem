@@ -22,6 +22,7 @@ exports.loginValidation = [
  * Get authenticated user data from JWT
  */
 exports.auth = async (req, res, next) => {
+    console.log(req.header("Authorization"))
     const authorizationHeader = req.header("Authorization");
     // Split the authorization header value
     const splitAuthorizationHeader = authorizationHeader.split(" ");
@@ -41,15 +42,14 @@ exports.auth = async (req, res, next) => {
 
     try {
         const jwtData = await jwt.verify(token, config.get("jwtSecret"));
-
+        console.log(jwtData.user.id)
         // Check the JWT token
         if (!jwtData)
             return res.status(401).json(error("Unauthorized", res.statusCode));
 
         // If is a valid token that JWT verify
         // Insert the data to the request
-        req.user = await User.findOne({_id:jwtData.user.id});
-
+        req.user = jwtData.user;
         // Continue the action
         next();
     } catch (err) {
@@ -59,7 +59,8 @@ exports.auth = async (req, res, next) => {
 };
 
 exports.adminOnly = async function (req, res, next) {
-    if(req.body.user.role !== "Admin" ){
+    console.log(req.user)
+    if(req.user.role !== "Admin" ){
         return res.status(401).send("Unauthorized!");
     }  
     next();
