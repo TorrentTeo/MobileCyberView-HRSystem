@@ -2,7 +2,6 @@ const { check } = require("express-validator");
 const { error } = require("../helpers/responseApi");
 const config = require("config");
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
 
 
 exports.registerValidation = [
@@ -60,7 +59,7 @@ exports.auth = async (req, res, next) => {
 };
 
 exports.adminOnly = async function (req, res, next) {
-    if( req.user.role !== "Admin" ){
+    if(req.body.user.role !== "Admin" ){
         return res.status(401).send("Unauthorized!");
     }  
     next();

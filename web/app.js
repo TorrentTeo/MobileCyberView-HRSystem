@@ -96,7 +96,6 @@ router.post('/login', (req, res) => {
         sess.uid = resData.results.user.id;
         // set token on cookie
         res.cookie('authcookie',token,{maxAge:900000,httpOnly:true}) 
-        //login success redirect to dashboard     
         res.redirect('/home');
     }).catch((error) => {
         console.log("error")
@@ -111,5 +110,16 @@ router.get('/home', (req, res) => {
     res.render('home', { output: { email: sess.email, name: sess.name, role: sess.role, id: sess.uid}});
 })
 
+
+//use this method to get cookies 
+//example:  var cookie = get_cookies(req)["COOKIE_NAME HERE"]
+var get_cookies = function(request) {
+    var cookies = {};
+    request.headers && request.headers.cookie.split(';').forEach(function(cookie) {
+      var parts = cookie.match(/(.*?)=(.*)$/)
+      cookies[ parts[1].trim() ] = (parts[2] || '').trim();
+    });
+    return cookies;
+  };
 //listen on port
 app.listen(port, () => console.info('Listening on port ' + port))
