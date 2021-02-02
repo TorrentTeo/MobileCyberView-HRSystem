@@ -1,12 +1,13 @@
 const { success, error, validation } = require("../../helpers/responseApi");
-const { randomString } = require("../../helpers/common");
+const { randomString, mailer } = require("../../helpers/common");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
 const Verification = require("../../models/Verification");
 const config = require('config');
-
+var http = require('http');
+var fs = require('fs');
 
 exports.register = async (req, res) => {
 
@@ -35,7 +36,7 @@ exports.register = async (req, res) => {
         const hash = await bcrypt.genSalt(10);
         newUser.password = await bcrypt.hash(password, hash);
 
-        await newUser.save();
+        // await newUser.save();
 
         let verification = new Verification({
             token: randomString(50),
@@ -43,9 +44,22 @@ exports.register = async (req, res) => {
             type: "Register New Account",
         });
         await verification.save();
+        // var html = '';
+        // fs.readFile("../API/app/email.html", 'utf8', function (error, pgResp) {
+        //     if (error) {
+        //         console.log(error);
+        //     } else {
+        //         html = pgResp;
+        //         console.log(html)
+        //     }
+        // });
+        // var res = str.replace("{linksys}", config.get('ApiRoute') + '/auth/verify/' + verification.token);
+        // mailer(newUser.email, "Email Verification", html)
+
+
         res.status(201).json(
             success(
-                "Registration was success, please activate your account.",
+                "Registration was success, please check your email and click the link to activate your account.",
                 {
                     user: {
                         id: newUser._id,

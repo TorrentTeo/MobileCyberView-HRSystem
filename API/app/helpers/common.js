@@ -1,4 +1,6 @@
 const Attendance = require("../models/attendanceCode");
+const nodemailer = require('nodemailer');
+const config = require('config');
 
 exports.randomString = (length) => {
     let result = "";
@@ -10,6 +12,7 @@ exports.randomString = (length) => {
     }
     return result;
 };
+
 exports.makeAttendanceCode = (code) => {
     var dt = new Date();
     dt2 = dt;
@@ -25,3 +28,31 @@ exports.makeAttendanceCode = (code) => {
     newCode.save()
     console.log(newCode)
 };
+
+exports.mailer = (to, subject, html) => {
+
+
+var transporter = nodemailer.createTransport({
+  service: config.get("EmailProvider"),
+  auth: {
+    user: config.get("Email"),
+    pass: config.get("EmailPassword")
+  }
+});
+
+var mailOptions = {
+  from: config.get("Email"),
+  to: to,
+  subject: subject,
+  html:  html
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
+
+}
