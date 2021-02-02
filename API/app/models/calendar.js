@@ -5,15 +5,14 @@ const calendarSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    activity: {
-        type: String,
+    activities: {
+        type: Array,
         required: true
     },
     createdAt: {
         type: Date,
-        required: true,
-        default: Date.now()
+        required: true
     }
 });
 
-module.exports = mongoose.model("Calendar", calendarSchema);
+module.exports = mongoose.model("LeaveApplication", leaveApplicationSchema);

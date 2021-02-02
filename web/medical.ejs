@@ -3,86 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/home.css" >
+    <link rel="stylesheet" type="text/css" href="css/medical.css" >
+  <link rel="stylesheet" type="text/css" href="css/loading.css">
+
+    <link rel="icon" type="image/png" href="img/cyberview.png"/>
+
     <title>Medical</title>
 </head>
-<style>
-     body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .topnav {
-    overflow: hidden;
-    background-color: #333;
-    height:  100px;
-  }
-  
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    margin-top:25px;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .topnav a.active {
-    background-color: #4CAF50;
-    color: white;
-  }
 
-  .button {
-  border: none;
-  color: white;
-  padding: 8px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  margin-left:40px
-  }
-
-  table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-  text-align: left;    
-}
-
-table{
-  width: 70%;
-  margin-left:40px
-}
-
-h1{
-  margin-left:40px
-}
-
-
-.button1, .button2,.button3,.button4,.button5,.button6 {
-  background-color: #4CAF50;
-}
-
-.logo-img{
-    float: left;
-    width:100px;height:65px;
-    margin-left:40px;
-    margin-top:20px;
-    margin-right:20px;
-
-}
-</style>
 <body>
+  <div class="loading"></div>
+
     <div class="topnav">
         <img class=logo-img src="img/cyberview.png" alt="AVATAR" >
         <a href="http://localhost:3000/home">Home</a>
@@ -97,6 +29,8 @@ h1{
         <a href="logout">Log Out</a>
       </div>
       
+      <div class="grid-container">
+        <div>
       <div>
         <h1>Medical Plan</h1> 
         <button class="button button1">Add</button>
@@ -104,13 +38,16 @@ h1{
         <br></br>
       </div>
 
-      <table>
+      <table class="content-table">
+        <thead>
         <tr>
           <th>Medical Plan</th>
           <th>Medical Card (Front)</th>
           <th>Medical Card (Back)</th>
           <th>Available For ...</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td>Medical Plan ABC</td>
           <td>PDF</td>
@@ -123,18 +60,24 @@ h1{
             <td>PDF</td>
             <td>PDF</td>
           </tr>
+        </tbody>
       </table>
-
+    </div>
+    
+    <div>
       <div>
         <h1>Medical Records</h1> 
       </div>
 
-      <table>
+      <table class="content-table">
+        <thead>
         <tr>
           <th>Name</th>
           <th>Description</th>
           <th>Date</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td>Robert</td>
           <td>Food Poisoning</td>
@@ -145,30 +88,41 @@ h1{
             <td>Fever</td>
             <td>12/12/2020</td>
           </tr>
+          </tbody>
       </table>
+    </div>
+  
 
+  <div>
       <div>
         <h1>Clinic List</h1> 
         <button class="button button3">Add</button>
         <button class="button button4">Edit</button>
         <br></br>
       </div>
-<div>
-      <table>
+    
+      <table class="content-table">
+        <thead>
         <tr>
           <th>Clinic</th>
           <th>Latitude</th>
           <th>Longitude</th>
           <th>Available For ...</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td>Clinic ABC</td>
           <td>2.9023</td>
           <td>101.6530</td>
           <td>List</td>
         </tr>
+      </tbody>
         </table>
-        </div>
+      </div>
+      
+
+    <div>
         <div>
           <h1>Insurance Coverage</h1> 
           <button class="button button5">Add</button>
@@ -176,7 +130,8 @@ h1{
           <br></br>
         </div>
   
-        <table>
+        <table class="content-table">
+          <thead>
           <tr>
             <th>Type of Insurance</th>
             <th>Description</th>
@@ -184,6 +139,8 @@ h1{
             <th>Contact Number</th>
             <th>Available For...</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>Vehicle</td>
             <td>Sample</td>
@@ -191,7 +148,11 @@ h1{
             <td>012-3456789</td>
             <td>List</td>
           </tr>
-
+        </tbody>
+        </table>
+      </div>
+        </div>
+  <script src="js/loading.js"></script>  
         
 
         

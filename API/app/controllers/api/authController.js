@@ -9,6 +9,7 @@ const config = require('config');
 var http = require('http');
 var fs = require('fs');
 
+
 exports.register = async (req, res) => {
 
     const errors = validationResult(req);
@@ -36,7 +37,7 @@ exports.register = async (req, res) => {
         const hash = await bcrypt.genSalt(10);
         newUser.password = await bcrypt.hash(password, hash);
 
-        // await newUser.save();
+        await newUser.save();
 
         let verification = new Verification({
             token: randomString(50),

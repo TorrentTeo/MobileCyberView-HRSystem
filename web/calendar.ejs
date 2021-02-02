@@ -3,87 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/home.css" >
+    <link rel="stylesheet" type="text/css" href="css/calendar.css" >
+    <link rel="icon" type="image/png" href="img/cyberview.png"/>
+
     <title>Calendar</title>
 </head>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .topnav {
-    overflow: hidden;
-    background-color: #333;
-    height:  100px;
-    
-  }
-  
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    margin-top:25px;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .topnav a.active {
-    background-color: #4CAF50;
-    color: white;
-  }
 
-  .button {
-  border: none;
-  color: white;
-  padding: 8px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  margin-left:40px
-  }
-
-  table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-  text-align: left;    
-}
-
-table{
-  width: 70%;
-  margin-left:40px
-}
-
-h1{
-  margin-left:40px
-}
-
-
-.button1, .button2,.button3,.button4,.button5,.button6 {
-  background-color: #4CAF50;
-}
-
-.logo-img{
-    float: left;
-    width:100px;height:65px;
-    margin-left:40px;
-    margin-top:20px;
-    margin-right:20px;
-
-}
-
-</style>
 <body>
     <div class="topnav">
       <img class=logo-img src="img/cyberview.png" alt="AVATAR" >
@@ -98,7 +24,9 @@ h1{
         <a href="http://localhost:3000/rewards">Rewards</a>
         <a href="logout">Log Out</a>
       </div>
-      
+
+    <div class="grid-container">
+      <div>
       <div>
         <h1>Leaves</h1> 
         <button class="button button1">Add</button>
@@ -106,13 +34,16 @@ h1{
         <br></br>
       </div>
 
-      <table>
+      <table class="content-table">
+        <thead>
         <tr>
           <th>Name</th>
           <th>Expiry Date</th>
           <th>Number of Leaves</th>
           <th>Status</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td> </td>
           <td></td>
@@ -125,16 +56,20 @@ h1{
             <td></td>
             <td>Active</td>
           </tr>
+        </tbody>
       </table>
+    </div>
 
       <div>
+        <div>
         <h1>Leave Requests</h1> 
         <button class="button button3">Approve</button>
         <button class="button button4">Decline</button>
         <br></br>
       </div>
 
-      <table>
+      <table class="content-table">
+        <thead>
         <tr>
           <th>Name</th>
           <th>Request date</th>
@@ -142,6 +77,8 @@ h1{
           <th>Status</th>
           <th>MC</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td> </td>
           <td></td>
@@ -156,22 +93,28 @@ h1{
             <td>Active</td>
             <td>Attachment</td>
           </tr>
+        </tbody>
       </table>
+    </div>
 
       <div>
+        <div>
         <h1>Activities</h1> 
         <button class="button button1">Add</button>
         <button class="button button2">Edit</button>
         <br></br>
       </div>
 
-      <table>
+      <table class="content-table">
+        <thead>
         <tr>
           <th>Name</th>
           <th>Activity Name</th>
           <th>Date</th>
           <th>Time</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td>Robert </td>
           <td>Project Briefing</td>
@@ -184,9 +127,10 @@ h1{
           <td>31/11/2020</td>
           <td>10.00 a.m.</td>
           </tr>
-          
+        </tbody>
       </table>
-      
+    </div>
+  </div>
       
 </body>
 </html>

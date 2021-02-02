@@ -12,7 +12,6 @@ exports.randomString = (length) => {
     }
     return result;
 };
-
 exports.makeAttendanceCode = (code) => {
     var dt = new Date();
     dt2 = dt;
