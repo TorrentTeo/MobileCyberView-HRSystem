@@ -48,7 +48,7 @@ exports.auth = async (req, res, next) => {
 
         // If is a valid token that JWT verify
         // Insert the data to the request
-        req.user = jwtData.user;
+        req.user = await User.findOne({_id:jwtData.user.id});
 
         // Continue the action
         next();
@@ -59,7 +59,7 @@ exports.auth = async (req, res, next) => {
 };
 
 exports.adminOnly = async function (req, res, next) {
-    if( req.user.role === "Admin" ){
+    if(req.body.user.role !== "Admin" ){
         return res.status(401).send("Unauthorized!");
     }  
     next();

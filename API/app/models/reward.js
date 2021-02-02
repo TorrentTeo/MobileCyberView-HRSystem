@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const ProfileSchema = new mongoose.Schema({
-    category: {
+const RewardSchema = new mongoose.Schema({
+    name: {
         type: String,
         required: true,
         minlength: 1,
@@ -13,7 +13,11 @@ const ProfileSchema = new mongoose.Schema({
         minlength: 1,
         maxlength: 50,
     },
-    date: {
+    validFrom: {
+      type: Date,
+      required: true
+  },
+    expiryDate: {
         type: Date,
         required: true
     },
@@ -22,17 +26,11 @@ const ProfileSchema = new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 255,
-    },
-    writtenBy: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 255,
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now(),
+      },
+    valid:{
+        type: Boolean,
+        default: true,
     }
 });
 
-module.exports = mongoose.model("Profile", ProfileSchema);
+module.exports = mongoose.model("Reward", RewardSchema);

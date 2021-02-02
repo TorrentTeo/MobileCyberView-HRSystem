@@ -1,15 +1,32 @@
 //import
 const express = require('express')
+const session = require('express-session');
 
 const app = express()
 const port = 3000
 
 
+const axios = require('axios')
+const router = express.Router();
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const uuid = require('uuid');
+const {httpPost} = require("./helpers/HttpRequestHelper")
+
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
 //Static files
 app.use(express.static('public'))
+app.use("/", router);
+
 app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/img', express.static(__dirname + 'public/img'))
+
+app.use(cookieParser());
 
 //Set Views
 app.set('views', './')
@@ -55,7 +72,7 @@ app.get('/rewards', (req, res) => {
     res.render('rewards')
 })
 
-=======
+
 //POST
 router.post('/login', (req, res) => {
     var { username, pass } = req.body;
@@ -79,8 +96,7 @@ router.post('/login', (req, res) => {
         sess.uid = resData.results.user.id;
         // set token on cookie
         res.cookie('authcookie',token,{maxAge:900000,httpOnly:true}) 
-        //login success redirect to dashboard     
-        res.redirect('/dashboard');
+        res.redirect('/home');
     }).catch((error) => {
         console.log("error")
         console.error(error)
@@ -89,10 +105,21 @@ router.post('/login', (req, res) => {
 });
 
 //GET
-router.get('/dashboard', (req, res) => {
+router.get('/home', (req, res) => {
     var sess = req.session;
-    res.render('dashboard', { output: { email: sess.email, name: sess.name, role: sess.role, id: sess.uid}});
+    res.render('home', { output: { email: sess.email, name: sess.name, role: sess.role, id: sess.uid}});
 })
 
+
+//use this method to get cookies 
+//example:  var cookie = get_cookies(req)["COOKIE_NAME HERE"]
+var get_cookies = function(request) {
+    var cookies = {};
+    request.headers && request.headers.cookie.split(';').forEach(function(cookie) {
+      var parts = cookie.match(/(.*?)=(.*)$/)
+      cookies[ parts[1].trim() ] = (parts[2] || '').trim();
+    });
+    return cookies;
+  };
 //listen on port
 app.listen(port, () => console.info('Listening on port ' + port))

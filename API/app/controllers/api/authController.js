@@ -1,19 +1,17 @@
 const { success, error, validation } = require("../../helpers/responseApi");
-const { randomString } = require("../../helpers/common");
+const { randomString, mailer } = require("../../helpers/common");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
 const Verification = require("../../models/Verification");
 const config = require('config');
+var http = require('http');
+var fs = require('fs');
 
-/**
- * @desc    Register a new user
- * @method  POST api/auth/register
- * @access  public 
- */
+
 exports.register = async (req, res) => {
-    // Validation
+
     const errors = validationResult(req);
     if (!errors.isEmpty())
         return res.status(422).json(validation(errors.array()));
@@ -22,8 +20,6 @@ exports.register = async (req, res) => {
 
     try {
         let user = await User.findOne({ email: email.toLowerCase() });
-
-        // Check the user email
         if (user)
             return res
                 .status(422)
@@ -38,27 +34,33 @@ exports.register = async (req, res) => {
             emergencyContact
         });
 
-        // Hash the password
         const hash = await bcrypt.genSalt(10);
         newUser.password = await bcrypt.hash(password, hash);
 
-        // Save the user
         await newUser.save();
 
-        // Save token for user to start verificating the account
         let verification = new Verification({
             token: randomString(50),
             userId: newUser._id,
             type: "Register New Account",
         });
-
-        // Save the verification data
         await verification.save();
+        // var html = '';
+        // fs.readFile("../API/app/email.html", 'utf8', function (error, pgResp) {
+        //     if (error) {
+        //         console.log(error);
+        //     } else {
+        //         html = pgResp;
+        //         console.log(html)
+        //     }
+        // });
+        // var res = str.replace("{linksys}", config.get('ApiRoute') + '/auth/verify/' + verification.token);
+        // mailer(newUser.email, "Email Verification", html)
 
-        // Send the response to server
+
         res.status(201).json(
             success(
-                "Registration was success, please activate your account.",
+                "Registration was success, please check your email and click the link to activate your account.",
                 {
                     user: {
                         id: newUser._id,
@@ -89,16 +91,11 @@ exports.verify = async (req, res) => {
             token,
             type: "Register New Account",
         });
-
-        // Check the verification data
         if (!verification)
             return res
                 .status(404)
                 .json(error("Token is not valid", res.statusCode));
 
-        // If verification data exists
-        // Get the user data
-        // And activate the account
         let user = await User.findOne({ _id: verification.userId }).select(
             "-password"
         );
@@ -108,12 +105,7 @@ exports.verify = async (req, res) => {
                 verifiedAt: new Date(),
             },
         });
-
-        // After user successfully verified
-        // Remove the verification data from database
         verification = await Verification.findByIdAndRemove(verification._id);
-
-        // Send the response
         res
             .status(200)
             .json(

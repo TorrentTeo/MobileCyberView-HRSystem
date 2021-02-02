@@ -1,4 +1,9 @@
 {
     "jwtSecret": "ApplicationSecret",
-    "DbConnectionString": "mongodb://localhost/HRMS"
+    "DbConnectionString": "mongodb://localhost/HRMS",
+    "ApiRoute": "http://localhost:5000/api/",
+    "ApiTest": "http://localhost:5000/api/",
+    "Email": "cyberview.hrms@gmail.com",
+    "EmailPassword": "P@ss1234",
+    "EmailProvider": "gmail"
 }
