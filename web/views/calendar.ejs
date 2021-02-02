@@ -89,25 +89,19 @@
     <table class="table table-sortable">
       <thead>
         <tr>
-          <th>Name</th>
           <th>Activity Name</th>
           <th>Date</th>
           <th>Time</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Robert </td>
-          <td>Project Briefing</td>
-          <td>30/11/2020</td>
-          <td>10.00 a.m.</td>
-        </tr>
-        <tr>
-          <td>Jason </td>
-          <td>Project Meeting</td>
-          <td>31/11/2020</td>
-          <td>10.00 a.m.</td>
-        </tr>
+        <% for(var i=0; i < data.calendar.length; i++) { %>
+          <tr>
+            <td><%= data.calendar[i].activity %></td>
+            <td><%= data.calendar[i].date %></td>
+            <td><%= data.calendar[i].time %></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
   </div>
