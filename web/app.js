@@ -12,7 +12,7 @@ const cookieParser = require("cookie-parser");
 const uuid = require('uuid');
 const {getlogin, postlogin} = require("./controllers/loginController")
 const {getFeed, postFeed} = require("./controllers/homeController")
-const {getCalendar} = require("./controllers/calendarController")
+const {getCalendar,approveLeave,denyLeave} = require("./controllers/calendarController")
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -36,8 +36,10 @@ app.post('/login', postlogin);
 app.get('/home', getFeed);
 app.post('/home', postFeed);
 
-app.get('/calendar', getCalendar);
 
+app.get('/calendar', getCalendar);
+app.post('/approveLeave', approveLeave);
+app.post('/denyLeave', denyLeave);
 //employee routes
 app.get('/employee', (req, res) => {
     res.render('employee')

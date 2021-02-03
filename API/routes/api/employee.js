@@ -14,7 +14,7 @@ const { medicalLeavePut, medicalLeaveGet, medicalLeaveGetById, medicalLeaveDelet
         medicalPlanGet, medicalPlanGetById, 
         clinicListGet, clinicListGetById,  
         insuranceCoverageGet, insuranceCoverageGetById } = require("../../app/controllers/api/medicalPortalController");
-const {getCalendar, postCalendar, putCalendar, deleteCalendar} = require("../../app/controllers/api/calendarController")
+const {getCalendar, postCalendar, putCalendar, deleteCalendar, getAllCalendar} = require("../../app/controllers/api/calendarController")
 // Middleware
 const { auth, adminOnly } = require("../../app/middlewares/auth");
 
@@ -38,6 +38,7 @@ router.post("/clientcontract", auth, clientContractPost);
 
 //calendar route
 router.get("/calendar", auth, getCalendar)
+router.get("/allcalendar", auth, getAllCalendar)
 router.post("/calendar", auth, postCalendar)
 router.put("/calendar", auth, putCalendar)
 router.delete("/calendar", auth, deleteCalendar)
