@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const config = require('config');
 
 const leaveApplicationSchema = new mongoose.Schema({
     from: {
@@ -17,10 +18,22 @@ const leaveApplicationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    name:{
+        type: String,
+        required: true
+    },
+    approved: {
+        type: String,
+        required: true,
+        default: "Pending"
+    },
     createdAt: {
         type: Date,
-        required: true
-    }
+        default: Date.now()
+    },
+    image: {
+        type: Buffer
+    },
 });
 
-module.exports = mongoose.model("LeaveApplication", leaveApplicationSchema);
+module.exports = mongoose.model("Leave", leaveApplicationSchema);

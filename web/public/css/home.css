@@ -45,12 +45,11 @@ body {
 .grid-container {
   display: grid;
   grid-gap: 50px;
-  padding: 10px;
+  padding: 40px;
 }
 
-.content-table {
+.table {
   border-collapse: collapse;
-  margin: 0 40px 0 40px;
   font-size: 1.2em;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
@@ -58,28 +57,13 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.content-table thead tr {
+.table thead tr th {
   background-color: #3cd45d;
   color: white;
-  text-align: left;
-  font-weight: bold;
+  text-align: center !important;
 }
-
-.content-table th,
-.content-table td {
-  padding: 12px 15px;
-}
-
-.content-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
-
-.content-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-.content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #3cd45d;
+.table tr td {
+  text-align: center !important;
 }
 h1 {
   margin-left: 40px;

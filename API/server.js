@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const connectToMongoDB = require("./config/db");
-const { makeAttendanceCode, randomString } = require("./app/helpers/common")
-
+const { makeAttendanceCode, randomString, leaveDays } = require("./app/helpers/common")
+var LeaveDays = require("./app/models/leaveDays")
+const User = require("./app/models/User");
+const calendar = require("./app/models/calendar");
 // Accept incoming request
 app.use(express.json({ extended: false }));
 
@@ -22,6 +24,28 @@ app.listen(port, () => console.log(`Server running on port: ` + port));
 
 
 makeAttendanceCode(randomString(5).toUpperCase());
+var ld = leaveDays()
+if(ld){
+    try {
+        User.find({}, function(err, values) {
+            LeaveDays.remove({}, function(err) { 
+                console.log('collection removed') 
+             });
+
+            values.forEach(function(value) {
+                var leaveDay = new LeaveDays({
+                    userid: value._id,
+                    name: value.name                   
+                });
+                leaveDay.save()
+            });
+        }); 
+
+    } catch (err) {
+        console.error(err.message);
+    }
+}
 setInterval(function () {
+    leaveDays()
     makeAttendanceCode(randomString(5).toUpperCase());
 }, 21600000);

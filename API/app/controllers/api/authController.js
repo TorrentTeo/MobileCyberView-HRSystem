@@ -156,13 +156,14 @@ exports.login = async (req, res) => {
                 id: user._id,
                 name: user.name,
                 email: user.email,
+                role: user.role
             },
         };
 
         jwt.sign(
             payload,
             config.get("jwtSecret"),
-            { expiresIn: 7200 },
+            { expiresIn: 720000000 },
             (err, token) => {
                 if (err) throw err;
 

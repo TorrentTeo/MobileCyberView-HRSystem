@@ -10,7 +10,7 @@ exports.dashboard = async (req, res, next) => {
 
 exports.attendance = async (req, res, next) =>
 {
-    const { code } = req.body;
+    const { code, longitude, latitude } = req.body;
     try {
         let hasCode = await AttendanceCode.findOne({ code: code });
 
@@ -25,13 +25,15 @@ exports.attendance = async (req, res, next) =>
         if(expired)
             return res.status(422).json(validation({ msg: "Code has expired" }));
         
-
         let newAttendance = new AttendanceMarking({
             name: req.user.name,
             userid: req.user.id,
             email: req.user.email,
-            valid: true
+            valid: true, 
+            longitude:longitude,
+            latitude: latitude  
         });
+        
         console.log(newAttendance);
         console.log(req.user);
         await newAttendance.save();
@@ -74,6 +76,23 @@ exports.getAttendanceCode = async (req, res, next) =>
                 res.statusCode
             )
         );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+};
+
+exports.getAllAttendance = async (req, res, next) =>
+{
+    try {
+        await AttendanceMarking.find({}, function(err, values) {
+            var attendance = {};
+       
+            values.forEach(function(value) {
+                attendance[value._id] = value;
+            });
+            res.status(201).json(success("Code Retrived",{attendance},res.statusCode))
+          });    
     } catch (err) {
         console.error(err.message);
         res.status(500).json(error("Server error", res.statusCode));

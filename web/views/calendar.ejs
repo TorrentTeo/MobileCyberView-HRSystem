@@ -1,0 +1,134 @@
+<div class="topnav">
+  <img class=logo-img src="img/cyberview.png" alt="AVATAR">
+  <a href="http://localhost:3000/home">Home</a>
+  <a href="http://localhost:3000/employee">Employee</a>
+  <a href="http://localhost:3000/attendance">Attendance</a>
+  <a href="http://localhost:3000/benefit">Benefit</a>
+  <a class="active" href="http://localhost:3000/calendar">Calendar</a>
+  <a href="http://localhost:3000/medical">Medical Portal</a>
+  <a href="http://localhost:3000/contracts">Contracts</a>
+  <a href="http://localhost:3000/feedback">Feedback</a>
+  <a href="http://localhost:3000/rewards">Rewards</a>
+  <a href="logout">Log Out</a>
+</div>
+
+<div class="grid-container">
+  <div>
+    <div>
+      <hr>
+      <h1>Leaves</h1>
+      <button class="button button1">Add</button>
+      <button class="button button2">Edit</button>
+      <br></br>
+    </div>
+
+    <table class="table table-sortable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Expiry Date</th>
+          <th>Number of Leaves</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i < data.leaveDays.length; i++) { %>
+          <tr>
+            <td><%= data.leaveDays[i].name %></td>
+            <td><%= data.leaveDays[i].expiryDate %></td>
+            <td><%= data.leaveDays[i].numberOfLeaves %></td>
+            <td><%= data.leaveDays[i].status %></td>
+          </tr>
+       <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <div>
+      <hr>
+      <h1>Leave Requests</h1>
+      <br>
+    </div>
+    <table class="table table-sortable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Request date</th>
+          <th>Number of Days</th>
+          <th>Status</th>
+          <th>MC</th>
+          <th>Approve/Deny</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i < data.leaveRequests.length; i++) { %>
+          <tr>
+            <td><%= data.leaveRequests[i].name %></td>
+            <td><%= data.leaveRequests[i].requestDate %></td>
+            <td><%= data.leaveRequests[i].numberOfDays %></td>
+            <td><%= data.leaveRequests[i].status %></td>
+            <td><%= data.leaveRequests[i].mc %></td>
+            <% if (data.leaveRequests[i].status === "Pending") {%>
+              <td> 
+                <div class="container-fluid">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <form action="/approveLeave" method="post">
+                          <input type="text" name="id" value="<%= data.leaveRequests[i].id %>" hidden>
+                          <input type="text" name="days" value="<%= data.leaveRequests[i].numberOfDays %>" hidden>
+                          <input type="text" name="userid" value="<%= data.leaveRequests[i].userid %>" hidden>
+                          <button class="button button3" type="submit">Approve</button> 
+                        </form>
+                      </div>
+                      <div class="col-sm">
+                        <form action="/denyLeave" method="post">
+                          <input type="text" name="id" value="<%= data.leaveRequests[i].id  %>"hidden>
+                          <button class="button button3" type="submit">Deny</button> 
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </td>
+            <% }else{%> 
+              <td> 
+                Action Already Taken
+            </td>            
+              <%} %> 
+          </tr>
+       <% } %>
+      </tbody>
+    </table>
+  </div>
+  <hr>
+  <div>
+    <div>
+      <h1>Activities</h1>
+      <button class="button button1">Add</button>
+      <button class="button button2">Edit</button>
+      <br></br>
+    </div>
+
+    <table class="table table-sortable">
+      <thead>
+        <tr>
+          <th>Activity Name</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i < data.calendar.length; i++) { %>
+          <tr>
+            <td><%= data.calendar[i].activity %></td>
+            <td><%= data.calendar[i].date %></td>
+            <td><%= data.calendar[i].time %></td>
+          </tr>
+       <% } %>
+      </tbody>
+    </table>
+    <hr>
+  </div>
+</div>
