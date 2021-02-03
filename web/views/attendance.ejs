@@ -17,10 +17,7 @@
     <h1>Attendance</h1>
 
     <div class="dropdown">
-      <button class="button button1">Generate Code</button>
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        Filter by.... <span class="caret"></span>
-      </button>
+      <button type="button" class="button button1" id="generateAttendanceCode" data-toggle="modal" data-target="#attendanceCodeModel">Generate Code</button>
       <ul class="dropdown-menu">
         <li><a href="#">Name</a></li>
         <li><a href="#">Date</a></li>
@@ -43,27 +40,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>L</td>
-          <td>12-12-2020</td>
-          <td>12</td>
-          <td>12.0035</td>
-          <td>13.55563</td>
-          <td>20</td>
-          <td>8</td>
-          <td>N/A</td>
-        </tr>
-        <tr>
-          <td>D</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <% for(var i=0; i < data.attendance.length; i++) { %>
+          <tr>
+            <td><%= data.attendance[i].name %></td>
+            <td><%= data.attendance[i].date %></td>
+            <td><%= data.attendance[i].timein %></td>
+            <td><%= data.attendance[i].longitude %></td>
+            <td><%= data.attendance[i].latitude %></td>
+            <td><%= data.attendance[i].timeout %></td>
+            <td><%= data.attendance[i].timing %></td>
+            <td><%= data.attendance[i].mc %></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
   </div>
 </div>
+<%- include('partials/generateAttendanceCode') %>

@@ -13,6 +13,7 @@ const uuid = require('uuid');
 const {getlogin, postlogin} = require("./controllers/loginController")
 const {getFeed, postFeed} = require("./controllers/homeController")
 const {getCalendar,approveLeave,denyLeave} = require("./controllers/calendarController")
+const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -45,9 +46,9 @@ app.get('/employee', (req, res) => {
     res.render('employee')
 })
 
-app.get('/attendance', (req, res) => {
-    res.render('attendance')
-})
+app.get('/attendance', getAttendance)
+
+app.get('/attendanceCode', getAttendanceCode)
 
 app.get('/benefit', (req, res) => {
     res.render('benefit')

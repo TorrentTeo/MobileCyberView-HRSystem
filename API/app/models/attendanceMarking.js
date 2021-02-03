@@ -19,9 +19,27 @@ const AttendanceMarkingSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 255,
   },
+  longitude: {
+    type: String,
+    required: true,
+  },
+  latitude: {
+    type: String,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),
+  },
+  timeOut: {
+    type: Date
+  },
+  timing: {
+    type: String,
+    default: "",
+  },
+  mc: {
+    type: Buffer
   },
   valid: {
     type: Boolean,
