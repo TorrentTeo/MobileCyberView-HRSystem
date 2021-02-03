@@ -31,6 +31,23 @@ exports.getCalendar = async (req, res,next) => {
     }
 }
 
+exports.getAllCalendar = async (req, res,next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty())
+        return res.status(422).json(validation(errors.array()));
+    try {
+        await Calendar.find({}, function(err, values) {
+            var calendar = {};   
+            values.forEach(function(value) {
+                calendar[value._id] = value;
+            });
+            res.status(201).json(success("Code Retrived",{calendar},res.statusCode))
+          });   
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+}
 exports.postCalendar = async (req,res,next)=> {
     const errors = validationResult(req);
     if (!errors.isEmpty())
