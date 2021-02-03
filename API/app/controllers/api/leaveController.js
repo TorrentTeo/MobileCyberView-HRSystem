@@ -4,6 +4,8 @@ const Verification = require("../../models/Verification");
 const config = require('config');
 const { validationResult } = require("express-validator");
 const Leave = require("../../models/leaveApplication");
+const LeaveDays = require("../../models/leaveDays");
+const leaveDays = require("../../models/leaveDays");
 
 
 exports.getLeave = async (req, res, next) => {
@@ -96,8 +98,18 @@ exports.approveLeave = async (req,res,next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty())
         return res.status(422).json(validation(errors.array()));
-    const { id } = req.body;
-    await Leave.findByIdAndUpdate(id,{"approved": true}, function(err, result){
+    const { id, days, userid } = req.body;
+    console.log(id)
+    var leaveDaysForUser = await leaveDays.findOne({userid: userid})
+    console.log(leaveDaysForUser)
+    var leaveDaysLeft = parseInt(leaveDaysForUser.numberOfLeaves) - parseInt(days);
+    console.log(leaveDaysLeft)
+    var leaveDaysForUser = await leaveDays.findOneAndUpdate({userid: userid}, {numberOfLeaves: leaveDaysLeft.toString()})
+    if(leaveDaysForUser <= 0){
+        res.status(422).json(error("Error Updating Record", "No Leave days left", res.statusCode));
+    }
+
+    await Leave.findByIdAndUpdate(id,{"approved": "Approved"}, function(err, result){
         if(err){
             res.status(422).json(error("Error Updating Record", err, res.statusCode));
         }
@@ -105,4 +117,38 @@ exports.approveLeave = async (req,res,next) => {
             res.status(201).json(success("Successfully Updated Record",null,res.statusCode));
         } 
     });
+}
+
+exports.denyLeave = async (req,res,next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty())
+        return res.status(422).json(validation(errors.array()));
+    const { id } = req.body;
+    console.log(id)
+    await Leave.findByIdAndUpdate(id,{"approved": "Denied"}, function(err, result){
+        if(err){
+            res.status(422).json(error("Error Updating Record", err, res.statusCode));
+        }
+        else{
+            res.status(201).json(success("Successfully Updated Record",null,res.statusCode));
+        } 
+    });
+}
+
+exports.getAllLeaveDays = async (req,res,next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty())
+        return res.status(422).json(validation(errors.array()));
+    try {
+        await LeaveDays.find({}, function(err, values) {
+            var leaveDays = {};   
+            values.forEach(function(value) {
+                leaveDays[value._id] = value;
+            });
+            res.status(201).json(success("Code Retrived",{leaveDays},res.statusCode))
+          });   
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
 }

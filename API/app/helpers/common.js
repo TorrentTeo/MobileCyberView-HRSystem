@@ -55,3 +55,16 @@ transporter.sendMail(mailOptions, function(error, info){
 });
 
 }
+
+exports.leaveDays = function (){
+  var d = new Date(new Date().getFullYear(), 0, 1);
+  var today = isToday(d);
+  return today;
+}
+
+const isToday = (someDate) => {
+  const today = new Date();
+  return someDate.getDate() == today.getDate() &&
+      someDate.getMonth() == today.getMonth() &&
+      someDate.getFullYear() == today.getFullYear();
+}
