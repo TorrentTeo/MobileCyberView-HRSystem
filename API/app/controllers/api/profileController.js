@@ -4,7 +4,7 @@ const { success, error, validation } = require("../../helpers/responseApi");
 
 
 exports.profilePost = async (req, res) => {
-    const { category, description, date, createdAt, toWho } = req.body;
+    let { category, description, date, createdAt, toWho } = req.body;
     try {
             let newEntry = new Profile({
                 category,

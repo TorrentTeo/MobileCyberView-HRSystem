@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { dashboard, attendance, getAttendanceCode } = require("../../app/controllers/api/employeeController");
+const { dashboard, attendance, getAttendanceCode, getAllAttendance } = require("../../app/controllers/api/employeeController");
+const { getAllLeave, getLeave, postLeave, putLeave, deleteLeave } = require("../../app/controllers/api/leaveController");
 
 // Controllers
 const { getAuthenticatedUser } = require("../../app/controllers/api/employeeController");
@@ -20,6 +21,7 @@ const { auth, adminOnly } = require("../../app/middlewares/auth");
 router.get("/", auth, dashboard);
 router.post("/Attendance", auth, attendance);
 router.get("/Attendance", auth, getAttendanceCode);
+router.get("/AllAttendance", auth, adminOnly, getAllAttendance)
 
 //feedback routes
 router.post("/feedback", auth, feedbackPost);
@@ -67,8 +69,8 @@ router.delete("/insuranceCoverage/:_id", auth, adminOnly, insuranceCoverageDelet
 //end of medical portal routes
 
 //leave Route
-//router.post("/leave", auth)
-//router.get("/leave", auth, )
+router.get("/allleave", auth,adminOnly, getAllLeave)
+// router.get("/leave", auth, )
 
 
 module.exports = router;
