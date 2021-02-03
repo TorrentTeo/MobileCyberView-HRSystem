@@ -40,17 +40,16 @@ body {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  margin-left: 40px;
 }
 
 .grid-container {
   display: grid;
   grid-gap: 10px;
-  padding: 10px;
+  padding: 40px;
 }
 
 h1 {
-  /* margin-left: 40px; */
+  margin-bottom: 20px;
   font-weight: bold;
   font-size: 30px;
 }
@@ -62,6 +61,7 @@ h1 {
 .button5,
 .button6 {
   background-color: #3cd45d;
+  margin-right: 20px;
 }
 
 .logo-img {
