@@ -69,7 +69,7 @@ exports.getCalendar = async (req, res) => {
         console.log(error)
         return error;
     })  
-    res.render('calendar', {data: {leaveRequests: newLeaveRequests, calendar: newCalendarRequests, leaveDays: newAllLeaveDays }})
+    return res.render('calendar', {data: {leaveRequests: newLeaveRequests, calendar: newCalendarRequests, leaveDays: newAllLeaveDays }})
 }
 
 exports.approveLeave = async (req, res) => {   
