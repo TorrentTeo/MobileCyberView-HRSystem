@@ -13,6 +13,7 @@ const uuid = require('uuid');
 const {getlogin, postlogin} = require("./controllers/loginController")
 const {getFeed, postFeed} = require("./controllers/homeController")
 const {getMedical} = require("./controllers/medicalController")
+const {getReward} = require("./controllers/rewardsController")
 const {getCalendar,approveLeave,denyLeave} = require("./controllers/calendarController")
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
@@ -66,9 +67,7 @@ app.get('/feedback', (req, res) => {
     res.render('feedback')
 })
 
-app.get('/rewards', (req, res) => {
-    res.render('rewards')
-})
+app.get('/rewards', getReward)
 
 
 //listen on port

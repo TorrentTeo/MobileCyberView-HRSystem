@@ -26,20 +26,21 @@
         <tr>
           <th>Reward Name</th>
           <th>Description</th>
-          <th>Available</th>
+          <th>Start From</th>
+          <th>Expiring At</th>
+          <th>Available for ...</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Free Lunch (Your Choice)</td>
-          <td>You get to claim...</td>
-          <td>List</td>
-        </tr>
-        <tr>
-          <td>Festival Night Ticket</td>
-          <td>You get to go....</td>
-          <td>List</td>
-        </tr>
+        <% for(var i=0; i < data.reward.length; i++) { %>
+          <tr>
+            <td><%= data.reward[i].name %></td>
+            <td><%= data.reward[i].description %></td>
+            <td><%= data.reward[i].validFrom %></td>
+            <td><%= data.reward[i].expiryDate %></td>
+            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.reward[i].namelist %>">Name List</a></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
   </div>

@@ -81,7 +81,8 @@
       <thead>
         <tr>
           <th>Clinic</th>
-          <th>Location</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
           <th>Available For ...</th>
         </tr>
       </thead>
@@ -89,7 +90,8 @@
         <% for(var i=0; i < data.clinicList.length; i++) { %>
           <tr>
             <td><%= data.clinicList[i].clinicName %></td>
-            <td><%= data.clinicList[i].location %></td>
+            <td><%= data.clinicList[i].latitude %></td>
+            <td><%= data.clinicList[i].longitude %></td>
             <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.clinicList[i].name %>">Name List</a></td>
           </tr>
        <% } %>
