@@ -489,3 +489,7 @@ table td {
 table .absorbing-column {
   width: 100%;
 }
+
+h1{
+  text-align: center;
+}

@@ -1,0 +1,17 @@
+.navpage {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 0 10px 0 10px;
+  background-color: #3cd45d;
+  width: 40px;
+  border-radius: 10px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+}
+
+.navpage:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}

@@ -11,6 +11,33 @@
         modal.find('.modal-body input').val(recipient)
       })
 
+      $('#attendanceCodeModel').on('show.bs.modal', async (event) =>  {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        const res = await getData('/attendanceCode');
+        console.log(res)
+        $("#attendanceCode").text(res.leaveRequests[0].code);
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+      });
+
+      async function test() {
+        try {
+          const res = await getData('https://api.icndb.com/jokes/random')
+          console.log(res)
+        } catch(err) {
+          console.log(err);
+        }
+      }
+      function getData(ajaxurl) { 
+        return $.ajax({
+          url: ajaxurl,
+          type: 'GET',
+        });
+      };
     /*==================================================================
     [ Focus input ]*/
     $('.input100').each(function(){

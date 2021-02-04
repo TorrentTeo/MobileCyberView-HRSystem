@@ -45,7 +45,7 @@ body {
 .grid-container {
   display: grid;
   grid-gap: 50px;
-  padding: 10px;
+  padding: 40px;
 }
 
 .table {
@@ -55,17 +55,16 @@ body {
   overflow: hidden;
   width: -webkit-fill-available;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  
-} 
+}
 
 .table thead tr th {
   background-color: #3cd45d;
-  color:white;
+  color: white;
   text-align: center !important;
-}  
+}
 .table tr td {
   text-align: center !important;
-} 
+}
 h1 {
   margin-left: 40px;
   font-weight: bold;

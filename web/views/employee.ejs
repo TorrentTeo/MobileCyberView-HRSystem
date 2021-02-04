@@ -9,7 +9,7 @@
   <a href="http://localhost:3000/contracts">Contracts</a>
   <a href="http://localhost:3000/feedback">Feedback</a>
   <a href="http://localhost:3000/rewards">Rewards</a>
-  <a href="http://localhost:3000/login">Log Out</a>
+  <a href="http://localhost:3000">Log Out</a>
 </div>
 <div class="grid-container">
   <div>
@@ -18,18 +18,14 @@
     <div class="dropdown">
       <button class="button button1">Add</button>
       <button class="button button2">Edit</button>
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        Filter by.... <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Name</a></li>
-        <li><a href="#">Date</a></li>
-        <li><a href="#">Timing</a></li>
-      </ul>
+      <form action="" class="search-form">
+        <input type="search" id="search" name="search" class="search-input" />
+        <i class="fa fa-search"></i>
+      </form>
     </div>
     <br />
 
-    <table class="table table-sortable">
+    <table class="table table-sortable" id="pagination">
       <thead>
         <tr>
           <th>Name</th>
@@ -40,7 +36,7 @@
           <th>Reviews</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body">
         <tr>
           <td>Larry</td>
           <td>nothing</td>
@@ -97,6 +93,38 @@
           <td></td>
           <td></td>
         </tr>
+        <tr>
+          <td>Hideki</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Hideki</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Hideki</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Hideki</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -108,18 +136,14 @@
     <div class="dropdown">
       <button class="button button1">Add</button>
       <button class="button button2">Edit</button>
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        Filter by.... <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Name</a></li>
-        <li><a href="#">Date</a></li>
-        <li><a href="#">Timing</a></li>
-      </ul>
+      <form action="" class="search-form">
+        <input type="search" id="search2" name="search2" class="search-input" />
+        <i class="fa fa-search"></i>
+      </form>
     </div>
     <br />
 
-    <table class="table table-sortable">
+    <table class="table table-sortable" id="pagination2">
       <thead>
         <tr>
           <th>Name</th>
@@ -129,7 +153,7 @@
           <th>Joined Date</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body2">
         <tr>
           <td>L</td>
           <td>0111</td>
