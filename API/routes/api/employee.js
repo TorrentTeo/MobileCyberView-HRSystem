@@ -3,7 +3,7 @@ const { dashboard, attendance, getAttendanceCode } = require("../../app/controll
 
 // Controllers
 const { getAuthenticatedUser } = require("../../app/controllers/api/employeeController");
-const { feedbackPost } = require("../../app/controllers/api/feedbackController");
+const { postFeedback } = require("../../app/controllers/api/feedbackController");
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
 const { profilePost, profileGet, profileGetById, profilePut, profileDelete } = require("../../app/controllers/api/profileController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
@@ -25,7 +25,7 @@ router.post("/Attendance", auth, attendance);
 router.get("/Attendance", auth, getAttendanceCode);
 
 //feedback routes
-router.post("/feedback", auth, feedbackPost);
+router.post("/feedback", auth, postFeedback);
 //router.get("/feedback", auth, feedbackGet);
 //router.put("/feedback", auth, feedbackPut);
 //router.delete("/feedback", auth, feedbackDelete);
