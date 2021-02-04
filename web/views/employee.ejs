@@ -29,102 +29,30 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Achievement</th>
-          <th>Training</th>
-          <th>Skills</th>
-          <th>Education</th>
-          <th>Reviews</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Date</th>
+
         </tr>
       </thead>
       <tbody id="table_body">
-        <tr>
-          <td>Larry</td>
-          <td>nothing</td>
-          <td>1 month</td>
-          <td>Video Editing</td>
-          <td>none</td>
-          <td>bad</td>
-        </tr>
-        <tr>
-          <td>Barry</td>
-          <td>s</td>
-          <td>d</td>
-          <td>s</td>
-          <td>l</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Torrent</td>
-          <td>s</td>
-          <td>d</td>
-          <td>s</td>
-          <td>l</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Leonard</td>
-          <td>s</td>
-          <td>d</td>
-          <td>s</td>
-          <td>l</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Lee Re</td>
-          <td>s</td>
-          <td>d</td>
-          <td>s</td>
-          <td>l</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Andre</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Hideki</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Hideki</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Hideki</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Hideki</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Hideki</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <% for(var i=0; i < data.employeeProfile.length; i++) { %>
+          <tr>
+            <td>
+              <%= data.employeeProfile[i].name %>
+            </td>
+            <td>
+              <%= data.employeeProfile[i].category %>
+            </td>
+            <td>
+              <%= data.employeeProfile[i].description %>
+            </td>
+            <td>
+              <%= data.employeeProfile[i].date %>
+            </td>
+
+          </tr>
+          <% } %>
       </tbody>
     </table>
   </div>
@@ -154,34 +82,26 @@
         </tr>
       </thead>
       <tbody id="table_body2">
-        <tr>
-          <td>L</td>
-          <td>0111</td>
-          <td>re@name.com</td>
-          <td>02222</td>
-          <td>02-02-02</td>
-        </tr>
-        <tr>
-          <td>D</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>L</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>L</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <% for(var i=0; i < data.employeeResponse.length; i++) { %>
+          <tr>
+            <td>
+              <%= data.employeeResponse[i].name %>
+            </td>
+            <td>
+              <%= data.employeeResponse[i].contact %>
+            </td>
+            <td>
+              <%= data.employeeResponse[i].email %>
+            </td>
+            <td>
+              <%= data.employeeResponse[i].emergencyContact %>
+            </td>
+            <td>
+              <%= data.employeeResponse[i].joinedDate %>
+            </td>
+
+          </tr>
+          <% } %>
       </tbody>
     </table>
   </div>
