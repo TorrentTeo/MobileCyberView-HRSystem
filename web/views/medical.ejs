@@ -31,18 +31,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Medical Plan ABC</td>
-          <td>PDF</td>
-          <td>PDF</td>
-          <td>PDF</td>
-        </tr>
-        <tr>
-          <td>Medical Plan BBC</td>
-          <td>PDF</td>
-          <td>PDF</td>
-          <td>PDF</td>
-        </tr>
+        <% for(var i=0; i < data.medicalPlan.length; i++) { %>
+          <tr>
+            <td><%= data.medicalPlan[i].medicalPlanName %></td>
+            <td><%= data.medicalPlan[i].medicalCardFront %></td>
+            <td><%= data.medicalPlan[i].medicalCardBack %></td>
+            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.medicalPlan[i].name %>">Name List</a></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
   </div>
@@ -59,18 +55,15 @@
           <th>Description</th>
           <th>Date</th>
         </tr>
-      </thead>
+      </thead> 
       <tbody>
-        <tr>
-          <td>Robert</td>
-          <td>Food Poisoning</td>
-          <td>14/11/2020</td>
-        </tr>
-        <tr>
-          <td>Jason</td>
-          <td>Fever</td>
-          <td>12/12/2020</td>
-        </tr>
+        <% for(var i=0; i < data.medicalLeave.length; i++) { %>
+          <tr>
+            <td><%= data.medicalLeave[i].name %></td>
+            <td><%= data.medicalLeave[i].reason %></td>
+            <td><%= data.medicalLeave[i].date %></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
   </div>
@@ -88,18 +81,18 @@
       <thead>
         <tr>
           <th>Clinic</th>
-          <th>Latitude</th>
-          <th>Longitude</th>
+          <th>Location</th>
           <th>Available For ...</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Clinic ABC</td>
-          <td>2.9023</td>
-          <td>101.6530</td>
-          <td>List</td>
-        </tr>
+        <% for(var i=0; i < data.clinicList.length; i++) { %>
+          <tr>
+            <td><%= data.clinicList[i].clinicName %></td>
+            <td><%= data.clinicList[i].location %></td>
+            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.clinicList[i].name %>">Name List</a></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
   </div>
@@ -124,14 +117,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Vehicle</td>
-          <td>Sample</td>
-          <td>Nancy</td>
-          <td>012-3456789</td>
-          <td>List</td>
-        </tr>
+        <% for(var i=0; i < data.insuranceCoverage.length; i++) { %>
+          <tr>
+            <td><%= data.insuranceCoverage[i].typeofInsurance %></td>
+            <td><%= data.insuranceCoverage[i].description %></td>
+            <td><%= data.insuranceCoverage[i].contactPerson %></td>
+            <td><%= data.insuranceCoverage[i].contactNumber %></td>
+            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.insuranceCoverage[i].name %>">Name List</a></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
   </div>
 </div>
+<%- include('partials/medicalPlanList') %>

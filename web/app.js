@@ -13,6 +13,9 @@ const uuid = require('uuid');
 const {getlogin, postlogin} = require("./controllers/loginController")
 const {getFeed, postFeed} = require("./controllers/homeController")
 const {getCalendar} = require("./controllers/calendarController")
+const {getMedical} = require("./controllers/medicalController")
+
+
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -51,9 +54,8 @@ app.get('/benefit', (req, res) => {
     res.render('benefit')
 })
 
-app.get('/medical', (req, res) => {
-    res.render('medical')
-})
+app.get('/medical', getMedical)
+
 
 app.get('/contracts', (req, res) => {
     res.render('contracts')
