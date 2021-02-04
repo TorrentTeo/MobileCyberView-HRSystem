@@ -51,7 +51,6 @@
         })    
     })
   
-  
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
@@ -101,5 +100,8 @@
         $(thisAlert).removeClass('alert-validate');
     }
     
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();   
+      });
     
 })(jQuery);

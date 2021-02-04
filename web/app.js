@@ -12,6 +12,7 @@ const cookieParser = require("cookie-parser");
 const uuid = require('uuid');
 const {getlogin, postlogin} = require("./controllers/loginController")
 const {getFeed, postFeed} = require("./controllers/homeController")
+const {getMedical} = require("./controllers/medicalController")
 const {getCalendar,approveLeave,denyLeave} = require("./controllers/calendarController")
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
@@ -54,9 +55,8 @@ app.get('/benefit', (req, res) => {
     res.render('benefit')
 })
 
-app.get('/medical', (req, res) => {
-    res.render('medical')
-})
+app.get('/medical', getMedical)
+
 
 app.get('/contracts', (req, res) => {
     res.render('contracts')
