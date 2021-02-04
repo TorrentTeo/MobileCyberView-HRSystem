@@ -8,7 +8,6 @@ exports.getAttendanceCode = async (req, res) => {
     await axios.get("http://localhost:5000/api/admin/Attendance", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var leaveRequests = resData.results.hasCode;
-        console.log(leaveRequests)
         return res.status(200).json({leaveRequests});;
     }).catch((error) => {
         console.log(error)

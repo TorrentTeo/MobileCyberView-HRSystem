@@ -4,7 +4,7 @@ const { getAllLeave, getLeave, postLeave, putLeave, deleteLeave, denyLeave, appr
 
 // Controllers
 const { getAuthenticatedUser } = require("../../app/controllers/api/employeeController");
-const { feedbackPost } = require("../../app/controllers/api/feedbackController");
+const { postFeedback, getFeedback, getAllFeedback} = require("../../app/controllers/api/feedbackController");
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
 const { rewardPost, rewardGetAll, rewardPut, rewardDelete, } = require("../../app/controllers/api/rewardController");
@@ -28,8 +28,9 @@ router.get("/EmployeeProfile", auth, adminOnly, getProfile)
 
 
 //feedback routes
-router.post("/feedback", auth, feedbackPost);
-//router.get("/feedback", auth, feedbackGet);
+router.post("/feedback", auth, postFeedback);
+router.get("/feedback", auth, getFeedback);
+router.get("/allfeedback", auth, getAllFeedback);
 //router.put("/feedback", auth, feedbackPut);
 //router.delete("/feedback", auth, feedbackDelete);
 
