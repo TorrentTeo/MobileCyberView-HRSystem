@@ -16,6 +16,8 @@ const {getFeed, postFeed} = require("./controllers/homeController")
 const {getMedical} = require("./controllers/medicalController")
 const {getCalendar,approveLeave,denyLeave} = require("./controllers/calendarController")
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
+const {getEmployee, getProfile} = require("./controllers/employeeController")
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 const {getFeedback} = require("./controllers/feedbackController")
 app.use(session({name:'some_session',secret: 'lalala',resave: true,saveUninitialized: false,cookie: { maxAge: 365 * 24 * 60 * 60 * 1000 ,httpOnly: false}}));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,9 +49,12 @@ app.get('/calendar', auth , getCalendar);
 app.post('/approveLeave', auth , approveLeave);
 app.post('/denyLeave', auth , denyLeave);
 //employee routes
-app.get('/employee', (req, res) => {
-    res.render('employee')
-})
+
+
+app.get('/employee', getEmployee);
+
+
+
 
 app.get('/attendance', auth , getAttendance)
 
