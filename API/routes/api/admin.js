@@ -5,7 +5,7 @@ const { getAllLeave, getLeave, postLeave, putLeave, deleteLeave, denyLeave, appr
 // Controllers
 const { getAuthenticatedUser } = require("../../app/controllers/api/employeeController");
 const { postFeedback, getFeedback, getAllFeedback} = require("../../app/controllers/api/feedbackController");
-const { clientContractPost } = require("../../app/controllers/api/clientContractController");
+const { clientContractPost, getAllClientContracts } = require("../../app/controllers/api/clientContractController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
 const { rewardPost, rewardGetAll, rewardPut, rewardDelete, } = require("../../app/controllers/api/rewardController");
 const { accountGetById, accountGetAll, accountDelete } = require("../../app/controllers/api/accountController");
@@ -32,7 +32,7 @@ router.get("/allfeedback", auth, getAllFeedback);
 
 //clientroutes
 router.post("/clientcontract", auth, clientContractPost);
-//router.get("/clientcontract", auth, clientContractGet);
+router.get("/allclientcontract", auth, getAllClientContracts);
 //router.put("/clientcontract", auth, clientContractPut);
 //router.delete("/clientcontract", auth, clientContractDelete);
 

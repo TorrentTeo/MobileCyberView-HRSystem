@@ -16,6 +16,7 @@ const {getFeed, postFeed} = require("./controllers/homeController")
 const {getMedical} = require("./controllers/medicalController")
 const {getCalendar,approveLeave,denyLeave} = require("./controllers/calendarController")
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
+const {getClientContracts} = require("./controllers/contractsController")
 const {getFeedback} = require("./controllers/feedbackController")
 app.use(session({name:'some_session',secret: 'lalala',resave: true,saveUninitialized: false,cookie: { maxAge: 365 * 24 * 60 * 60 * 1000 ,httpOnly: false}}));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -62,9 +63,7 @@ app.get('/benefit', (req, res) => {
 app.get('/medical', getMedical)
 
 
-app.get('/contracts', (req, res) => {
-    res.render('contracts')
-})
+app.get('/contracts', getClientContracts)
 
 app.get('/feedback', auth, getFeedback)
 
