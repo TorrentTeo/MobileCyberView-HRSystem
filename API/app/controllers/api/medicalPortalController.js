@@ -204,12 +204,18 @@ exports.medicalPlanGetAll = async (req, res) => {
 exports.medicalPlanPost = async (req, res) => {
     const { medicalPlanName, medicalCardFront, medicalCardBack, userid } = req.body;
     try {
+            let username = [];
+            for (i = 0; i < userid.length; i++) {
+                var [user] = await User.find({_id: userid[i]})
+                username.push(user.name)
+              }
             let newEntry = new MedicalPlan({
                 medicalPlanName,
                 medicalCardFront,
                 medicalCardBack,
-                userid
-            })
+                userid,
+                name : username
+            }) 
             await newEntry.save();   
 
             res.status(201).json(success("New record added successfully!",
@@ -341,10 +347,16 @@ exports.clinicListGetAll = async (req, res) => {
 exports.clinicListPost = async (req, res) => {
     const { clinicName, location, userid } = req.body;
     try {
+            let username = [];
+            for (i = 0; i < userid.length; i++) {
+                var [user] = await User.find({_id: userid[i]})
+                username.push(user.name)
+              }
             let newEntry = new ClinicList({
                 clinicName,
                 location,
-                userid
+                userid,
+                name: username
             })
             await newEntry.save();   
 
@@ -476,12 +488,18 @@ exports.insuranceCoverageGetAll = async (req, res) => {
 exports.insuranceCoveragePost = async (req, res) => {
     const { typeofInsurance, description, contactPerson, contactNumber, userid } = req.body;
     try {
+            let username = [];
+            for (i = 0; i < userid.length; i++) {
+                var [user] = await User.find({_id: userid[i]})
+                username.push(user.name)
+              }
             let newEntry = new InsuranceCoverage({
                 typeofInsurance,
                 description,
                 contactPerson,
                 contactNumber,
-                userid
+                userid,
+                name: username
             })
             await newEntry.save();   
 
