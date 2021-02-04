@@ -14,6 +14,7 @@ const uuid = require('uuid');
 const {getlogin, postlogin,logout, auth} = require("./controllers/loginController")
 const {getFeed, postFeed} = require("./controllers/homeController")
 const {getMedical} = require("./controllers/medicalController")
+const {getReward} = require("./controllers/rewardsController")
 const {getCalendar,approveLeave,denyLeave} = require("./controllers/calendarController")
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
 const {getEmployee, getProfile} = require("./controllers/employeeController")
@@ -73,9 +74,7 @@ app.get('/contracts', (req, res) => {
 
 app.get('/feedback', auth, getFeedback)
 
-app.get('/rewards', (req, res) => {
-    res.render('rewards')
-})
+app.get('/rewards', getReward)
 
 
 //listen on port

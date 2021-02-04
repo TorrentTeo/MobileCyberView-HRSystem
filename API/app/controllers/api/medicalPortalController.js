@@ -345,7 +345,7 @@ exports.clinicListGetAll = async (req, res) => {
 };
 
 exports.clinicListPost = async (req, res) => {
-    const { clinicName, location, userid } = req.body;
+    const { clinicName, longitude, latitude, userid } = req.body;
     try {
             let username = [];
             for (i = 0; i < userid.length; i++) {
@@ -354,7 +354,8 @@ exports.clinicListPost = async (req, res) => {
               }
             let newEntry = new ClinicList({
                 clinicName,
-                location,
+                longitude,
+                latitude,
                 userid,
                 name: username
             })

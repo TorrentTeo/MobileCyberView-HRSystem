@@ -5,14 +5,20 @@ const { success, error, validation } = require("../../helpers/responseApi");
 
 
 exports.rewardPost = async (req, res) => {
-    const { name, description, validFrom, expiryDate } = req.body;
+    const { name, description, validFrom, expiryDate, userid } = req.body;
     try {
+            let username = [];
+            for (i = 0; i < userid.length; i++) {
+                var [user] = await User.find({_id: userid[i]})
+                username.push(user.name)
+              }
             let newEntry = new Reward({
                 name,
                 description,
                 validFrom,
                 expiryDate,
-                userid: req.user.id
+                userid,
+                namelist: username
             })
             await newEntry.save();   
 
