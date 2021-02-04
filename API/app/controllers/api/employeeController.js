@@ -3,6 +3,9 @@ const AttendanceCode = require("../../models/attendanceCode");
 const AttendanceMarking = require("../../models/attendanceMarking");
 const Verification = require("../../models/Verification");
 const config = require('config');
+const User = require("../../models/User");
+const Profile = require("../../models/profile");
+
 
 exports.dashboard = async (req, res, next) => {
     res.send('sup homies')
@@ -98,3 +101,41 @@ exports.getAllAttendance = async (req, res, next) =>
         res.status(500).json(error("Server error", res.statusCode));
     }
 };
+
+exports.getAllEmployee = async (req, res) => {
+
+    try {
+        await User.find({}, function(err, values) {
+            var user = {};
+       
+            values.forEach(function(value) {
+                user[value._id] = value;
+            });
+            res.status(201).json(success("Code Retrived",{user},res.statusCode))
+          });    
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+
+
+}
+
+exports.getProfile = async (req, res) => {
+
+    try {
+        await Profile.find({}, function(err, values) {
+            var profile = {};
+       
+            values.forEach(function(value) {
+                profile[value._id] = value;
+            });
+            res.status(201).json(success("Code Retrived",{profile},res.statusCode))
+          });    
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+
+
+}
