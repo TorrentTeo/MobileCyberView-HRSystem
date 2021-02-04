@@ -15,7 +15,10 @@
 <div class="grid-container">
   <div>
     <div>
+      <hr>
+      <br>
       <h1>Feedback</h1>
+      <br>
     </div>
 
     <table class="table table-sortable">
@@ -29,25 +32,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Work Environment</td>
-          <td>There is a....</td>
-          <td>Robert</td>
-          <td>28/11/2020</td>
-          <td>11.00 a.m.</td>
-        </tr>
-        <tr>
-          <td>Work Related Complain</td>
-          <td>There is a....</td>
-          <td>Robert</td>
-          <td>28/11/2020</td>
-          <td>11.00 a.m.</td>
-        </tr>
-        <td>Mobile Application</td>
-        <td>There is a....</td>
-        <td>Robert</td>
-        <td>28/11/2020</td>
-        <td>11.00 a.m.</td>
+        <% for(var i=0; i < data.feedbacks.length; i++) { %>
+          <tr>
+            <td><%= data.feedbacks[i].regarding %></td>
+            <td style="width: 700px;"><%= data.feedbacks[i].content %></td>
+            <td><%= data.feedbacks[i].name %></td>
+            <td><%= data.feedbacks[i].date %></td>
+            <td><%= data.feedbacks[i].time %></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
+    <hr>
   </div>

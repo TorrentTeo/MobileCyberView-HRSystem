@@ -1,4 +1,5 @@
 const axios = require('axios')
+const {get_cookies} = require("../common/cookieHelper")
 
 exports.getlogin = (req, res) => {
     res.render('login')
@@ -25,11 +26,32 @@ exports.postlogin = (req, res) => {
         sess.name = resData.results.user.name;
         sess.uid = resData.results.user.id;
         // set token on cookie
-        res.cookie('authcookie',token,{maxAge:900000,httpOnly:true}) 
+        res.cookie('authcookie',token,{ maxAge: 2 * 60 * 60 * 1000, httpOnly: true }) 
         res.redirect('/home');
     }).catch((error) => {
         console.log("error")
         console.error(error)
-        res.render('login')
+        res.redirect('/');
     })
 };
+
+exports.logout = (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+}
+
+exports.auth = async (req,res, next) => {
+    var data = req.body;
+    var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
+    await axios.get("http://localhost:5000/api/admin/Attendance", {headers: headers} ,data).then((response) => {
+        var resData = response.data;
+        console.log(resData)
+        if(response.data.message == 'Unauthorized'){
+            res.redirect('/');
+        }
+        next();
+    }).catch((error) => {
+        // console.log(error)
+        res.redirect('/');
+    })
+}
