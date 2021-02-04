@@ -16,8 +16,8 @@
   <div>
     <div>
       <h1>Rewards</h1>
-      <button class="button button1">Add</button>
-      <button class="button button2">Edit</button>
+      <button type="button" class="button button1" id="addreward" data-toggle="modal" data-target="#exampleModal">Add</button>
+      <button type="button" class="button button1" id="editreward" data-toggle="modal" data-target="#exampleModal1">Edit</button>
       <br></br>
     </div>
 
@@ -44,3 +44,6 @@
     </table>
   </div>
 </div>
+
+<%- include('partials/addReward') %>
+<%- include('partials/editReward') %>

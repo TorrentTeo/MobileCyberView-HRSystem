@@ -17,8 +17,8 @@
     <h1>Performance</h1>
 
     <div class="dropdown">
-      <button class="button button1">Add</button>
-      <button class="button button2">Edit</button>
+      <button type="button" class="button button1" id="addperformance" data-toggle="modal" data-target="#exampleModal">Add</button>
+      <button type="button" class="button button1" id="editperformance" data-toggle="modal" data-target="#exampleModal1">Edit</button>
       <form action="">
         <input type="search" id="search" name="search" />
         <i class="fa fa-search"></i>
@@ -135,8 +135,8 @@
     <h1>Personal Information</h1>
 
     <div class="dropdown">
-      <button class="button button1">Add</button>
-      <button class="button button2">Edit</button>
+      <button type="button" class="button button1" id="addinfo" data-toggle="modal" data-target="#exampleModal2">Add</button>
+      <button type="button" class="button button1" id="editinfo" data-toggle="modal" data-target="#exampleModal3">Edit</button>
       <form action="">
         <input type="search" id="search2" name="search2" />
         <i class="fa fa-search"></i>
@@ -187,3 +187,9 @@
     </table>
   </div>
 </div>
+
+<%- include('partials/addNewPerformance') %>
+<%- include('partials/editNewPerformance') %>
+<%- include('partials/addNewInfo') %>
+<%- include('partials/editInfo') %>
+
