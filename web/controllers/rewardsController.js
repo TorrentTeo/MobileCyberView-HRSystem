@@ -12,14 +12,15 @@ exports.getReward = async (req, res) => {
         var resData = response.data;
         var reward = resData.results.reward;
         for(key in reward){
-            var reward = {
-                name: reward[key].name,
-                description: reward[key].description,
+            var rewards = {
                 namelist: reward[key].namelist,
+                rewardName: reward[key].name,
+                description: reward[key].description,
                 validFrom: new Date(reward[key].validFrom).toDateString(),
-                expiryDate: new Date(reward[key].expiryDate).toDateString()             
+                expiryDate: new Date(reward[key].expiryDate).toDateString(),
+                valid: reward[key].valid            
             }
-            newReward.push(reward)
+            newReward.push(rewards)
         }
         
     }).catch((error) => {
@@ -28,4 +29,26 @@ exports.getReward = async (req, res) => {
     })
            return res.render('rewards', {data: {reward: newReward}})
 
+}
+
+exports.postReward = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/reward";
+    var {name, description, validFrom, expiryDate, userid}=  req.body
+    var data = {
+         name: name, 
+         description: description, 
+         validFrom: validFrom,
+         expiryDate: expiryDate,
+         userid: userid
+        } 
+    console.log(data)
+    var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
+    await axios.post(url, data, {headers: headers}).then((response) => {
+        var resData = response.data;
+        console.log(resData)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })       
+    return res.redirect('/rewards');
 }

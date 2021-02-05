@@ -23,8 +23,9 @@ router.post("/Attendance", auth, attendance);
 router.get("/Attendance", auth, getAttendanceCode);
 router.get("/AllAttendance", auth, adminOnly, getAllAttendance)
 
+// employee
 router.get("/AllEmployee", auth, adminOnly, getAllEmployee)
-router.get("/EmployeeProfile", auth, adminOnly, getProfile)
+router.get("/allEmployeeProfile", auth, adminOnly, getProfile)
 
 
 //feedback routes
