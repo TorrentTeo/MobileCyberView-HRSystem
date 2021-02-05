@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { dashboard, attendance, getAttendanceCode, getAllAttendance } = require("../../app/controllers/api/employeeController");
+const { dashboard, attendance, getAttendanceCode, getAllAttendance , getAllEmployee, getProfile} = require("../../app/controllers/api/employeeController");
 const { getAllLeave, getLeave, postLeave, putLeave, deleteLeave, denyLeave, approveLeave,getAllLeaveDays } = require("../../app/controllers/api/leaveController");
 const {getCalendar, postCalendar, putCalendar, deleteCalendar, getAllCalendar} = require("../../app/controllers/api/calendarController")
 
@@ -23,6 +23,11 @@ router.get("/", auth, dashboard);
 router.post("/Attendance", auth, attendance);
 router.get("/Attendance", auth, getAttendanceCode);
 router.get("/AllAttendance", auth, adminOnly, getAllAttendance)
+
+// employee
+router.get("/AllEmployee", auth, adminOnly, getAllEmployee)
+router.get("/allEmployeeProfile", auth, adminOnly, getProfile)
+
 
 //feedback routes
 router.post("/feedback", auth, postFeedback);

@@ -5,14 +5,14 @@ $(document).ready(function(){
     var numPages = rowsTotal/rowsShown;
     for(i = 0;i < numPages;i++) {
         var pageNum = i + 1;
-        $('#nav').append('<a href="#" rel="'+i+'" class="navpage">'+pageNum+'</a> ');
+        $('#nav').append('<button type="button" rel="'+i+'" class="navpage">'+pageNum+'</button> ');
     }
     $('#pagination tbody tr').hide();
     $('#pagination tbody tr').slice(0, rowsShown).show();
-    $('#nav a:first').addClass('active');
-    $('#nav a').bind('click', function(){
+    $('#nav button:first').addClass('active');
+    $('#nav button').bind('click', function(){
 
-        $('#nav a').removeClass('active');
+        $('#nav button').removeClass('active');
         $(this).addClass('active');
         var currPage = $(this).attr('rel');
         var startItem = currPage * rowsShown;
@@ -29,14 +29,14 @@ $(document).ready(function(){
     var numPages = rowsTotal/rowsShown;
     for(i = 0;i < numPages;i++) {
         var pageNum = i + 1;
-        $('#nav2').append('<a href="#" rel="'+i+'" class="navpage">'+pageNum+'</a> ');
+        $('#nav2').append('<button type="button" rel="'+i+'" class="navpage">'+pageNum+'</button> ');
     }
     $('#pagination2 tbody tr').hide();
     $('#pagination2 tbody tr').slice(0, rowsShown).show();
-    $('#nav2 a:first').addClass('active');
-    $('#nav2 a').bind('click', function(){
+    $('#nav2 button:first').addClass('active');
+    $('#nav2 button').bind('click', function(){
 
-        $('#nav2 a').removeClass('active');
+        $('#nav2 button').removeClass('active');
         $(this).addClass('active');
         var currPage = $(this).attr('rel');
         var startItem = currPage * rowsShown;

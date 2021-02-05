@@ -54,7 +54,8 @@ exports.getMedical = async (req, res) => {
         for(key in clinicList){
             var clinic = {
                 clinicName: clinicList[key].clinicName,
-                location: clinicList[key].location,
+                latitude: clinicList[key].latitude,
+                longitude: clinicList[key].longitude,
                 name: clinicList[key].name
             }
             newClinicList.push(clinic)

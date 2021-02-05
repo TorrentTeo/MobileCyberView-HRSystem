@@ -16,8 +16,8 @@
   <div>
     <div>
       <h1>Rewards</h1>
-      <button class="button button1">Add</button>
-      <button class="button button2">Edit</button>
+      <button type="button" class="button button1" id="addreward" data-toggle="modal" data-target="#exampleModal">Add</button>
+      <button type="button" class="button button1" id="editreward" data-toggle="modal" data-target="#exampleModal1">Edit</button>
       <br></br>
     </div>
 
@@ -26,21 +26,27 @@
         <tr>
           <th>Reward Name</th>
           <th>Description</th>
-          <th>Available</th>
+          <th>Start From</th>
+          <th>Expiring At</th>
+          <th>Available for ...</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Free Lunch (Your Choice)</td>
-          <td>You get to claim...</td>
-          <td>List</td>
-        </tr>
-        <tr>
-          <td>Festival Night Ticket</td>
-          <td>You get to go....</td>
-          <td>List</td>
-        </tr>
+        <% for(var i=0; i < data.reward.length; i++) { %>
+          <% if (data.reward[i].valid === true) {%>
+          <tr>
+            <td><%= data.reward[i].rewardName %></td>
+            <td><%= data.reward[i].description %></td>
+            <td><%= data.reward[i].validFrom %></td>
+            <td><%= data.reward[i].expiryDate %></td>
+            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.reward[i].namelist %>">Name List</a></td>
+          </tr>
+          <% } %>
+       <% } %>
       </tbody>
     </table>
   </div>
 </div>
+
+<%- include('partials/addReward') %>
+<%- include('partials/editReward') %>

@@ -14,10 +14,13 @@ const uuid = require('uuid');
 const {getlogin, postlogin,logout, auth} = require("./controllers/loginController")
 const {getFeed, postFeed} = require("./controllers/homeController")
 const {getMedical} = require("./controllers/medicalController")
+
 const {getCalendar,approveLeave,denyLeave,postActivities} = require("./controllers/calendarController")
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
 const {getClientContracts} = require("./controllers/contractsController")
+const {getReward} = require("./controllers/rewardsController")
 const {getFeedback} = require("./controllers/feedbackController")
+
 app.use(session({name:'some_session',secret: 'lalala',resave: true,saveUninitialized: false,cookie: { maxAge: 365 * 24 * 60 * 60 * 1000 ,httpOnly: false}}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -49,9 +52,12 @@ app.post('/activities', auth , postActivities);
 app.post('/approveLeave', auth , approveLeave);
 app.post('/denyLeave', auth , denyLeave);
 //employee routes
-app.get('/employee', (req, res) => {
-    res.render('employee')
-})
+
+
+app.get('/employee', getEmployee);
+
+
+
 
 app.get('/attendance', auth , getAttendance)
 
@@ -68,9 +74,7 @@ app.get('/contracts', getClientContracts)
 
 app.get('/feedback', auth, getFeedback)
 
-app.get('/rewards', (req, res) => {
-    res.render('rewards')
-})
+app.get('/rewards', getReward)
 
 
 //listen on port

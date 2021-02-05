@@ -7,10 +7,6 @@ const clinicListSchema = new mongoose.Schema({
         maxlength: 255,
         required: true
     },
-    location : [{
-        lat : String,
-        lng : String
-         }],
     userid:[{
         type: String,
         required: true
@@ -18,7 +14,15 @@ const clinicListSchema = new mongoose.Schema({
     name:[{
         type: String,
         required: true
-    }]
+    }],
+    longitude: {
+      type: String,
+      required: true,
+    },
+    latitude: {
+      type: String,
+      required: true,
+    }
 });
 
 module.exports = mongoose.model("ClinicList", clinicListSchema);
