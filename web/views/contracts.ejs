@@ -17,7 +17,15 @@
   <div>
     <div>
       <h1>Contracts</h1>
+      <div class="dropdown">
+        <form action="" class="search-form">
+          <input type="search" id="search_contract" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+      <br></br>
     </div>
+
 
     <table class="table table-sortable">
       <thead>
@@ -27,6 +35,22 @@
           <th>Terms/Agreement</th>
         </tr>
       </thead>
+
+      <tbody id="table_body_contract">
+        <tr>
+          <td>c0001</td>
+          <td>Business Contract</td>
+          <td>...</td>
+          <td>p0001</td>
+        </tr>
+
+        <tr>
+          <td>c0002/td>
+          <td>Business Contract</td>
+          <td>...</td>
+          <td>p0002</td>
+        </tr>
+
       <tbody>
         <% for(var i=0; i < data.contracts.length; i++) { %>
           <tr>
@@ -35,6 +59,7 @@
             <td><%= data.contracts[i].terms %></td>
           </tr>
        <% } %>
+
       </tbody>
     </table>
   </div>
@@ -42,6 +67,13 @@
   <div>
     <div>
       <h1>Parties</h1>
+      <div class="dropdown">
+        <form action="" class="search-form">
+          <input type="search" id="search_parties" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+      <br></br>
     </div>
 
     <table class="table table-sortable">
@@ -52,6 +84,21 @@
           <th>Contact_id</th>
         </tr>
       </thead>
+
+      <tbody id="table_body_parties">
+        <tr>
+          <td>p0001</td>
+          <td>L</td>
+          <td>D</td>
+          <td>c0001</td>
+        </tr>
+        <tr>
+          <td>p0002/td>
+          <td>P/td>
+          <td>S</td>
+          <td>c0002</td>
+        </tr>
+
       <tbody>
         <% for(var i=0; i < data.contracts.length; i++) { %>
           <tr>
@@ -60,6 +107,7 @@
             <td><%= data.contracts[i].contractid %></td>
           </tr>
        <% } %>
+
       </tbody>
     </table>
   </div>
