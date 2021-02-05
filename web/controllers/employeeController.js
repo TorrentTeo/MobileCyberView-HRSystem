@@ -19,7 +19,8 @@ exports.getEmployee = async (req, res) => {
                     email: employeeResponse[key].email,
                     contact: employeeResponse[key].contact,
                     emergencyContact: employeeResponse[key].emergencyContact,
-                    joinedDate: new Date (employeeResponse[key].createdAt).toDateString()
+                    joinedDate: new Date (employeeResponse[key].createdAt).toDateString(),
+                    emergencyContact: employeeResponse[key].emergencyContact
                 }
             
             
@@ -34,7 +35,7 @@ exports.getEmployee = async (req, res) => {
     })
     var newProfileData = [];
 
-    await axios.get("http://localhost:5000/api/admin/EmployeeProfile", {headers: headers} , data).then((response) => {
+    await axios.get("http://localhost:5000/api/admin/allEmployeeProfile", {headers: headers} , data).then((response) => {
     var resData = response.data;
     var employeeProfile = resData.results.profile;
 
@@ -45,7 +46,8 @@ exports.getEmployee = async (req, res) => {
             name: employeeProfile[key].name,
             category: employeeProfile[key].category,
             description: employeeProfile[key].description,
-            date: new Date (employeeProfile[key].date).toDateString()
+            date: new Date (employeeProfile[key].date).toDateString(),
+            writtenBy: employeeProfile[key].writtenBy
         }
     
     

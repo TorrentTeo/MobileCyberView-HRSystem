@@ -16,6 +16,10 @@
     <h1>Performance</h1>
 
     <div class="dropdown">
+      <button type="button" class="button button1" id="addperformance" data-toggle="modal" data-target="#exampleModal">Add</button>
+      <button type="button" class="button button1" id="editperformance" data-toggle="modal" data-target="#exampleModal1">Edit</button>
+      <form action="">
+        <input type="search" id="search" name="search" />
       <button class="button button1">Add</button>
       <button class="button button2">Edit</button>
       <form action="" class="search-form">
@@ -32,7 +36,7 @@
           <th>Category</th>
           <th>Description</th>
           <th>Date</th>
-
+          <th>Written By</th>
         </tr>
       </thead>
       <tbody id="table_body_p">
@@ -50,6 +54,9 @@
             <td>
               <%= data.employeeProfile[i].date %>
             </td>
+            <td>
+              <%= data.employeeProfile[i].writtenBy %>
+            </td>
 
           </tr>
           <% } %>
@@ -62,6 +69,11 @@
     <h1>Personal Information</h1>
 
     <div class="dropdown">
+      <button type="button" class="button button1" id="addinfo" data-toggle="modal" data-target="#exampleModal2">Add</button>
+      <button type="button" class="button button1" id="editinfo" data-toggle="modal" data-target="#exampleModal3">Edit</button>
+      <form action="">
+        <input type="search" id="search2" name="search2" />
+
       <button class="button button1">Add</button>
       <button class="button button2">Edit</button>
       <form action="" class="search-form">
@@ -105,4 +117,12 @@
       </tbody>
     </table>
   </div>
+</div>
+
+<%- include('partials/addNewPerformance') %>
+<%- include('partials/editNewPerformance') %>
+<%- include('partials/addNewInfo') %>
+<%- include('partials/editInfo') %>
+
+
 </div>
