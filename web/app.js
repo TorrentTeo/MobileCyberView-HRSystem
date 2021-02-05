@@ -14,7 +14,7 @@ const uuid = require('uuid');
 const {getlogin, postlogin,logout, auth} = require("./controllers/loginController")
 const {getFeed, postFeed} = require("./controllers/homeController")
 const {getMedical} = require("./controllers/medicalController")
-const {getCalendar,approveLeave,denyLeave} = require("./controllers/calendarController")
+const {getCalendar,approveLeave,denyLeave,postActivities} = require("./controllers/calendarController")
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
 const {getClientContracts} = require("./controllers/contractsController")
 const {getFeedback} = require("./controllers/feedbackController")
@@ -45,6 +45,7 @@ app.post('/home', auth ,postFeed);
 
 
 app.get('/calendar', auth , getCalendar);
+app.post('/activities', auth , postActivities);
 app.post('/approveLeave', auth , approveLeave);
 app.post('/denyLeave', auth , denyLeave);
 //employee routes

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { dashboard, attendance, getAttendanceCode, getAllAttendance } = require("../../app/controllers/api/employeeController");
 const { getAllLeave, getLeave, postLeave, putLeave, deleteLeave, denyLeave, approveLeave,getAllLeaveDays } = require("../../app/controllers/api/leaveController");
+const {getCalendar, postCalendar, putCalendar, deleteCalendar, getAllCalendar} = require("../../app/controllers/api/calendarController")
 
 // Controllers
 const { getAuthenticatedUser } = require("../../app/controllers/api/employeeController");
@@ -37,7 +38,11 @@ router.get("/allclientcontract", auth, getAllClientContracts);
 //router.delete("/clientcontract", auth, clientContractDelete);
 
 //calendar route
-//router.get("/calendar", auth, )
+router.get("/calendar", auth, getCalendar)
+router.get("/allcalendar", auth, getAllCalendar)
+router.post("/calendar", auth, postCalendar)
+router.put("/calendar", auth, putCalendar)
+router.delete("/calendar", auth, deleteCalendar)
 
 //reward routes with wallet
 router.post("/reward", auth, adminOnly, rewardPost);
