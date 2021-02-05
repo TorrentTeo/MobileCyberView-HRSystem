@@ -91,10 +91,10 @@ exports.approveLeave = async (req, res) => {
 exports.denyLeave = async (req, res) => { 
     url = "http://localhost:5000/api/admin/denyLeave";
     var {id}=  req.body
-    var data = { id:id} 
+    var data = {id:id} 
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
 
-    await axios.put(url,data, {headers: headers} ).then((response) => {
+    await axios.put(url,data, {headers: headers}).then((response) => {
         var resData = response.data;
         console.log(resData)
     }).catch((error) => {
@@ -103,3 +103,20 @@ exports.denyLeave = async (req, res) => {
     })       
     return res.redirect('/calendar');
 }
+
+exports.postActivities = async (req, res) => {
+    url = "http://localhost:5000/api/admin/calendar";
+    var data ={
+        activity: "Some gay Activity Part 2",
+        date: "01/01/2021"
+    } 
+
+    var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
+    await axios.post(url,data, {headers: headers}).then((response) => {
+        var resData = response.data;
+        console.log(resData)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })    
+};

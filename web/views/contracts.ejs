@@ -25,23 +25,16 @@
           <th>Contract_id</th>
           <th>Contract Title</th>
           <th>Terms/Agreement</th>
-          <th>Party_id</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>c0001</td>
-          <td>Business Contract</td>
-          <td>...</td>
-          <td>p0001</td>
-        </tr>
-
-        <tr>
-          <td>c0002/td>
-          <td>Business Contract</td>
-          <td>...</td>
-          <td>p0002</td>
-        </tr>
+        <% for(var i=0; i < data.contracts.length; i++) { %>
+          <tr>
+            <td><%= data.contracts[i].contractid %></td>
+            <td><%= data.contracts[i].title %></td>
+            <td><%= data.contracts[i].terms %></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
   </div>
@@ -54,25 +47,19 @@
     <table class="table table-sortable">
       <thead>
         <tr>
-          <th>Party_id</th>
           <th>Person 1</th>
           <th>Person 2</th>
           <th>Contact_id</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>p0001</td>
-          <td>L</td>
-          <td>D</td>
-          <td>c0001</td>
-        </tr>
-        <tr>
-          <td>p0002/td>
-          <td>P/td>
-          <td>S</td>
-          <td>c0002</td>
-        </tr>
+        <% for(var i=0; i < data.contracts.length; i++) { %>
+          <tr>
+            <td><%= data.contracts[i].parties.person1 %></td>
+            <td><%= data.contracts[i].parties.person2 %></td>
+            <td><%= data.contracts[i].contractid %></td>
+          </tr>
+       <% } %>
       </tbody>
     </table>
   </div>
