@@ -12,14 +12,15 @@ exports.getReward = async (req, res) => {
         var resData = response.data;
         var reward = resData.results.reward;
         for(key in reward){
-            var reward = {
-                name: reward[key].name,
-                description: reward[key].description,
+            var rewards = {
                 namelist: reward[key].namelist,
+                rewardName: reward[key].name,
+                description: reward[key].description,
                 validFrom: new Date(reward[key].validFrom).toDateString(),
-                expiryDate: new Date(reward[key].expiryDate).toDateString()             
+                expiryDate: new Date(reward[key].expiryDate).toDateString(),
+                valid: reward[key].valid            
             }
-            newReward.push(reward)
+            newReward.push(rewards)
         }
         
     }).catch((error) => {
