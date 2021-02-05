@@ -207,6 +207,7 @@ exports.medicalPlanPost = async (req, res) => {
             let username = [];
             for (i = 0; i < userid.length; i++) {
                 var [user] = await User.find({_id: userid[i]})
+                console.log(user)
                 username.push(user.name)
               }
             let newEntry = new MedicalPlan({

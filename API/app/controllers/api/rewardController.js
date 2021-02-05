@@ -7,6 +7,9 @@ const { success, error, validation } = require("../../helpers/responseApi");
 exports.rewardPost = async (req, res) => {
     const { name, description, validFrom, expiryDate, userid } = req.body;
     try {
+            if (Date.parse(validFrom) > Date.parse(expiryDate))
+            return res.status(400).json(error("Start date is greater than End date!", res.statusCode));
+            
             let username = [];
             for (i = 0; i < userid.length; i++) {
                 var [user] = await User.find({_id: userid[i]})
@@ -20,6 +23,7 @@ exports.rewardPost = async (req, res) => {
                 userid,
                 namelist: username
             })
+            
             await newEntry.save();   
 
             res.status(201).json(success("New record added successfully!",
@@ -45,8 +49,18 @@ exports.rewardGet = async (req, res) => {
             if (!user)
             return res.status(404).json(error("User not found", res.statusCode));
 
-            let reward = await Reward.find({userid:user._id});
-            
+            await Reward.find({userid:user._id}, function(err, values){
+            var reward = {};
+            values.forEach(function(value) {
+                var dateOfExpiry = Date.parse(value.expiryDate);
+                var expired = dateOfExpiry < new Date() ? true: false;
+                    console.log(expired)
+                    if(expired){
+                        value.valid = false
+                    }
+                    console.log(value)
+                reward[value._id] = value;
+            });
             res.status(200).json(success("View reward",
                 {
                     reward
@@ -54,6 +68,8 @@ exports.rewardGet = async (req, res) => {
                 res.statusCode
             )
         );
+        });
+            
     } catch (err) {
         console.error(err.message);
         res.status(500).json(error("Server error", res.statusCode));
@@ -64,12 +80,17 @@ exports.rewardGetAll = async (req, res) => {
     // 
     
     try {
-            const reward = await Reward.find();
-
-            // Check the user just in case
-            if (!reward)
-            return res.status(404).json(error("Data not found", res.statusCode));
-            
+            await Reward.find({}, function(err, values) {
+                var reward = {};
+       
+            values.forEach(function(value) {
+                var dateOfExpiry = Date.parse(value.expiryDate);
+                var expired = dateOfExpiry < new Date() ? true: false;
+                    if(expired){
+                        value.valid = false
+                    }
+                reward[value._id] = value;
+            });
             res.status(200).json(success("View all rewards",
                 {
                     reward
@@ -77,6 +98,8 @@ exports.rewardGetAll = async (req, res) => {
                 res.statusCode
             )
         );
+            });         
+            
     } catch (err) {
         console.error(err.message);
         res.status(500).json(error("Server error", res.statusCode));

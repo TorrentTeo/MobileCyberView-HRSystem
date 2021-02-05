@@ -33,13 +33,15 @@
       </thead>
       <tbody>
         <% for(var i=0; i < data.reward.length; i++) { %>
+          <% if (data.reward[i].valid === true) {%>
           <tr>
-            <td><%= data.reward[i].name %></td>
+            <td><%= data.reward[i].rewardName %></td>
             <td><%= data.reward[i].description %></td>
             <td><%= data.reward[i].validFrom %></td>
             <td><%= data.reward[i].expiryDate %></td>
             <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.reward[i].namelist %>">Name List</a></td>
           </tr>
+          <% } %>
        <% } %>
       </tbody>
     </table>

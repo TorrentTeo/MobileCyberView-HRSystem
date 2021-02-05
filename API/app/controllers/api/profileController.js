@@ -6,13 +6,16 @@ const { success, error, validation } = require("../../helpers/responseApi");
 exports.profilePost = async (req, res) => {
     let { category, description, date, createdAt, toWho } = req.body;
     try {
+            let user = await User.findById(req.user.id);
+              
             let newEntry = new Profile({
                 category,
                 description,
                 date,
                 userid: req.user.id,
                 writtenBy: req.user.name,
-                createdAt
+                createdAt,
+                name: user.name
             })
         
             await newEntry.save();   
@@ -20,9 +23,11 @@ exports.profilePost = async (req, res) => {
             // if the category is review, update the id to who user is trying to write the review on
             if (newEntry.category == "Review")
         {
+            let newUser = await User.findById(toWho);
             newEntry = await Profile.findByIdAndUpdate(newEntry._id,{
                 $set: {
-                    userid: toWho
+                    userid: toWho,
+                    name: newUser.name
                 },
             });
         }

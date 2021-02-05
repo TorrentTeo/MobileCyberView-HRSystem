@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const { dashboard, attendance, getAttendanceCode, getAllAttendance , getAllEmployee, getProfile} = require("../../app/controllers/api/employeeController");
 const { getAllLeave, getLeave, postLeave, putLeave, deleteLeave, denyLeave, approveLeave,getAllLeaveDays } = require("../../app/controllers/api/leaveController");
+const {getCalendar, postCalendar, putCalendar, deleteCalendar, getAllCalendar} = require("../../app/controllers/api/calendarController")
 
 // Controllers
 const { getAuthenticatedUser } = require("../../app/controllers/api/employeeController");
 const { postFeedback, getFeedback, getAllFeedback} = require("../../app/controllers/api/feedbackController");
-const { clientContractPost } = require("../../app/controllers/api/clientContractController");
+const { clientContractPost, getAllClientContracts } = require("../../app/controllers/api/clientContractController");
 const { submitMCPost } = require("../../app/controllers/api/calendarController");
 const { rewardPost, rewardGetAll, rewardPut, rewardDelete, } = require("../../app/controllers/api/rewardController");
 const { accountGetById, accountGetAll, accountDelete } = require("../../app/controllers/api/accountController");
@@ -23,8 +24,9 @@ router.post("/Attendance", auth, attendance);
 router.get("/Attendance", auth, getAttendanceCode);
 router.get("/AllAttendance", auth, adminOnly, getAllAttendance)
 
+// employee
 router.get("/AllEmployee", auth, adminOnly, getAllEmployee)
-router.get("/EmployeeProfile", auth, adminOnly, getProfile)
+router.get("/allEmployeeProfile", auth, adminOnly, getProfile)
 
 
 //feedback routes
@@ -36,12 +38,16 @@ router.get("/allfeedback", auth, getAllFeedback);
 
 //clientroutes
 router.post("/clientcontract", auth, clientContractPost);
-//router.get("/clientcontract", auth, clientContractGet);
+router.get("/allclientcontract", auth, getAllClientContracts);
 //router.put("/clientcontract", auth, clientContractPut);
 //router.delete("/clientcontract", auth, clientContractDelete);
 
 //calendar route
-//router.get("/calendar", auth, )
+router.get("/calendar", auth, getCalendar)
+router.get("/allcalendar", auth, getAllCalendar)
+router.post("/calendar", auth, postCalendar)
+router.put("/calendar", auth, putCalendar)
+router.delete("/calendar", auth, deleteCalendar)
 
 //reward routes with wallet
 router.post("/reward", auth, adminOnly, rewardPost);
