@@ -33,6 +33,8 @@
    setSearch('#search_cal_act', '#table_body_cal_act tr');
    setSearch('#search_contract', '#table_body_contract tr');
    setSearch('#search_parties', '#table_body_parties tr');
+   setSearch('#search_rewards', '#table_body_rewards tr');
+
 
 
 
