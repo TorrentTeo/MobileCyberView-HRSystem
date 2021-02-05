@@ -15,8 +15,14 @@
   <div>
     <div>
       <h1>Benefit</h1>
-      <button class="button button1">Add</button>
-      <button class="button button2">Edit</button>
+      <div class="dropdown">
+        <button class="button button1">Add</button>
+        <button class="button button2">Edit</button>
+        <form action="" class="search-form">
+          <input type="search" id="search_benefit" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
       <br></br>
     </div>
 
@@ -28,7 +34,7 @@
           <th>Available for ...</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_benefit">
         <tr>
           <td> </td>
           <td></td>

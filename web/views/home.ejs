@@ -1,4 +1,3 @@
-
 <div class="topnav">
   <img class=logo-img src="img/cyberview.png" alt="AVATAR">
   <a class="active" href="http://localhost:3000/home">Home</a>
@@ -18,8 +17,15 @@
   <div>
     <div>
       <h1>Feed</h1>
-      <button type="button" class="button button1" id="addFeed" data-toggle="modal" data-target="#exampleModal">Add</button>
-      <button class="button button2">Edit</button>
+      <div class="dropdown">
+        <button type="button" class="button button1" id="addFeed" data-toggle="modal"
+          data-target="#exampleModal">Add</button>
+        <button class="button button2">Edit</button>
+        <form action="" class="search-form">
+          <input type="search" id="search_home" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
       <br></br>
     </div>
 
@@ -32,7 +38,7 @@
           <th>Notify to ...</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_home">
         <tr>
           <td>Company News</td>
           <td>sum content</td>

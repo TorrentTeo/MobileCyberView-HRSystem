@@ -16,8 +16,14 @@
   <div>
     <div>
       <h1>Rewards</h1>
-      <button class="button button1">Add</button>
-      <button class="button button2">Edit</button>
+      <div class="dropdown">
+        <button class="button button1">Add</button>
+        <button class="button button2">Edit</button>
+        <form action="" class="search-form">
+          <input type="search" id="search_rewards" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
       <br></br>
     </div>
 
@@ -31,16 +37,25 @@
           <th>Available for ...</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_rewards">
         <% for(var i=0; i < data.reward.length; i++) { %>
           <tr>
-            <td><%= data.reward[i].name %></td>
-            <td><%= data.reward[i].description %></td>
-            <td><%= data.reward[i].validFrom %></td>
-            <td><%= data.reward[i].expiryDate %></td>
-            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.reward[i].namelist %>">Name List</a></td>
+            <td>
+              <%= data.reward[i].name %>
+            </td>
+            <td>
+              <%= data.reward[i].description %>
+            </td>
+            <td>
+              <%= data.reward[i].validFrom %>
+            </td>
+            <td>
+              <%= data.reward[i].expiryDate %>
+            </td>
+            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.reward[i].namelist %>">Name
+                List</a></td>
           </tr>
-       <% } %>
+          <% } %>
       </tbody>
     </table>
   </div>
