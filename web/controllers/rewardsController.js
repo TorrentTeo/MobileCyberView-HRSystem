@@ -30,3 +30,25 @@ exports.getReward = async (req, res) => {
            return res.render('rewards', {data: {reward: newReward}})
 
 }
+
+exports.postReward = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/reward";
+    var {name, description, validFrom, expiryDate, userid}=  req.body
+    var data = {
+         name: name, 
+         description: description, 
+         validFrom: validFrom,
+         expiryDate: expiryDate,
+         userid: userid
+        } 
+    console.log(data)
+    var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
+    await axios.post(url, data, {headers: headers}).then((response) => {
+        var resData = response.data;
+        console.log(resData)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })       
+    return res.redirect('/rewards');
+}
