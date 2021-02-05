@@ -21,16 +21,20 @@ const RewardSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    userid:{
+    userid:[{
         type: String,
         required: true,
         minlength: 5,
         maxlength: 255,
-      },
+      }],
     valid:{
         type: Boolean,
         default: true,
-    }
+    },
+    namelist:[{
+        type: String,
+        required: true
+    }]
 });
 
 module.exports = mongoose.model("Reward", RewardSchema);

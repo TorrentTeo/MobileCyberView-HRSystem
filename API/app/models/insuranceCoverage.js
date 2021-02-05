@@ -28,6 +28,10 @@ const insuranceCoverageSchema = new mongoose.Schema({
     userid:[{
         type: String,
         required: true
+    }],
+    name:[{
+        type: String,
+        required: true
     }]
 });
 
