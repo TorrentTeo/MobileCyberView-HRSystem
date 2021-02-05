@@ -20,7 +20,7 @@ const {getAttendanceCode,getAttendance} = require("./controllers/attendanceContr
 const {getClientContracts} = require("./controllers/contractsController")
 const {getReward} = require("./controllers/rewardsController")
 const {getFeedback} = require("./controllers/feedbackController")
-
+const {getEmployee} = require("./controllers/employeeController")
 app.use(session({name:'some_session',secret: 'lalala',resave: true,saveUninitialized: false,cookie: { maxAge: 365 * 24 * 60 * 60 * 1000 ,httpOnly: false}}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
