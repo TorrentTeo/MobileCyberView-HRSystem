@@ -136,16 +136,17 @@
       <h1>Activities</h1>
 
       <div class="dropdown">
-        <button class="button button1">Add</button>
-        <button class="button button2">Edit</button>
+        <button type="button" class="button button1" id="addactivity" data-toggle="modal"
+          data-target="#exampleModal">Add</button>
+        <button type="button" class="button button1" id="editactivity" data-toggle="modal"
+          data-target="#exampleModal1">Edit</button>
         <form action="" class="search-form">
           <input type="search" id="search_cal_act" class="search-input" />
           <i class="fa fa-search"></i>
         </form>
       </div>
 
-      <button type="button" class="button button1" id="addactivity" data-toggle="modal" data-target="#exampleModal">Add</button>
-      <button type="button" class="button button1" id="editactivity" data-toggle="modal" data-target="#exampleModal1">Edit</button>
+
 
       <br></br>
     </div>
@@ -179,5 +180,4 @@
 </div>
 
 <%- include('partials/addActivities') %>
-<%- include('partials/editActivities') %>
-
+  <%- include('partials/editActivities') %>
