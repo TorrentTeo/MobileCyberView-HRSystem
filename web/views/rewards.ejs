@@ -17,6 +17,8 @@
     <div>
       <h1>Rewards</h1>
 
+      <button type="button" class="button button1" id="addreward" data-toggle="modal" data-target="#getEmployeeModel">Add</button>
+
       <div class="dropdown">
         <button class="button button1">Add</button>
         <button class="button button2">Edit</button>
@@ -26,7 +28,8 @@
         </form>
       </div>
 
-      <button type="button" class="button button1" id="addreward" data-toggle="modal" data-target="#exampleModal">Add</button>
+      
+
       <button type="button" class="button button1" id="editreward" data-toggle="modal" data-target="#exampleModal1">Edit</button>
 
       <br></br>
@@ -68,7 +71,7 @@
             <td><%= data.reward[i].description %></td>
             <td><%= data.reward[i].validFrom %></td>
             <td><%= data.reward[i].expiryDate %></td>
-            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.reward[i].namelist %>">Name List</a></td>
+            <td><a href="/rewards" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%- data.reward[i].namelist %>">Name List</a></td>
           </tr>
           <% } %>
        <% } %>

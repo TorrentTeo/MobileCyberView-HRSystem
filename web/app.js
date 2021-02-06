@@ -15,12 +15,19 @@ const {getlogin, postlogin,logout, auth} = require("./controllers/loginControlle
 const {getFeed, postFeed} = require("./controllers/homeController")
 const {getMedical} = require("./controllers/medicalController")
 
-const {getCalendar,approveLeave,denyLeave,postActivities} = require("./controllers/calendarController")
+const {getReward, postReward} = require("./controllers/rewardsController")
+
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
+const {getEmployee, getEmployeeData} = require("./controllers/employeeController")
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+
+
+const {getCalendar,approveLeave,denyLeave,postActivities} = require("./controllers/calendarController")
+
 const {getClientContracts} = require("./controllers/contractsController")
-const {getReward} = require("./controllers/rewardsController")
+
 const {getFeedback} = require("./controllers/feedbackController")
-const {getEmployee} = require("./controllers/employeeController")
+
 app.use(session({name:'some_session',secret: 'lalala',resave: true,saveUninitialized: false,cookie: { maxAge: 365 * 24 * 60 * 60 * 1000 ,httpOnly: false}}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -57,7 +64,7 @@ app.post('/denyLeave', auth , denyLeave);
 app.get('/employee', getEmployee);
 
 
-
+//app.get('/employees', auth , getEmployeeData)
 
 app.get('/attendance', auth , getAttendance)
 
@@ -67,14 +74,16 @@ app.get('/benefit', (req, res) => {
     res.render('benefit')
 })
 
-app.get('/medical', getMedical)
+app.get('/medical', auth, getMedical)
 
 
 app.get('/contracts', getClientContracts)
 
 app.get('/feedback', auth, getFeedback)
 
-app.get('/rewards', getReward)
+app.get('/rewards', auth, getReward)
+app.post('/postReward', auth , postReward);
+
 
 
 //listen on port
