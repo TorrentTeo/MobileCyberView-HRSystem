@@ -17,6 +17,12 @@
     <div>
       <hr>
       <h1>Leaves</h1>
+      <div class="dropdown">
+        <form action="" class="search-form">
+          <input type="search" id="search_cal_leave" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
       <br></br>
     </div>
 
@@ -29,15 +35,23 @@
           <th>Status</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_cal_leave">
         <% for(var i=0; i < data.leaveDays.length; i++) { %>
           <tr>
-            <td><%= data.leaveDays[i].name %></td>
-            <td><%= data.leaveDays[i].expiryDate %></td>
-            <td><%= data.leaveDays[i].numberOfLeaves %></td>
-            <td><%= data.leaveDays[i].status %></td>
+            <td>
+              <%= data.leaveDays[i].name %>
+            </td>
+            <td>
+              <%= data.leaveDays[i].expiryDate %>
+            </td>
+            <td>
+              <%= data.leaveDays[i].numberOfLeaves %>
+            </td>
+            <td>
+              <%= data.leaveDays[i].status %>
+            </td>
           </tr>
-       <% } %>
+          <% } %>
       </tbody>
     </table>
   </div>
@@ -46,7 +60,13 @@
     <div>
       <hr>
       <h1>Leave Requests</h1>
-      <br>
+      <div class="dropdown">
+        <form action="" class="search-form">
+          <input type="search" id="search_cal_lr" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+      <br><br>
     </div>
     <table class="table table-sortable">
       <thead>
@@ -59,16 +79,26 @@
           <th>Approve/Deny</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_cal_lr">
         <% for(var i=0; i < data.leaveRequests.length; i++) { %>
           <tr>
-            <td><%= data.leaveRequests[i].name %></td>
-            <td><%= data.leaveRequests[i].requestDate %></td>
-            <td><%= data.leaveRequests[i].numberOfDays %></td>
-            <td><%= data.leaveRequests[i].status %></td>
-            <td><%= data.leaveRequests[i].mc %></td>
-            <% if (data.leaveRequests[i].status === "Pending") {%>
-              <td> 
+            <td>
+              <%= data.leaveRequests[i].name %>
+            </td>
+            <td>
+              <%= data.leaveRequests[i].requestDate %>
+            </td>
+            <td>
+              <%= data.leaveRequests[i].numberOfDays %>
+            </td>
+            <td>
+              <%= data.leaveRequests[i].status %>
+            </td>
+            <td>
+              <%= data.leaveRequests[i].mc %>
+            </td>
+            <% if (data.leaveRequests[i].status==="Pending" ) {%>
+              <td>
                 <div class="container-fluid">
                   <div class="container">
                     <div class="row">
@@ -77,26 +107,26 @@
                           <input type="text" name="id" value="<%= data.leaveRequests[i].id %>" hidden>
                           <input type="text" name="days" value="<%= data.leaveRequests[i].numberOfDays %>" hidden>
                           <input type="text" name="userid" value="<%= data.leaveRequests[i].userid %>" hidden>
-                          <button class="button button3" type="submit">Approve</button> 
+                          <button class="button button3" type="submit">Approve</button>
                         </form>
                       </div>
                       <div class="col-sm">
                         <form action="/denyLeave" method="post">
-                          <input type="text" name="id" value="<%= data.leaveRequests[i].id  %>"hidden>
-                          <button class="button button3" type="submit">Deny</button> 
+                          <input type="text" name="id" value="<%= data.leaveRequests[i].id  %>" hidden>
+                          <button class="button button3" type="submit">Deny</button>
                         </form>
                       </div>
                     </div>
                   </div>
                 </div>
-            </td>
-            <% }else{%> 
-              <td> 
-                Action Already Taken
-            </td>            
-              <%} %> 
+              </td>
+              <% }else{%>
+                <td>
+                  Action Already Taken
+                </td>
+                <%} %>
           </tr>
-       <% } %>
+          <% } %>
       </tbody>
     </table>
   </div>
@@ -104,8 +134,20 @@
   <div>
     <div>
       <h1>Activities</h1>
-      <button type="button" class="button button1" id="addactivity" data-toggle="modal" data-target="#exampleModal">Add</button>
-      <button type="button" class="button button1" id="editactivity" data-toggle="modal" data-target="#exampleModal1">Edit</button>
+
+      <div class="dropdown">
+        <button type="button" class="button button1" id="addactivity" data-toggle="modal"
+          data-target="#exampleModal">Add</button>
+        <button type="button" class="button button1" id="editactivity" data-toggle="modal"
+          data-target="#exampleModal1">Edit</button>
+        <form action="" class="search-form">
+          <input type="search" id="search_cal_act" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+
+
+
       <br></br>
     </div>
 
@@ -117,14 +159,20 @@
           <th>Time</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_cal_act">
         <% for(var i=0; i < data.calendar.length; i++) { %>
           <tr>
-            <td><%= data.calendar[i].activity %></td>
-            <td><%= data.calendar[i].date %></td>
-            <td><%= data.calendar[i].time %></td>
+            <td>
+              <%= data.calendar[i].activity %>
+            </td>
+            <td>
+              <%= data.calendar[i].date %>
+            </td>
+            <td>
+              <%= data.calendar[i].time %>
+            </td>
           </tr>
-       <% } %>
+          <% } %>
       </tbody>
     </table>
     <hr>
@@ -132,5 +180,4 @@
 </div>
 
 <%- include('partials/addActivities') %>
-<%- include('partials/editActivities') %>
-
+  <%- include('partials/editActivities') %>

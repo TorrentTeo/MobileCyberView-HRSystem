@@ -21,3 +21,19 @@ exports.clientContractPost = async (req, res, next) => {
         res.status(500).json(error("Server error", res.statusCode));
     }
 }
+exports.getAllClientContracts = async (req, res, next) => {
+
+    try {
+        const clientContract = await ClientContract.find({});
+        await ClientContract.find({}, function(err, values) {
+            var contracts = {};   
+            values.forEach(async (value) =>  {       
+                contracts[value._id] = value;        
+            });
+            res.status(201).json(success("Code Retrived",{contracts},res.statusCode))           
+        });   
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
+}

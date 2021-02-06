@@ -16,14 +16,12 @@
     <h1>Performance</h1>
 
     <div class="dropdown">
-      <button type="button" class="button button1" id="addperformance" data-toggle="modal" data-target="#exampleModal">Add</button>
-      <button type="button" class="button button1" id="editperformance" data-toggle="modal" data-target="#exampleModal1">Edit</button>
-      <form action="">
-        <input type="search" id="search" name="search" />
-      <button class="button button1">Add</button>
-      <button class="button button2">Edit</button>
+      <button type="button" class="button button1" id="addperformance" data-toggle="modal"
+        data-target="#exampleModal">Add</button>
+      <button type="button" class="button button1" id="editperformance" data-toggle="modal"
+        data-target="#exampleModal1">Edit</button>
       <form action="" class="search-form">
-        <input type="search" id="search" name="search" class="search-input" />
+        <input type="search" id="search_p" class="search-input" />
         <i class="fa fa-search"></i>
       </form>
     </div>
@@ -39,7 +37,7 @@
           <th>Written By</th>
         </tr>
       </thead>
-      <tbody id="table_body">
+      <tbody id="table_body_p">
         <% for(var i=0; i < data.employeeProfile.length; i++) { %>
           <tr>
             <td>
@@ -69,15 +67,12 @@
     <h1>Personal Information</h1>
 
     <div class="dropdown">
-      <button type="button" class="button button1" id="addinfo" data-toggle="modal" data-target="#exampleModal2">Add</button>
-      <button type="button" class="button button1" id="editinfo" data-toggle="modal" data-target="#exampleModal3">Edit</button>
-      <form action="">
-        <input type="search" id="search2" name="search2" />
-
-      <button class="button button1">Add</button>
-      <button class="button button2">Edit</button>
+      <button type="button" class="button button1" id="addinfo" data-toggle="modal"
+        data-target="#exampleModal2">Add</button>
+      <button type="button" class="button button1" id="editinfo" data-toggle="modal"
+        data-target="#exampleModal3">Edit</button>
       <form action="" class="search-form">
-        <input type="search" id="search2" name="search2" class="search-input" />
+        <input type="search" id="search_pi" class="search-input" />
         <i class="fa fa-search"></i>
       </form>
     </div>
@@ -93,7 +88,7 @@
           <th>Joined Date</th>
         </tr>
       </thead>
-      <tbody id="table_body2">
+      <tbody id="table_body_pi">
         <% for(var i=0; i < data.employeeResponse.length; i++) { %>
           <tr>
             <td>
@@ -120,9 +115,9 @@
 </div>
 
 <%- include('partials/addNewPerformance') %>
-<%- include('partials/editNewPerformance') %>
-<%- include('partials/addNewInfo') %>
-<%- include('partials/editInfo') %>
+  <%- include('partials/editNewPerformance') %>
+    <%- include('partials/addNewInfo') %>
+      <%- include('partials/editInfo') %>
 
 
-</div>
+        </div>

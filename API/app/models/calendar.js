@@ -5,13 +5,14 @@ const calendarSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    activities: {
-        type: Array,
+    activity: {
+        type: String,
         required: true
     },
     createdAt: {
         type: Date,
-        required: true
+        required: true,
+        default:Date.now()
     }
 });
 
