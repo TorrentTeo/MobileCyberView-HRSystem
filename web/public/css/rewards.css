@@ -1,0 +1,25 @@
+.reward-modal {
+  width: 120%;
+}
+
+.reward-table tbody td {
+  padding: 5px;
+}
+
+.reward-search-group {
+  width: 40%;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px 0 10px 0;
+}
+
+.fa2 {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
