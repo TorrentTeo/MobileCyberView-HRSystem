@@ -1,11 +1,62 @@
 <div class="modal fade" id="getEmployeeModel" tabindex="-1" role="dialog" aria-labelledby="getEmployeeModel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add reward</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add reward</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/postReward" method="POST">
+        <div class="modal-body">
+            <div>
+              <label for="name" class="col-form-label">Reward Name:</label>
+              <input type="text" class="form-control" name="name">
+            </div>
+            <div>
+              <label for="description" class="col-form-label">Description:</label>
+              <input type="text" class="form-control" name="description"></textarea>
+            </div>
+            <div>
+              <label for="validFrom" class="col-form-label">Start Date:</label>
+              <input type="date" class="form-control" name="validFrom"></textarea>
+            </div>
+            <div>
+              <label for="expiryDate" class="col-form-label">Expiry Date:</label>
+              <input type="date" class="form-control" name="expiryDate"></textarea>
+            </div>
+              <div>
+              <label for="userid" class="col-form-label">Available for:</label>
+              <table>
+                <thread class = "thread-inverse">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Contact</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0; i < data.employee.length; i++) { %>
+                  <tr>
+                    <td><%= data.employee[i].name %></td>
+                    <td><%= data.employee[i].email %></td>
+                    <td><%= data.employee[i].contact %></td>
+                    <td><input type="checkbox" class="checkbox" name="userid" value=<%= data.employee[i]._id %>> | ADD </td>
+                  </tr>
+               <% } %>
+              </tbody>
+            </thread>
+            </table>
+            </div>
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        
       </div>
       <form action="/postReward" method="POST">
       <div class="modal-body">
