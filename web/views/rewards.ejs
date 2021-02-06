@@ -39,7 +39,7 @@
             <td><%= data.reward[i].description %></td>
             <td><%= data.reward[i].validFrom %></td>
             <td><%= data.reward[i].expiryDate %></td>
-            <td><a href="/rewards" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%= data.reward[i].namelist %>">Name List</a></td>
+            <td><a href="/rewards" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%- data.reward[i].namelist %>">Name List</a></td>
           </tr>
           <% } %>
        <% } %>
