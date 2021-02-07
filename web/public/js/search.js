@@ -34,6 +34,8 @@
    setSearch('#search_contract', '#table_body_contract tr');
    setSearch('#search_parties', '#table_body_parties tr');
    setSearch('#search_rewards', '#table_body_rewards tr');
+   setSearch('#search_rewards_add', '#table_body_re_add tr');
+
 
 
 
