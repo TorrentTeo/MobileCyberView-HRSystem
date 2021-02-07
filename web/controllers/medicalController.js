@@ -84,6 +84,101 @@ exports.getMedical = async (req, res) => {
         console.log(error)
         return error;
     })
-       return res.render('medical', {data: {medicalPlan: newMedicalPlan, medicalLeave: newMedicalLeave, clinicList: newClinicList, insuranceCoverage: newInsuranceCoverage}})
 
+    var newEmployee = [];
+    await axios.get("http://localhost:5000/api/admin/AllEmployee", {headers: headers} ,data).then((response) => {
+        var resData = response.data;
+        var employee = resData.results.user;
+        for(key in employee){
+            var employees = {
+                name: employee[key].name,
+                email: employee[key].email,
+                contact: employee[key].contact,
+                _id: employee[key]._id
+            }
+            newEmployee.push(employees)
+        }
+        
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })
+       return res.render('medical', {data: {employee: newEmployee, medicalPlan: newMedicalPlan, medicalLeave: newMedicalLeave, clinicList: newClinicList, insuranceCoverage: newInsuranceCoverage}})
+
+}
+
+exports.postMedicalPlan = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/medicalPlan";
+    var cookie = get_cookies(req)["authcookie"];
+    var {medicalPlanName, medicalCardFront, medicalCardBack, userid} = req.body
+    
+    if(userid.length == 24)
+    {userid = userid.split(" ");}
+
+    var data = {
+        medicalPlanName,
+        medicalCardFront,
+        medicalCardBack,
+         userid
+        }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.post(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+
+exports.postClinic = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/clinicList";
+    var cookie = get_cookies(req)["authcookie"];
+    var {clinicName, longitude, latitude, userid} = req.body
+    
+    if(userid.length == 24)
+    {userid = userid.split(" ");}
+
+    var data = {
+        clinicName,
+        longitude,
+        latitude,
+         userid
+        }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.post(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+
+exports.postInsurance = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/insuranceCoverage";
+    var cookie = get_cookies(req)["authcookie"];
+    var {typeofInsurance, description, contactPerson, contactNumber, userid} = req.body
+    
+    if(userid.length == 24)
+    {userid = userid.split(" ");}
+
+    var data = {
+        typeofInsurance,
+        description,
+        contactPerson,
+        contactNumber,
+         userid
+        }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.post(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
 }
