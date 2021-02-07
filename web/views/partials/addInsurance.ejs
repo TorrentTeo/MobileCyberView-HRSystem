@@ -1,40 +1,61 @@
-<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="insuranceModal" tabindex="-1" role="dialog" aria-labelledby="insuranceModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add insurance</h5>
+          <h5 class="modal-title" id="insuranceModalLabel">Add insurance</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form action="/postInsurance" method="POST">
         <div class="modal-body">
-          <form>
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Type of Insurance:</label>
-              <input type="text" class="form-control" id="recipient-name">
+              <label for="typeofInsurance" class="col-form-label">Type of Insurance:</label>
+              <input type="text" class="form-control" name="typeofInsurance"></input>
             </div>
             <div class="form-group">
-              <label for="message-text" class="col-form-label">Description:</label>
-              <textarea class="form-control" id="message-text"></textarea>
+              <label for="description" class="col-form-label">Description:</label>
+              <input type="text" class="form-control" name="description"></input>
             </div>
             <div class="form-group">
-              <label for="message-text" class="col-form-label">Contact Person:</label>
-              <textarea class="form-control" id="message-text"></textarea>
+              <label for="contactPerson" class="col-form-label">Contact Person:</label>
+              <input type="text" class="form-control" name="contactPerson"></input>
             </div>
             <div class="form-group">
-                <label for="message-text" class="col-form-label">Contact Number:</label>
-                <textarea class="form-control" id="message-text"></textarea>
+                <label for="contactNumber" class="col-form-label">Contact Number:</label>
+                <input type="text" class="form-control" name="contactNumber"></input>
               </div>
-              <div class="form-group">
-                <label for="message-text" class="col-form-label">Available for:</label>
-                <textarea class="form-control" id="message-text"></textarea>
+              <div>
+                <label for="userid" class="col-form-label">Available for:</label>
+                <table>
+                  <thread class = "thread-inverse">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < data.employee.length; i++) { %>
+                    <tr>
+                      <td><%= data.employee[i].name %></td>
+                      <td><%= data.employee[i].email %></td>
+                      <td><%= data.employee[i].contact %></td>
+                      <td><input type="checkbox" class="checkbox" name="userid" value=<%= data.employee[i]._id %>> | ADD </td>
+                    </tr>
+                 <% } %>
+                </tbody>
+              </thread>
+              </table>
               </div>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+       </form> 
       </div>
     </div>
   </div>
