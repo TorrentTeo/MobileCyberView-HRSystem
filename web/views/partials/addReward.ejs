@@ -38,41 +38,43 @@
 
             </div>
 
-            <table class="reward-table">
-              <thread class="thread-inverse">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Contact</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody id="table_body_re_add">
-                  <% for(var i=0; i < data.employee.length; i++) { %>
+            <div class="reward-table-fix">
+              <table class="reward-table">
+                <thread class="thread-inverse">
+                  <thead>
                     <tr>
-                      <td>
-                        <%= data.employee[i].name %>
-                      </td>
-                      <td>
-                        <%= data.employee[i].email %>
-                      </td>
-                      <td>
-                        <%= data.employee[i].contact %>
-                      </td>
-                      <td><input type="checkbox" class="checkbox" name="userid" value=<%=data.employee[i]._id %>> | ADD
-                      </td>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>Action</th>
                     </tr>
-                    <% } %>
-                </tbody>
-              </thread>
-            </table>
+                  </thead>
+                  <tbody id="table_body_re_add">
+                    <% for(var i=0; i < data.employee.length; i++) { %>
+                      <tr>
+                        <td>
+                          <%= data.employee[i].name %>
+                        </td>
+                        <td>
+                          <%= data.employee[i].email %>
+                        </td>
+                        <td>
+                          <%= data.employee[i].contact %>
+                        </td>
+                        <td><input type="checkbox" class="checkbox" name="userid" value=<%=data.employee[i]._id %>> |
+                          ADD
+                        </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                </thread>
+              </table>
+            </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
       </form>
     </div>
 
