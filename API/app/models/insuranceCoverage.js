@@ -3,13 +3,13 @@ const mongoose = require("mongoose");
 const insuranceCoverageSchema = new mongoose.Schema({
     typeofInsurance: {
         type: String,
-        minlength: 5,
+        minlength: 1,
         maxlength: 255,
         required: true
     },
     description: {
         type: String,
-        minlength: 5,
+        minlength: 1,
         maxlength: 255,
         required: true
     },
