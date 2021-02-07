@@ -5,8 +5,9 @@ const { success, error, validation } = require("../../helpers/responseApi");
 
 
 exports.rewardPost = async (req, res) => {
-    const { name, description, validFrom, expiryDate, userid } = req.body;
+    
     try {
+            const { name, description, validFrom, expiryDate, userid } = req.body;
             if (Date.parse(validFrom) > Date.parse(expiryDate))
             return res.status(400).json(error("Start date is greater than End date!", res.statusCode));
             
