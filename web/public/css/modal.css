@@ -1,45 +1,19 @@
-.reward-modal {
+.m-container {
   width: 120%;
 }
 
-/* .reward-table tbody {
-  display: block;
-  position: relative;
-  overflow: auto;
-  height: 150px;
-  width: 100%;
-}
-
-.reward-table thead,
-.reward-table tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-} */
-
-/* .scrollbar {
-  position: relative;
-  height: 165px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-.table-scroll-y {
-  display: block;
-} */
-
-.reward-table-fix {
+.m-table-fix {
   overflow-y: auto;
   overflow-x: hidden;
   height: 160px;
 }
-.reward-table-fix thead th {
+.m-table-fix thead th {
   position: sticky;
   top: 0;
   background: rgb(255, 255, 255);
   padding: 0 0 10px 1px;
 }
 
-/* Borders (if you need them) */
 .tableFixHead,
 .tableFixHead td {
   box-shadow: inset 1px -1px rgb(255, 255, 255);
@@ -48,11 +22,11 @@
   box-shadow: inset 1px 1px rgb(255, 255, 255), 0 1px rgb(255, 255, 255);
 }
 
-.reward-table tbody td {
+.m-table tbody td {
   padding: 5px;
 }
 
-.reward-search-group {
+.m-search-group {
   width: 40%;
   display: -ms-flexbox;
   display: flex;
