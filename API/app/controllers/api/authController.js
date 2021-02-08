@@ -45,19 +45,8 @@ exports.register = async (req, res) => {
             type: "Register New Account",
         });
         await verification.save();
-        // var html = '';
-        // fs.readFile("../API/app/email.html", 'utf8', function (error, pgResp) {
-        //     if (error) {
-        //         console.log(error);
-        //     } else {
-        //         html = pgResp;
-        //         console.log(html)
-        //     }
-        // });
-        // var res = str.replace("{linksys}", config.get('ApiRoute') + '/auth/verify/' + verification.token);
-        // mailer(newUser.email, "Email Verification", html)
-
-
+        var html = "<a href='"+ config.get('ApiRoute') + verification.token +"'>Click Here </a>To Activate your cyberview HRMS Account" 
+        mailer(newUser.email, verification.type, html)
         res.status(201).json(
             success(
                 "Registration was success, please check your email and click the link to activate your account.",
