@@ -1,7 +1,7 @@
 <div class="modal fade" id="feed" tabindex="-1" role="dialog" aria-labelledby="getEmployeeModel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content reward-modal">
+    <div class="modal-content m-container">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add Feed</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -22,17 +22,17 @@
           <div>
             <label for="userid" class="col-form-label">Notify to:</label>
 
-            <div class="reward-search-group">
+            <div class="m-search-group">
 
               <i class="fa2 fa-search" aria-hidden="true"></i>
               <input type="search" class="form-control rounded " placeholder="Search" aria-label="Search"
-                aria-describedby="search-addon" id="search_rewards_add" />
+                aria-describedby="search-addon" id="search_feed_add" />
 
 
             </div>
 
-            <div class="reward-table-fix">
-              <table class="reward-table">
+            <div class="m-table-fix">
+              <table class="m-table">
                 <thread class="thread-inverse">
                   <thead>
                     <tr>
@@ -42,7 +42,7 @@
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody id="table_body_re_add">
+                  <tbody id="table_body_feed">
                     <% for(var i=0; i < data.employee.length; i++) { %>
                       <tr>
                         <td>

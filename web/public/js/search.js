@@ -42,6 +42,8 @@
    setSearch('#search_mp_add', '#table_body_mpadd tr');
    setSearch('#search_clist_add', '#table_body_clistadd tr');
    setSearch('#search_ins_add', '#table_body_insadd tr');
+   setSearch('#search_feed_add', '#table_body_feed tr');
+
 
 
 
