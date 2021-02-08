@@ -106,7 +106,7 @@ exports.denyLeave = async (req, res) => {
 
 exports.postActivities = async (req, res) => {
     url = "http://localhost:5000/api/admin/calendar";
-    var data ={ activity, date} = req.body
+    var data = { activity, date } = req.body
     console.log(data)
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
     await axios.post(url,data, {headers: headers}).then((response) => {
