@@ -52,7 +52,7 @@ router.delete("/calendar", auth, deleteCalendar)
 //reward routes with wallet
 router.post("/reward", auth, adminOnly, rewardPost);
 router.get("/allReward", auth, adminOnly, rewardGetAll);
-router.put("/reward/:_id", auth, adminOnly, rewardPut);
+router.put("/reward", auth, adminOnly, rewardPut);
 router.delete("/reward/:_id", auth, adminOnly, rewardDelete);
 
 //account routes

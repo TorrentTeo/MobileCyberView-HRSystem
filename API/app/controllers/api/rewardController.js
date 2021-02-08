@@ -131,21 +131,16 @@ exports.rewardGetById = async (req, res) => {
 
 exports.rewardPut = async (req, res) => {
     try {   
-            const updateOps = {};
-            for (const ops of req.body) {
-            updateOps[ops.propName] = ops.value;
-            }
+            const{id, name, description} = req.body;
             //Check whether the _id given is valid or not
-            let reward = await Reward.findOne({
-                _id:req.params._id
-            });
-            if (!reward) {
-                return res.status(404).json(error("_id not found in Reward", res.statusCode));
-            }
+            
             //Update user data
             
-                reward = await Reward.findByIdAndUpdate(req.params._id,{
-                    $set: updateOps
+             let reward = await Reward.findByIdAndUpdate(id,{
+                    $set: {
+                    name: name,
+                    description: description,
+                    }
                 });
                 res.status(200).json(success("Edited successfully",
                 {
