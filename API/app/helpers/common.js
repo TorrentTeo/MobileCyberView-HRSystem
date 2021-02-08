@@ -29,8 +29,13 @@ exports.makeAttendanceCode = (code) => {
 };
 
 exports.mailer = (to, subject, html) => {
-
-
+  var nodemailer = require('nodemailer');
+  var mailOptions = {
+    from: config.get("Email"),
+    to: to,
+    subject: subject,
+    html: html
+  };
 var transporter = nodemailer.createTransport({
   service: config.get("EmailProvider"),
   auth: {
@@ -38,20 +43,12 @@ var transporter = nodemailer.createTransport({
     pass: config.get("EmailPassword")
   }
 });
-
-var mailOptions = {
-  from: config.get("Email"),
-  to: to,
-  subject: subject,
-  html:  html
-};
-
 transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
 });
 
 }
