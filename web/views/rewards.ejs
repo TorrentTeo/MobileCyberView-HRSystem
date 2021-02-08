@@ -16,14 +16,21 @@
   <div>
     <div>
       <h1>Rewards</h1>
-      <button type="button" class="button button1" id="addreward" data-toggle="modal" data-target="#exampleModal">Add</button>
-      <button type="button" class="button button1" id="editreward" data-toggle="modal" data-target="#exampleModal1">Edit</button>
+      <div class="dropdown">
+        <button type="button" class="button button1" id="addreward" data-toggle="modal" data-target="#getEmployeeModel">Add</button>
+        Edit <input class='toggleColumns' type="checkbox" data-target="column1" unchecked />
+        <form action="" class="search-form">
+          <input type="search" id="search_rewards" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
       <br></br>
     </div>
 
-    <table class="table table-sortable">
+    <table class="table table-sortable" id="page-rewards">
       <thead>
         <tr>
+          <th class="column1" style="display:none">Edit</th>
           <th>Reward Name</th>
           <th>Description</th>
           <th>Start From</th>
@@ -31,20 +38,27 @@
           <th>Available for ...</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_rewards">
         <% for(var i=0; i < data.reward.length; i++) { %>
+          
           <% if (data.reward[i].valid === true) {%>
           <tr>
-            <td><%= data.reward[i].rewardName %></td>
-            <td><%= data.reward[i].description %></td>
-            <td><%= data.reward[i].validFrom %></td>
-            <td><%= data.reward[i].expiryDate %></td>
-            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.reward[i].namelist %>">Name List</a></td>
-          </tr>
+
+            <td class="column1" style="display:none"><button class="fa fa-pencil-square-o use-address"
+             id="editReward" data-toggle="modal" data-target="#putRewardas" aria-hidden="true" style="color: blue; position:relative"></button></td>
+             <td id="nx1" hidden><%= data.reward[i].id %></td>
+             <td id="nx2"><%= data.reward[i].rewardName %></td>
+             <td id="nx3"><%= data.reward[i].description %></td>
+             <td><%= data.reward[i].validFrom %></td>
+             <td><%= data.reward[i].expiryDate %></td>
+             <td><a href="/rewards" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%- data.reward[i].namelist %>">Name List</a></td>
+            </tr>
           <% } %>
        <% } %>
+
       </tbody>
     </table>
+    <span id="nav_re"></span>
   </div>
 </div>
 

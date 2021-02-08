@@ -4,7 +4,7 @@ const { success, error, validation } = require("../../helpers/responseApi");
 
 
 exports.profilePost = async (req, res) => {
-    let { category, description, date, createdAt, toWho } = req.body;
+    let { category, description, date, toWho } = req.body;
     try {
             let user = await User.findById(req.user.id);
               
@@ -14,7 +14,6 @@ exports.profilePost = async (req, res) => {
                 date,
                 userid: req.user.id,
                 writtenBy: req.user.name,
-                createdAt,
                 name: user.name
             })
         
@@ -95,21 +94,15 @@ exports.profileGetById = async (req, res) => {
 
 exports.profilePut = async (req, res) => {
     try {   
-            const updateOps = {};
-            for (const ops of req.body) {
-            updateOps[ops.propName] = ops.value;
-            }
-            //Check whether the _id given is valid or not
-            let profile = await Profile.findOne({
-                _id:req.params._id
-            });
-            if (!profile) {
-                return res.status(404).json(error("_id not found in Profile", res.statusCode));
-            }
+            const{id,category,description} = req.body;
             //Update user data
-            
-                profile = await Profile.findByIdAndUpdate(req.params._id,{
-                    $set: updateOps
+            if(category === "Review")
+            return res.status(400).json(error("Review cannot be modify", res.statusCode));
+                profile = await Profile.findByIdAndUpdate(id,{
+                    $set: {
+                        category: category,
+                        description: description
+                    }
                 });
                 res.status(200).json(success("Edited successfully",
                 {

@@ -15,12 +15,24 @@
   <div>
     <div>
       <h1>Benefit</h1>
-      <button type="button" class="button button1" id="addbenefit" data-toggle="modal" data-target="#exampleModal">Add</button>
-      <button type="button" class="button button1" id="editbenefit" data-toggle="modal" data-target="#exampleModal1">Edit</button>
+
+      <div class="dropdown">
+        <button type="button" class="button button1" id="addbenefit" data-toggle="modal"
+          data-target="#exampleModal">Add</button>
+        <button type="button" class="button button1" id="editbenefit" data-toggle="modal"
+          data-target="#exampleModal1">Edit</button>
+
+        <form action="" class="search-form">
+          <input type="search" id="search_benefit" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+
+
       <br></br>
     </div>
 
-    <table class="table table-sortable">
+    <table class="table table-sortable" id="page-benefit">
       <thead>
         <tr>
           <th>Benefit Title</th>
@@ -28,7 +40,7 @@
           <th>Available for ...</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_benefit">
         <tr>
           <td> </td>
           <td></td>
@@ -41,9 +53,10 @@
         </tr>
       </tbody>
     </table>
+    <span id="nav_benefit"></span>
+
   </div>
 </div>
 
 <%- include('partials/addBenefit') %>
-<%- include('partials/editBenefit') %>
-
+  <%- include('partials/editBenefit') %>

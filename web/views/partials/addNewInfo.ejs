@@ -1,40 +1,50 @@
-<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add new info</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Name:</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Phone:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Email:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Emergency Contact:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Joined Date:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
-        </div>
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="getEmployeeModel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content reward-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Feed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <form autocomplete="new-password" action="/register" method="POST">
+        
+        <input autocomplete="new-password" name="hidden" type="text" style="display:none;">
+        <div class="modal-body">
+          <div>
+            <label for="name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" name="name"></textarea>
+          </div>
+          <div>
+            <label for="email" class="col-form-label">Email:</label>
+            <input type="text" class="form-control" name="email"></textarea>
+          </div>
+          <div>
+            <label for="password" class="col-form-label">Password:</label>
+            <input type="password" class="form-control" name="password"></textarea>
+          </div>
+          <label for="role" class="col-form-label">Role:</label>
+          <select name="role">
+            <option value="Employee">Employee</option>
+            <option value="Admin">Admin</option>
+          </select>
+          <div>
+            <label for="contact" class="col-form-label">Contact:</label>
+            <input type="text" class="form-control" name="contact"></textarea>
+          </div>
+          <div>
+            <label for="emergencyContact" class="col-form-label">Emergency Contact:</label>
+            <input type="text" class="form-control" name="emergencyContact"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+      </form>
     </div>
+
+
   </div>
+</div>
+</div>

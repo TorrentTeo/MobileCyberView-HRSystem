@@ -1,0 +1,45 @@
+.m-container {
+  width: 120%;
+}
+
+.m-table-fix {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 160px;
+}
+.m-table-fix thead th {
+  position: sticky;
+  top: 0;
+  background: rgb(255, 255, 255);
+  padding: 0 0 10px 1px;
+}
+
+.tableFixHead,
+.tableFixHead td {
+  box-shadow: inset 1px -1px rgb(255, 255, 255);
+}
+.tableFixHead th {
+  box-shadow: inset 1px 1px rgb(255, 255, 255), 0 1px rgb(255, 255, 255);
+}
+
+.m-table tbody td {
+  padding: 5px;
+}
+
+.m-search-group {
+  width: 40%;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px 0 10px 0;
+}
+
+.fa2 {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}

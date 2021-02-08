@@ -1,36 +1,74 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add medical plan</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+<div class="modal fade" id="medicPlanModal" tabindex="-1" role="dialog" aria-labelledby="medicPlanModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content m-container">
+      <div class="modal-header">
+        <h5 class="modal-title" id="medicPlanModalLabel">Add medical plan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/postMedicalPlan" method="POST">
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Medical Plan:</label>
-              <input type="text" class="form-control" id="recipient-name">
+          <div class="form-group">
+            <label for="medicalPlanName" class="col-form-label">Medical Plan:</label>
+            <input type="text" class="form-control" name="medicalPlanName"></input>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Medical Card:</label>
+            <p>Front</p>
+            <input type="file" name="medicalCardFront">
+          </div>
+          <div class="form-group">
+            <p>Back</p>
+            <input type="file" name="medicalCardBack">
+          </div>
+          <div>
+            <label for="userid" class="col-form-label">Available for:</label>
+            <div class="m-search-group">
+              <i class="fa2 fa-search" aria-hidden="true"></i>
+              <input type="search" class="form-control rounded " placeholder="Search" aria-label="Search"
+                aria-describedby="search-addon" id="search_mp_add" />
             </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Medical Card(Front):</label>
-              <textarea class="form-control" id="message-text"></textarea>
+            <div class="m-table-fix">
+              <table class="m-table">
+                <thread class="thread-inverse">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_body_mpadd">
+                    <% for(var i=0; i < data.employee.length; i++) { %>
+                      <tr>
+                        <td>
+                          <%= data.employee[i].name %>
+                        </td>
+                        <td>
+                          <%= data.employee[i].email %>
+                        </td>
+                        <td>
+                          <%= data.employee[i].contact %>
+                        </td>
+                        <td><input type="checkbox" class="checkbox" name="userid" value=<%=data.employee[i]._id %>> |
+                          ADD
+                        </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                </thread>
+              </table>
             </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Medical Card(Back):</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="message-text" class="col-form-label">Available for:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-          </form>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
+</div>

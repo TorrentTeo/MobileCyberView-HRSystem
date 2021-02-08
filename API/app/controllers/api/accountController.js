@@ -73,20 +73,14 @@ exports.accountGetAll = async (req, res) => {
 exports.accountPut = async (req, res) => {
     
     try {
-            const updateOps = {};
-            for (const ops of req.body) {
-            updateOps[ops.propName] = ops.value;
-            }
-            
-            let user = await User.findOne({_id:req.params._id});
-
-            // Check the user just in case
-            if (!user)
-            return res.status(404).json(error("User not found", res.statusCode));
-
+            const {email,contact,emergencyContact} = req.body;
             //Update user data
-            user = await User.findByIdAndUpdate(user.id,{
-                    $set: updateOps
+            let user = await User.findByIdAndUpdate(id,{
+                    $set: {
+                        email: email,
+                        contact: contact,
+                        emergencyContact:emergencyContact
+                    }
                 });
 
                 res.status(200).json(success("Edited successfully",

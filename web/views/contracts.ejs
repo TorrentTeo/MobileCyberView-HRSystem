@@ -17,34 +17,61 @@
   <div>
     <div>
       <h1>Contracts</h1>
+      <div class="dropdown">
+        <form action="" class="search-form">
+          <input type="search" id="search_contract" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+      <br></br>
     </div>
 
-    <table class="table table-sortable">
+
+    <table class="table table-sortable" id="page-contract">
       <thead>
         <tr>
           <th>Contract_id</th>
           <th>Contract Title</th>
           <th>Terms/Agreement</th>
+
         </tr>
       </thead>
-      <tbody>
+
+      <tbody id="table_body_contract">
         <% for(var i=0; i < data.contracts.length; i++) { %>
           <tr>
-            <td><%= data.contracts[i].contractid %></td>
-            <td><%= data.contracts[i].title %></td>
-            <td><%= data.contracts[i].terms %></td>
+            <td>
+              <%= data.contracts[i].contractid %>
+            </td>
+            <td>
+              <%= data.contracts[i].title %>
+            </td>
+            <td>
+              <%= data.contracts[i].terms %>
+            </td>
           </tr>
-       <% } %>
+          <% } %>
+
       </tbody>
     </table>
+    <span id="nav_con"></span>
   </div>
+</div>
 
+<div class="grid-container">
   <div>
     <div>
       <h1>Parties</h1>
+      <div class="dropdown">
+        <form action="" class="search-form">
+          <input type="search" id="search_parties" class="search-input" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+      <br></br>
     </div>
 
-    <table class="table table-sortable">
+    <table class="table table-sortable" id="page-parties">
       <thead>
         <tr>
           <th>Person 1</th>
@@ -52,15 +79,25 @@
           <th>Contact_id</th>
         </tr>
       </thead>
-      <tbody>
+
+      <tbody id="table_body_parties">
+
         <% for(var i=0; i < data.contracts.length; i++) { %>
           <tr>
-            <td><%= data.contracts[i].parties.person1 %></td>
-            <td><%= data.contracts[i].parties.person2 %></td>
-            <td><%= data.contracts[i].contractid %></td>
+            <td>
+              <%= data.contracts[i].parties.person1 %>
+            </td>
+            <td>
+              <%= data.contracts[i].parties.person2 %>
+            </td>
+            <td>
+              <%= data.contracts[i].contractid %>
+            </td>
           </tr>
-       <% } %>
+          <% } %>
+
       </tbody>
     </table>
+    <span id="nav_part"></span>
   </div>
 </div>

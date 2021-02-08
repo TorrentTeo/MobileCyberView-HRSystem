@@ -5,8 +5,9 @@ const { success, error, validation } = require("../../helpers/responseApi");
 
 
 exports.rewardPost = async (req, res) => {
-    const { name, description, validFrom, expiryDate, userid } = req.body;
+    
     try {
+            const { name, description, validFrom, expiryDate, userid } = req.body;
             if (Date.parse(validFrom) > Date.parse(expiryDate))
             return res.status(400).json(error("Start date is greater than End date!", res.statusCode));
             
@@ -130,21 +131,16 @@ exports.rewardGetById = async (req, res) => {
 
 exports.rewardPut = async (req, res) => {
     try {   
-            const updateOps = {};
-            for (const ops of req.body) {
-            updateOps[ops.propName] = ops.value;
-            }
+            const{id, name, description} = req.body;
             //Check whether the _id given is valid or not
-            let reward = await Reward.findOne({
-                _id:req.params._id
-            });
-            if (!reward) {
-                return res.status(404).json(error("_id not found in Reward", res.statusCode));
-            }
+            
             //Update user data
             
-                reward = await Reward.findByIdAndUpdate(req.params._id,{
-                    $set: updateOps
+             let reward = await Reward.findByIdAndUpdate(id,{
+                    $set: {
+                    name: name,
+                    description: description,
+                    }
                 });
                 res.status(200).json(success("Edited successfully",
                 {
@@ -160,16 +156,10 @@ exports.rewardPut = async (req, res) => {
 };
 exports.rewardDelete = async (req, res) => {
     try {   
-            //Check whether the _id given is valid or not
-            let reward = await Reward.findOne({
-                _id:req.params._id
-            });
-            if (!reward) {
-                return res.status(404).json(error("_id not found in Reward", res.statusCode));
-            }
+        const{id} = req.body;
             //Update user data
             
-                reward = await Reward.findByIdAndRemove(req.params._id);
+            let reward = await Reward.findByIdAndRemove(id);
 
                 res.status(200).json(success("Removed successfully",
                 {

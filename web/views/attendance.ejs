@@ -17,12 +17,17 @@
     <h1>Attendance</h1>
 
     <div class="dropdown">
-      <button type="button" class="button button1" id="generateAttendanceCode" data-toggle="modal" data-target="#attendanceCodeModel">Generate Code</button>
+      <button type="button" class="button button1" id="generateAttendanceCode" data-toggle="modal"
+        data-target="#attendanceCodeModel">Generate Code</button>
       <ul class="dropdown-menu">
         <li><a href="#">Name</a></li>
         <li><a href="#">Date</a></li>
         <li><a href="#">Timing</a></li>
       </ul>
+      <form action="" class="search-form">
+        <input type="search" id="search_atnd" class="search-input" />
+        <i class="fa fa-search"></i>
+      </form>
     </div>
     <br />
 
@@ -39,19 +44,35 @@
           <th>MC</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_atnd">
         <% for(var i=0; i < data.attendance.length; i++) { %>
           <tr>
-            <td><%= data.attendance[i].name %></td>
-            <td><%= data.attendance[i].date %></td>
-            <td><%= data.attendance[i].timein %></td>
-            <td><%= data.attendance[i].longitude %></td>
-            <td><%= data.attendance[i].latitude %></td>
-            <td><%= data.attendance[i].timeout %></td>
-            <td><%= data.attendance[i].timing %></td>
-            <td><%= data.attendance[i].mc %></td>
+            <td>
+              <%= data.attendance[i].name %>
+            </td>
+            <td>
+              <%= data.attendance[i].date %>
+            </td>
+            <td>
+              <%= data.attendance[i].timein %>
+            </td>
+            <td>
+              <%= data.attendance[i].longitude %>
+            </td>
+            <td>
+              <%= data.attendance[i].latitude %>
+            </td>
+            <td>
+              <%= data.attendance[i].timeout %>
+            </td>
+            <td>
+              <%= data.attendance[i].timing %>
+            </td>
+            <td>
+              <%= data.attendance[i].mc %>
+            </td>
           </tr>
-       <% } %>
+          <% } %>
       </tbody>
     </table>
   </div>

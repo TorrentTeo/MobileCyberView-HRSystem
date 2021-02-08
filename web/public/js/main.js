@@ -23,7 +23,76 @@
         modal.find('.modal-title').text('New message to ' + recipient)
         modal.find('.modal-body input').val(recipient)
       });
+/*
+      $('#getEmployeeModel').on('show.bs.modal', async (event) =>  {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        const res = await getData('/employees');
+        console.log(res.employeeId)
+        $("#employees").load(res.employeeId);
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+      });
 
+
+
+$(document).ready(function () {
+    $('.clickable-row').on('click', function () {
+        var userid = $(this).val('name');
+        window.location = userid;
+    });*/
+$('.checkbox').click(function() {
+    var userid  = $(this).closest("tr").find('td:eq(0)').text();
+  
+  });
+
+$('.toggleColumns').on('change', function (e) {
+    var tableColumn = $(e.currentTarget).data('target');
+    $('.' + tableColumn).toggle();
+  });
+
+  $(".use-address").modal({
+        keyboard: true,
+        backdrop: "static",
+        show:false,
+    }).click(function() {
+    var item = $(this).closest("tr")   // Finds the closest row <tr> 
+                       .find("#nx1")     // Gets a descendent with id="nx"
+                       .text();         // Retrieves the text within <td>
+    $('#nr1').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx2")  
+                       .text();    
+    $('#nr2').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx3")
+                       .text();
+    $('#nr3').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx4")
+                       .text();
+    $('#nr4').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx5")
+                       .text();
+    $('#nr5').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx6")
+                       .text();
+    $('#nr6').text(item);
+});
+$("#category").change(function() {
+    var val = $(this).val();
+    if(val === "Review") {
+        $("#toSomeone").show();
+    }
+    else{
+        $("#toSomeone").hide();
+    }
+  });
       async function test() {
         try {
           const res = await getData('https://api.icndb.com/jokes/random')
@@ -38,6 +107,12 @@
           type: 'GET',
         });
       };
+      addEventListener('click', function (ev) {
+        if (ev.target.classList.contains('whatever')) {
+            ev.preventDefault();
+            loadWithAjax(ev.target.href);
+        }   
+    });
     /*==================================================================
     [ Focus input ]*/
     $('.input100').each(function(){
