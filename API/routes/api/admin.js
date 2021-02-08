@@ -53,7 +53,7 @@ router.delete("/calendar", auth, deleteCalendar)
 router.post("/reward", auth, adminOnly, rewardPost);
 router.get("/allReward", auth, adminOnly, rewardGetAll);
 router.put("/reward", auth, adminOnly, rewardPut);
-router.delete("/reward/:_id", auth, adminOnly, rewardDelete);
+router.delete("/reward", auth, adminOnly, rewardDelete);
 
 //account routes
 router.get("/account/:_id", auth, adminOnly, accountGetById);

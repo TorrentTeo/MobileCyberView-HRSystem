@@ -21,7 +21,6 @@
       <div class="dropdown">
         <button type="button" class="button button1" id="addreward" data-toggle="modal" data-target="#getEmployeeModel">Add</button>
         Edit <input class='toggleColumns' type="checkbox" data-target="column1" unchecked />
-        Delete <input class='toggleColumns' type="checkbox" data-target="column2" unchecked />
         <form action="" class="search-form">
           <input type="search" id="search_rewards" class="search-input" />
           
@@ -40,7 +39,6 @@
           <th>Start From</th>
           <th>Expiring At</th>
           <th>Available for ...</th>
-          <th class="column2" style= "display:none">Delete</th>
         </tr>
       </thead>
       <tbody id="table_body_rewards">
@@ -48,15 +46,14 @@
           <% if (data.reward[i].valid === true) {%>
             
             <td class="column1" style="display:none"><button class="fa fa-pencil-square-o use-address"
-             id="editReward" data-toggle="modal" data-target="#putRewardas" aria-hidden="true" style="color: red; position:relative"></button></td>
-            <td id="nx1"><%= data.reward[i].rewardName %></td>
-            <td id="nx2"><%= data.reward[i].description %></td>
-            <td id="nx3" hidden><%= data.reward[i].id %></td>
-            <td><%= data.reward[i].validFrom %></td>
-            <td><%= data.reward[i].expiryDate %></td>
-            <td><a href="/rewards" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%- data.reward[i].namelist %>">Name List</a></td>
-            <td class="column2" style="display:none"><button class="fa fa-trash" aria-hidden="true" style="color: red; position:relative"></button></td>
-          </tr>
+             id="editReward" data-toggle="modal" data-target="#putRewardas" aria-hidden="true" style="color: blue; position:relative"></button></td>
+             <td id="nx1" hidden><%= data.reward[i].id %></td>
+             <td id="nx2"><%= data.reward[i].rewardName %></td>
+             <td id="nx3"><%= data.reward[i].description %></td>
+             <td><%= data.reward[i].validFrom %></td>
+             <td><%= data.reward[i].expiryDate %></td>
+             <td><a href="/rewards" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%- data.reward[i].namelist %>">Name List</a></td>
+            </tr>
           <% } %>
        <% } %>
 

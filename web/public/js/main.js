@@ -60,7 +60,7 @@ $('.toggleColumns').on('change', function (e) {
         show:false,
     }).click(function() {
     var item = $(this).closest("tr")   // Finds the closest row <tr> 
-                       .find("#nx1")     // Gets a descendent with class="nr"
+                       .find("#nx1")     // Gets a descendent with id="nx"
                        .text();         // Retrieves the text within <td>
     $('#nr1').text(item);
     var item = $(this).closest("tr")

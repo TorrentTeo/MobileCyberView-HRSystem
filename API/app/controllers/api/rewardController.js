@@ -156,16 +156,10 @@ exports.rewardPut = async (req, res) => {
 };
 exports.rewardDelete = async (req, res) => {
     try {   
-            //Check whether the _id given is valid or not
-            let reward = await Reward.findOne({
-                _id:req.params._id
-            });
-            if (!reward) {
-                return res.status(404).json(error("_id not found in Reward", res.statusCode));
-            }
+        const{id} = req.body;
             //Update user data
             
-                reward = await Reward.findByIdAndRemove(req.params._id);
+            let reward = await Reward.findByIdAndRemove(id);
 
                 res.status(200).json(success("Removed successfully",
                 {
