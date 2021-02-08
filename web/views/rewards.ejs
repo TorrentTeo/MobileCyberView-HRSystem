@@ -44,7 +44,7 @@
       <tbody id="table_body_rewards">
         <% for(var i=0; i < data.reward.length; i++) { %>
           <% if (data.reward[i].valid === true) {%>
-            
+          <tr>
             <td class="column1" style="display:none"><button class="fa fa-pencil-square-o use-address"
              id="editReward" data-toggle="modal" data-target="#putRewardas" aria-hidden="true" style="color: blue; position:relative"></button></td>
              <td id="nx1" hidden><%= data.reward[i].id %></td>
