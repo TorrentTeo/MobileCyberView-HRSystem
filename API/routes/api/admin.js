@@ -14,6 +14,7 @@ const { medicalLeaveGetAll,
         medicalPlanGetAll, medicalPlanPost, medicalPlanPut, medicalPlanDelete, 
         clinicListGetAll, clinicListPost, clinicListPut, clinicListDelete, 
         insuranceCoverageGetAll, insuranceCoveragePost, insuranceCoveragePut, insuranceCoverageDelete} = require("../../app/controllers/api/medicalPortalController");
+const { feedPut, feedPost, feedGetAll } = require("../../app/controllers/api/feedController");
 
 // Middleware
 const { auth, adminOnly } = require("../../app/middlewares/auth");
@@ -85,5 +86,9 @@ router.get("/allleave", auth,adminOnly, getAllLeave)
 router.put("/denyleave", auth, adminOnly, denyLeave)
 router.get("/allleavedays", auth, adminOnly, getAllLeaveDays)
 
+//Feed route
+router.get("/allFeed", auth, adminOnly, feedGetAll);
+router.post("/feed", auth, adminOnly, feedPost);
+router.put("/feed", auth, adminOnly, feedPut);
 
 module.exports = router;

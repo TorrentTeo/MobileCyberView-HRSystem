@@ -40,22 +40,10 @@
       </thead>
       <tbody id="table_body_rewards">
         <% for(var i=0; i < data.reward.length; i++) { %>
-          <% if (data.reward[i].valid===true) {%>
-            <td>
-              <%= data.reward[i].rewardName %>
-            </td>
-            <td>
-              <%= data.reward[i].description %>
-            </td>
-            <td>
-              <%= data.reward[i].validFrom %>
-            </td>
-            <td>
-              <%= data.reward[i].expiryDate %>
-            </td>
-            <td><a href="/rewards" class="whatever" data-toggle="popover" title="Available for ..." data-trigger="focus"
-                data-content="<%- data.reward[i].namelist %>">Name List</a></td>
+          
           <% if (data.reward[i].valid === true) {%>
+          <tr>
+
             <td class="column1" style="display:none"><button class="fa fa-pencil-square-o use-address"
              id="editReward" data-toggle="modal" data-target="#putRewardas" aria-hidden="true" style="color: blue; position:relative"></button></td>
              <td id="nx1" hidden><%= data.reward[i].id %></td>

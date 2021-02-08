@@ -71,7 +71,28 @@ $('.toggleColumns').on('change', function (e) {
                        .find("#nx3")
                        .text();
     $('#nr3').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx4")
+                       .text();
+    $('#nr4').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx5")
+                       .text();
+    $('#nr5').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx6")
+                       .text();
+    $('#nr6').text(item);
 });
+$("#category").change(function() {
+    var val = $(this).val();
+    if(val === "Review") {
+        $("#toSomeone").show();
+    }
+    else{
+        $("#toSomeone").hide();
+    }
+  });
       async function test() {
         try {
           const res = await getData('https://api.icndb.com/jokes/random')

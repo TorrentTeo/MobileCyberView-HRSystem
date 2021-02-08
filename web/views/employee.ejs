@@ -17,9 +17,8 @@
 
     <div class="dropdown">
       <button type="button" class="button button1" id="addperformance" data-toggle="modal"
-        data-target="#exampleModal">Add</button>
-      <button type="button" class="button button1" id="editperformance" data-toggle="modal"
-        data-target="#exampleModal1">Edit</button>
+        data-target="#performance">Add</button>
+        Edit <input class='toggleColumns' type="checkbox" data-target="column1" unchecked />
       <form action="" class="search-form">
         <input type="search" id="search_p" class="search-input" />
         <i class="fa fa-search"></i>
@@ -30,6 +29,7 @@
     <table class="table table-sortable" id="page-p">
       <thead>
         <tr>
+          <th class="column1" style="display:none">Edit</th>
           <th>Name</th>
           <th>Category</th>
           <th>Description</th>
@@ -40,22 +40,18 @@
       <tbody id="table_body_p">
         <% for(var i=0; i < data.employeeProfile.length; i++) { %>
           <tr>
-            <td>
-              <%= data.employeeProfile[i].name %>
-            </td>
-            <td>
-              <%= data.employeeProfile[i].category %>
-            </td>
-            <td>
-              <%= data.employeeProfile[i].description %>
-            </td>
-            <td>
-              <%= data.employeeProfile[i].date %>
-            </td>
-            <td>
-              <%= data.employeeProfile[i].writtenBy %>
-            </td>
-
+            <% if (data.employeeProfile[i].category !== "Review") {%>
+            <td class="column1" style="display:none"><button class="fa fa-pencil-square-o use-address"
+              id="editNewPerformance" data-toggle="modal" data-target="#editperformance" aria-hidden="true" style="color: blue; position:relative"></button></td>
+              <% }else{%>
+                <td class="column1" style="display:none"></td>
+                <%} %>
+              <td id="nx1" hidden><%= data.employeeProfile[i].id %></td>
+            <td><%= data.employeeProfile[i].name %></td>
+            <td><%= data.employeeProfile[i].category %></td>
+            <td id="nx3"><%= data.employeeProfile[i].description %></td>
+            <td><%= data.employeeProfile[i].date %></td>
+            <td><%= data.employeeProfile[i].writtenBy %></td>
           </tr>
           <% } %>
       </tbody>
@@ -71,9 +67,8 @@
 
     <div class="dropdown">
       <button type="button" class="button button1" id="addinfo" data-toggle="modal"
-        data-target="#exampleModal2">Add</button>
-      <button type="button" class="button button1" id="editinfo" data-toggle="modal"
-        data-target="#exampleModal3">Edit</button>
+        data-target="#register">Add New Employee</button>
+        Edit <input class='toggleColumns' type="checkbox" data-target="column2" unchecked />
       <form action="" class="search-form">
         <input type="search" id="search_pi" class="search-input" />
         <i class="fa fa-search"></i>
@@ -84,6 +79,7 @@
     <table class="table table-sortable" id="page-pi">
       <thead>
         <tr>
+          <th class="column2" style="display:none">Edit</th>
           <th>Name</th>
           <th>Phone</th>
           <th>Email</th>
@@ -93,24 +89,19 @@
       </thead>
       <tbody id="table_body_pi">
         <% for(var i=0; i < data.employeeResponse.length; i++) { %>
+          <% if (data.employeeResponse[i].verified === true) {%>
           <tr>
-            <td>
-              <%= data.employeeResponse[i].name %>
-            </td>
-            <td>
-              <%= data.employeeResponse[i].contact %>
-            </td>
-            <td>
-              <%= data.employeeResponse[i].email %>
-            </td>
-            <td>
-              <%= data.employeeResponse[i].emergencyContact %>
-            </td>
-            <td>
-              <%= data.employeeResponse[i].joinedDate %>
-            </td>
+            <td class="column2" style="display:none"><button class="fa fa-pencil-square-o use-address"
+              id="editInfo" data-toggle="modal" data-target="#editinfo" aria-hidden="true" style="color: blue; position:relative"></button></td>
+              <td id="nx2" hidden><%= data.employeeResponse[i].id %></td>
+            <td><%= data.employeeResponse[i].name %></td>
+            <td id="nx4"><%= data.employeeResponse[i].contact %></td>
+            <td id="nx5"><%= data.employeeResponse[i].email %></td>
+            <td id="nx6"><%= data.employeeResponse[i].emergencyContact %></td>
+            <td><%= data.employeeResponse[i].joinedDate %></td>
 
           </tr>
+          <% } %>
           <% } %>
       </tbody>
     </table>
