@@ -15,6 +15,8 @@ const { medicalLeavePut, medicalLeaveGet, medicalLeaveGetById, medicalLeaveDelet
         clinicListGet, clinicListGetById,  
         insuranceCoverageGet, insuranceCoverageGetById } = require("../../app/controllers/api/medicalPortalController");
 const {getCalendar, postCalendar, putCalendar, deleteCalendar, getAllCalendar} = require("../../app/controllers/api/calendarController")
+const {feedGetById, feedGet} = require("../../app/controllers/api/feedController")
+
 // Middleware
 const { auth, adminOnly } = require("../../app/middlewares/auth");
 
@@ -47,7 +49,7 @@ router.delete("/calendar", auth, deleteCalendar)
 router.post("/profile", auth, profilePost);
 router.get("/profile", auth, profileGet);
 router.get("/profile/:_id", auth, profileGetById);
-router.put("/profile/:_id", auth, profilePut);
+router.put("/profile", auth, profilePut);
 router.delete("/profile/:_id", auth, profileDelete);
 
 //reward routes with wallet
@@ -57,7 +59,7 @@ router.get("/wallet", auth, walletGet);
 
 //account routes
 router.get("/account", auth, accountGet);
-router.put("/account/:_id", auth, accountPut);
+router.put("/account", auth, accountPut);
 
 //medical portal routes
 router.put("/medicalLeave/:_id", auth, medicalLeavePut);
@@ -80,5 +82,10 @@ router.post("/leave", auth, postLeave)
 router.get("/leave", auth, getLeave)
 router.put("/leave", auth, putLeave)
 router.delete("/leave", auth, deleteLeave)
+
+//Feed route
+router.get("/feed", auth, feedGet);
+router.get("/feed/:_id", auth, feedGetById);
+
 
 module.exports = router;

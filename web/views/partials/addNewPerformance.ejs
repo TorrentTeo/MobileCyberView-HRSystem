@@ -1,44 +1,84 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add new performance</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Name:</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Achievement:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Training:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Skills:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Education:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Reviews:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
-        </div>
+<div class="modal fade" id="performance" tabindex="-1" role="dialog" aria-labelledby="getEmployeeModel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content reward-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Feed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <form action="/employee" method="POST">
+        <div class="modal-body">
+          <label for="category" class="col-form-label">Performance Type:</label>
+          <select id="category" name="category">
+            <option value="Achievement">Achievement</option>
+            <option value="Training">Training</option>
+            <option value="Skills">Skills</option>
+            <option value="Education">Education</option>
+            <option value="Review">Review</option>
+          </select>
+          <div>
+            <label for="description" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" name="description"></textarea>
+          </div>
+          <div>
+            <label for="date" class="col-form-label">Date:</label>
+            <input type="date" class="form-control" name="date"></textarea>
+          </div>
+          <div id="toSomeone" style="display: none;">
+            <label for="toWho" class="col-form-label">Notify to:</label>
+
+            <div class="reward-search-group">
+
+              <i class="fa2 fa-search" aria-hidden="true"></i>
+              <input type="search" class="form-control rounded " placeholder="Search" aria-label="Search"
+                aria-describedby="search-addon" id="search_rewards_add" />
+
+
+            </div>
+
+            <div class="reward-table-fix">
+              <table class="reward-table">
+                <thread class="thread-inverse">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_body_re_add">
+                    <% for(var i=0; i < data.employee.length; i++) { %>
+                      <tr>
+                        <td>
+                          <%= data.employee[i].name %>
+                        </td>
+                        <td>
+                          <%= data.employee[i].email %>
+                        </td>
+                        <td>
+                          <%= data.employee[i].contact %>
+                        </td>
+                        <td><input type="radio" class="checkbox" name="toWho" value=<%=data.employee[i]._id %>> |
+                          ADD
+                        </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                </thread>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+      </form>
     </div>
+
+
   </div>
+</div>
+</div>
