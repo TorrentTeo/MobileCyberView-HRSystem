@@ -83,6 +83,34 @@ $('.toggleColumns').on('change', function (e) {
                        .find("#nx6")
                        .text();
     $('#nr6').text(item);
+    var item = $(this).closest("tr")   // Finds the closest row <tr> 
+                       .find("#nx7")     // Gets a descendent with id="nx"
+                       .text();         // Retrieves the text within <td>
+    $('#nr7').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx8")  
+                       .text();    
+    $('#nr8').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx9")
+                       .text();
+    $('#nr9').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx10")
+                       .text();
+    $('#nr10').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx11")
+                       .text();
+    $('#nr11').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx12")
+                       .text();
+    $('#nr12').text(item);
+    var item = $(this).closest("tr")
+                       .find("#nx13")
+                       .text();
+    $('#nr13').text(item);
 });
 $("#category").change(function() {
     var val = $(this).val();
