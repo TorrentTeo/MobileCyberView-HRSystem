@@ -73,7 +73,7 @@ exports.accountGetAll = async (req, res) => {
 exports.accountPut = async (req, res) => {
     
     try {
-            const {email,contact,emergencyContact} = req.body;
+            const {id, email,contact,emergencyContact} = req.body;
             //Update user data
             let user = await User.findByIdAndUpdate(id,{
                     $set: {
