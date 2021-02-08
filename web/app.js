@@ -15,7 +15,7 @@ const {getlogin, postlogin,logout, auth} = require("./controllers/loginControlle
 const {getFeed, postFeed} = require("./controllers/homeController")
 const {getMedical, postClinic, postInsurance, postMedicalPlan} = require("./controllers/medicalController")
 
-const {getReward, postReward} = require("./controllers/rewardsController")
+const {getReward, postReward, putReward} = require("./controllers/rewardsController")
 
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
 const {getEmployee, getEmployeeData} = require("./controllers/employeeController")
@@ -86,6 +86,7 @@ app.get('/feedback', auth, getFeedback)
 
 app.get('/rewards', auth, getReward)
 app.post('/postReward', auth , postReward);
+app.post('/putReward', auth , putReward);
 
 
 

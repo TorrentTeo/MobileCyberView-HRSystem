@@ -1,4 +1,4 @@
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="putRewardas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -7,26 +7,25 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form action="/putReward" method="POST">
         <div class="modal-body">
-          <form>
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Reward Name:</label>
-              <input type="text" class="form-control" id="recipient-name">
+              <label for="nr1" class="col-form-label">Reward Name:</label>
+              <textarea type="text" class="form-control" id="nr2" name="name"></textarea>
             </div>
             <div class="form-group">
-              <label for="message-text" class="col-form-label">Description:</label>
-              <textarea class="form-control" id="message-text"></textarea>
+              <label for="nr2" class="col-form-label">Description:</label>
+              <textarea type="text" class="form-control" id="nr3" name="description"></textarea>
             </div>
             <div class="form-group">
-              <label for="message-text" class="col-form-label">Available:</label>
-              <textarea class="form-control" id="message-text"></textarea>
+              <textarea type="text" class="form-control" id="nr1" name="id" hidden></textarea>
             </div>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-      </div>
+      </form>
+    </div>
     </div>
   </div>
