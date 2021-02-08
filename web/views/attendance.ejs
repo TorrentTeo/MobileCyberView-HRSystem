@@ -3,7 +3,6 @@
   <a href="http://localhost:3000/home">Home</a>
   <a href="http://localhost:3000/employee">Employee</a>
   <a class="active" href="http://localhost:3000/attendance">Attendance</a>
-  <a href="http://localhost:3000/benefit">Benefit</a>
   <a href="http://localhost:3000/calendar">Calendar</a>
   <a href="http://localhost:3000/medical">Medical Portal</a>
   <a href="http://localhost:3000/contracts">Contracts</a>
@@ -41,7 +40,6 @@
           <th>Longitude</th>
           <th>Time out</th>
           <th>Timing</th>
-          <th>MC</th>
         </tr>
       </thead>
       <tbody id="table_body_atnd">
@@ -67,9 +65,6 @@
             </td>
             <td>
               <%= data.attendance[i].timing %>
-            </td>
-            <td>
-              <%= data.attendance[i].mc %>
             </td>
           </tr>
           <% } %>

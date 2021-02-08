@@ -3,7 +3,6 @@
   <a href="http://localhost:3000/home">Home</a>
   <a href="http://localhost:3000/employee">Employee</a>
   <a href="http://localhost:3000/attendance">Attendance</a>
-  <a href="http://localhost:3000/benefit">Benefit</a>
   <a class="active" href="http://localhost:3000/calendar">Calendar</a>
   <a href="http://localhost:3000/medical">Medical Portal</a>
   <a href="http://localhost:3000/contracts">Contracts</a>
@@ -142,8 +141,7 @@
     <div class="dropdown">
       <button type="button" class="button button1" id="addactivity" data-toggle="modal"
         data-target="#exampleModal">Add</button>
-      <button type="button" class="button button1" id="editactivity" data-toggle="modal"
-        data-target="#exampleModal1">Edit</button>
+        Edit <input class='toggleColumns' type="checkbox" data-target="column2" unchecked />
       <form action="" class="search-form">
         <input type="search" id="search_cal_act" class="search-input" />
         <i class="fa fa-search"></i>
@@ -158,6 +156,7 @@
   <table class="table table-sortable" id="page-cal-act">
     <thead>
       <tr>
+        <th class="column2" style="display:none">Edit</th>
         <th>Activity Name</th>
         <th>Date</th>
         <th>Time</th>
@@ -166,6 +165,9 @@
     <tbody id="table_body_cal_act">
       <% for(var i=0; i < data.calendar.length; i++) { %>
         <tr>
+          <td class="column2" style="display:none"><button class="fa fa-pencil-square-o use-address"
+            id="editInfo" data-toggle="modal" data-target="#exampleModal1" aria-hidden="true" style="color: blue; position:relative"></button></td>
+            <td id="nx2" hidden><%= data.calendar[i].id %></td>
           <td>
             <%= data.calendar[i].activity %>
           </td>
@@ -186,4 +188,4 @@
 </div>
 
 <%- include('partials/addActivities') %>
-  <%- include('partials/editActivities') %>
+<%- include('partials/editActivities') %>

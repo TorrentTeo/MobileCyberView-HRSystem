@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const { dashboard, attendance, getAttendanceCode } = require("../../app/controllers/api/employeeController");
+const { dashboard, attendance, getAttendanceCode, putAttendance } = require("../../app/controllers/api/employeeController");
 
 // Controllers
-const { getAuthenticatedUser } = require("../../app/controllers/api/employeeController");
+const { getAuthenticatedUser, } = require("../../app/controllers/api/employeeController");
 const { postFeedback } = require("../../app/controllers/api/feedbackController");
 const { clientContractPost } = require("../../app/controllers/api/clientContractController");
 const { profilePost, profileGet, profileGetById, profilePut, profileDelete } = require("../../app/controllers/api/profileController");
@@ -25,6 +25,7 @@ router.get("/", auth, dashboard);
 
 router.post("/Attendance", auth, attendance);
 router.get("/Attendance", auth, getAttendanceCode);
+router.put("/Attendance", auth, putAttendance);
 
 //feedback routes
 router.post("/feedback", auth, postFeedback);
@@ -41,8 +42,8 @@ router.post("/clientcontract", auth, clientContractPost);
 //calendar route
 router.get("/calendar", auth, getCalendar)
 router.get("/allcalendar", auth, getAllCalendar)
-router.post("/calendar", auth, postCalendar)
-router.put("/calendar", auth, putCalendar)
+// router.post("/calendar", auth, postCalendar)
+// router.put("/calendar", auth, putCalendar)
 router.delete("/calendar", auth, deleteCalendar)
 
 //profile routes
