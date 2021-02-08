@@ -18,7 +18,8 @@ exports.getReward = async (req, res) => {
                 description: reward[key].description,
                 validFrom: new Date(reward[key].validFrom).toDateString(),
                 expiryDate: new Date(reward[key].expiryDate).toDateString(),
-                valid: reward[key].valid            
+                valid: reward[key].valid,
+                id: reward[key]._id            
             }
             newReward.push(rewards)
         }
@@ -67,6 +68,30 @@ exports.postReward = async (req, res) => {
     console.log(data)
     var headers = {Authorization: "Bearer " + cookie};
     await axios.post(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        //console.log(error)
+        return error;
+    })       
+    return res.redirect('/rewards');
+}
+
+exports.putReward = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/reward";
+    var cookie = get_cookies(req)["authcookie"];
+    var {name, description, id} = req.body
+    
+    if(id.length == 24)
+    {id = id.split(" ");}
+
+    var data = {
+         name,
+         description,
+         id
+        }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.put(url, data, {headers: headers}).then((response) => {
         console.log(response.data)
     }).catch((error) => {
         //console.log(error)
