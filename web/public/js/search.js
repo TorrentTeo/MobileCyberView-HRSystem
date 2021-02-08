@@ -35,6 +35,21 @@
    setSearch('#search_parties', '#table_body_parties tr');
    setSearch('#search_rewards', '#table_body_rewards tr');
    setSearch('#search_rewards_add', '#table_body_re_add tr');
+   setSearch('#search_medplan', '#table_body_medplan tr');
+   setSearch('#search_medrec', '#table_body_medrec tr');
+   setSearch('#search_clist', '#table_body_clist tr');
+   setSearch('#search_insurance', '#table_body_ins tr');
+   setSearch('#search_mp_add', '#table_body_mpadd tr');
+   setSearch('#search_clist_add', '#table_body_clistadd tr');
+   setSearch('#search_ins_add', '#table_body_insadd tr');
+   setSearch('#search_feed_add', '#table_body_feed tr');
+
+
+
+
+
+
+
 
 
 

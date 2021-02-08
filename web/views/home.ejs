@@ -17,26 +17,21 @@
   <div>
     <div>
       <h1>Feed</h1>
-
       <div class="dropdown">
-        <button type="button" class="button button1" id="addFeed" data-toggle="modal"
-          data-target="#exampleModal">Add</button>
-        <button type="button" class="button button2" id="editFeed" data-toggle="modal"
-          data-target="#exampleModal1">Edit</button>
+        <button type="button" class="button button1" id="addNewFeed" data-toggle="modal" data-target="#feed">Add</button>
+        Edit <input class='toggleColumns' type="checkbox" data-target="column1" unchecked />
         <form action="" class="search-form">
           <input type="search" id="search_home" class="search-input" />
           <i class="fa fa-search"></i>
         </form>
       </div>
-
-
-
       <br></br>
     </div>
 
     <table class="table table-sortable" id="page-home">
       <thead>
         <tr>
+          <th class="column1" style="display:none">Edit</th>
           <th>Feed Type</th>
           <th>Content</th>
           <th>Date</th>
@@ -44,24 +39,17 @@
         </tr>
       </thead>
       <tbody id="table_body_home">
-        <tr>
-          <td>Company News</td>
-          <td>sum content</td>
-          <td>sum date</td>
-          <td>List</td>
-        </tr>
-        <tr>
-          <td>Announcement</td>
-          <td></td>
-          <td></td>
-          <td>List</td>
-        </tr>
-        <tr>
-          <td>Announcement</td>
-          <td></td>
-          <td></td>
-          <td>List</td>
-        </tr>
+        <% for(var i=0; i < data.feed.length; i++) { %>
+            <td class="column1" style="display:none"><button class="fa fa-pencil-square-o use-address"
+             id="editNewFeed" data-toggle="modal" data-target="#putfeed" aria-hidden="true" style="color: blue; position:relative"></button></td>
+             <td id="nx1" hidden><%= data.feed[i].id %></td>
+             <td id="nx2"><%= data.feed[i].feedType %></td>
+             <td id="nx3"><%= data.feed[i].content %></td>
+             <td><%= data.feed[i].createdAt %></td>
+             <td><a href="/home" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%- data.feed[i].namelist %>">Name List</a></td>
+            </tr>
+       <% } %>
+
       </tbody>
 
     </table>

@@ -16,7 +16,8 @@ exports.getMedical = async (req, res) => {
                 medicalPlanName: medicalPlan[key].medicalPlanName,
                 medicalCardFront: medicalPlan[key].medicalCardFront,
                 medicalCardBack: medicalPlan[key].medicalCardBack,
-                name: medicalPlan[key].name
+                name: medicalPlan[key].name,
+                id: medicalPlan[key]._id
             }
             newMedicalPlan.push(plan)
         }
@@ -37,7 +38,6 @@ exports.getMedical = async (req, res) => {
                 name: medicalLeave[key].name,
                 reason: medicalLeave[key].reason,
                 date: new Date(medicalLeave[key].from).toDateString() + ' - ' + new Date(medicalLeave[key].to).toDateString()
-
             }
             newMedicalLeave.push(leave)
         }
@@ -56,7 +56,8 @@ exports.getMedical = async (req, res) => {
                 clinicName: clinicList[key].clinicName,
                 latitude: clinicList[key].latitude,
                 longitude: clinicList[key].longitude,
-                name: clinicList[key].name
+                name: clinicList[key].name,
+                id: clinicList[key]._id
             }
             newClinicList.push(clinic)
         }
@@ -76,7 +77,8 @@ exports.getMedical = async (req, res) => {
                 description: insuranceCoverage[key].description,
                 contactPerson: insuranceCoverage[key].contactPerson,
                 contactNumber: insuranceCoverage[key].contactNumber,
-                name: insuranceCoverage[key].name
+                name: insuranceCoverage[key].name,
+                id: insuranceCoverage[key]._id
             }
             newInsuranceCoverage.push(insurance)
         }
@@ -84,6 +86,158 @@ exports.getMedical = async (req, res) => {
         console.log(error)
         return error;
     })
-       return res.render('medical', {data: {medicalPlan: newMedicalPlan, medicalLeave: newMedicalLeave, clinicList: newClinicList, insuranceCoverage: newInsuranceCoverage}})
 
+    var newEmployee = [];
+    await axios.get("http://localhost:5000/api/admin/AllEmployee", {headers: headers} ,data).then((response) => {
+        var resData = response.data;
+        var employee = resData.results.user;
+        for(key in employee){
+            var employees = {
+                name: employee[key].name,
+                email: employee[key].email,
+                contact: employee[key].contact,
+                _id: employee[key]._id
+            }
+            newEmployee.push(employees)
+        }
+        
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })
+       return res.render('medical', {data: {employee: newEmployee, medicalPlan: newMedicalPlan, medicalLeave: newMedicalLeave, clinicList: newClinicList, insuranceCoverage: newInsuranceCoverage}})
+
+}
+
+exports.postMedicalPlan = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/medicalPlan";
+    var cookie = get_cookies(req)["authcookie"];
+    var {medicalPlanName, medicalCardFront, medicalCardBack, userid} = req.body
+    
+    if(userid.length == 24)
+    {userid = userid.split(" ");}
+
+    var data = {
+        medicalPlanName,
+        medicalCardFront,
+        medicalCardBack,
+         userid
+        }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.post(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+
+exports.postClinic = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/clinicList";
+    var cookie = get_cookies(req)["authcookie"];
+    var {clinicName, longitude, latitude, userid} = req.body
+    
+    if(userid.length == 24)
+    {userid = userid.split(" ");}
+
+    var data = {
+        clinicName,
+        longitude,
+        latitude,
+         userid
+        }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.post(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+
+exports.postInsurance = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/insuranceCoverage";
+    var cookie = get_cookies(req)["authcookie"];
+    var {typeofInsurance, description, contactPerson, contactNumber, userid} = req.body
+    
+    if(userid.length == 24)
+    {userid = userid.split(" ");}
+
+    var data = {
+        typeofInsurance,
+        description,
+        contactPerson,
+        contactNumber,
+         userid
+        }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.post(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+exports.editplan = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/medicalPlan";
+    var cookie = get_cookies(req)["authcookie"];
+    var { id, medicalPlanName, medicalCardFront, medicalCardBack} = req.body
+    
+    if(id.length == 24)
+    {id = id.split(" ");}
+
+    var data = { id, medicalPlanName, medicalCardFront, medicalCardBack}
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.put(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        //console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+exports.editclinic = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/clinicList";
+    var cookie = get_cookies(req)["authcookie"];
+    var { id,clinicName,longitude,latitude } = req.body
+    
+    if(id.length == 24)
+    {id = id.split(" ");}
+
+    var data = { id,clinicName,longitude,latitude }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.put(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        //console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+exports.editinsurance = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/insuranceCoverage";
+    var cookie = get_cookies(req)["authcookie"];
+    var { id,typeofInsurance,description,contactPerson,contactNumber } = req.body
+    
+    if(id.length == 24)
+    {id = id.split(" ");}
+
+    var data = { id,typeofInsurance,description,contactPerson,contactNumber }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.put(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        //console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
 }

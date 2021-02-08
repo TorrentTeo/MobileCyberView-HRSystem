@@ -14,6 +14,7 @@ const { medicalLeaveGetAll,
         medicalPlanGetAll, medicalPlanPost, medicalPlanPut, medicalPlanDelete, 
         clinicListGetAll, clinicListPost, clinicListPut, clinicListDelete, 
         insuranceCoverageGetAll, insuranceCoveragePost, insuranceCoveragePut, insuranceCoverageDelete} = require("../../app/controllers/api/medicalPortalController");
+const { feedPut, feedPost, feedGetAll } = require("../../app/controllers/api/feedController");
 
 // Middleware
 const { auth, adminOnly } = require("../../app/middlewares/auth");
@@ -52,8 +53,8 @@ router.delete("/calendar", auth, deleteCalendar)
 //reward routes with wallet
 router.post("/reward", auth, adminOnly, rewardPost);
 router.get("/allReward", auth, adminOnly, rewardGetAll);
-router.put("/reward/:_id", auth, adminOnly, rewardPut);
-router.delete("/reward/:_id", auth, adminOnly, rewardDelete);
+router.put("/reward", auth, adminOnly, rewardPut);
+router.delete("/reward", auth, adminOnly, rewardDelete);
 
 //account routes
 router.get("/account/:_id", auth, adminOnly, accountGetById);
@@ -65,17 +66,17 @@ router.get("/allMedicalLeave", auth, adminOnly, medicalLeaveGetAll);
 
 router.get("/allMedicalPlan", auth, adminOnly, medicalPlanGetAll);
 router.post("/medicalPlan", auth, adminOnly, medicalPlanPost);
-router.put("/medicalPlan/:_id", auth, adminOnly, medicalPlanPut);
+router.put("/medicalPlan", auth, adminOnly, medicalPlanPut);
 router.delete("/medicalPlan/:_id", auth, adminOnly, medicalPlanDelete);
 
 router.get("/allClinicList", auth, adminOnly, clinicListGetAll);
 router.post("/clinicList", auth, adminOnly, clinicListPost);
-router.put("/clinicList/:_id", auth, adminOnly, clinicListPut);
+router.put("/clinicList", auth, adminOnly, clinicListPut);
 router.delete("/clinicList/:_id", auth, adminOnly, clinicListDelete);
 
 router.get("/allInsuranceCoverage", auth, adminOnly, insuranceCoverageGetAll);
 router.post("/insuranceCoverage", auth, adminOnly, insuranceCoveragePost);
-router.put("/insuranceCoverage/:_id", auth, adminOnly, insuranceCoveragePut);
+router.put("/insuranceCoverage", auth, adminOnly, insuranceCoveragePut);
 router.delete("/insuranceCoverage/:_id", auth, adminOnly, insuranceCoverageDelete);
 //end of medical portal routes
 
@@ -85,5 +86,9 @@ router.get("/allleave", auth,adminOnly, getAllLeave)
 router.put("/denyleave", auth, adminOnly, denyLeave)
 router.get("/allleavedays", auth, adminOnly, getAllLeaveDays)
 
+//Feed route
+router.get("/allFeed", auth, adminOnly, feedGetAll);
+router.post("/feed", auth, adminOnly, feedPost);
+router.put("/feed", auth, adminOnly, feedPut);
 
 module.exports = router;

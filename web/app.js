@@ -12,13 +12,14 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const uuid = require('uuid');
 const {getlogin, postlogin,logout, auth} = require("./controllers/loginController")
-const {getFeed, postFeed} = require("./controllers/homeController")
-const {getMedical} = require("./controllers/medicalController")
+const {getFeed, postFeed, putFeed} = require("./controllers/homeController")
+const {getMedical, postClinic, postInsurance,
+     postMedicalPlan, editplan,editclinic,editinsurance} = require("./controllers/medicalController")
 
-const {getReward, postReward} = require("./controllers/rewardsController")
+const {getReward, postReward, putReward} = require("./controllers/rewardsController")
 
 const {getAttendanceCode,getAttendance} = require("./controllers/attendanceController")
-const {getEmployee, getEmployeeData} = require("./controllers/employeeController")
+const {getEmployee, postPerformance, putPerformance, register, putUser} = require("./controllers/employeeController")
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 
 
@@ -52,7 +53,7 @@ app.get('/logout', logout);
 //home routes
 app.get('/home', auth , getFeed);
 app.post('/home', auth ,postFeed);
-
+app.post('/putfeed', auth ,putFeed);
 
 app.get('/calendar', auth , getCalendar);
 app.post('/activities', auth , postActivities);
@@ -62,7 +63,10 @@ app.post('/denyLeave', auth , denyLeave);
 
 
 app.get('/employee', getEmployee);
-
+app.post('/employee', postPerformance);
+app.post('/putPerformance', putPerformance);
+app.post('/register', register);
+app.post('/putUser', putUser);
 
 //app.get('/employees', auth , getEmployeeData)
 
@@ -75,7 +79,12 @@ app.get('/benefit', (req, res) => {
 })
 
 app.get('/medical', auth, getMedical)
-
+app.post('/postClinic', postClinic)
+app.post('/postInsurance', postInsurance)
+app.post('/postMedicalPlan', postMedicalPlan)
+app.post('/editplan', editplan)
+app.post('/editclinic', editclinic)
+app.post('/editinsurance', editinsurance)
 
 app.get('/contracts', getClientContracts)
 
@@ -83,6 +92,7 @@ app.get('/feedback', auth, getFeedback)
 
 app.get('/rewards', auth, getReward)
 app.post('/postReward', auth , postReward);
+app.post('/putReward', auth , putReward);
 
 
 
