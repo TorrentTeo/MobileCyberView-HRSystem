@@ -16,7 +16,8 @@ exports.getMedical = async (req, res) => {
                 medicalPlanName: medicalPlan[key].medicalPlanName,
                 medicalCardFront: medicalPlan[key].medicalCardFront,
                 medicalCardBack: medicalPlan[key].medicalCardBack,
-                name: medicalPlan[key].name
+                name: medicalPlan[key].name,
+                id: medicalPlan[key]._id
             }
             newMedicalPlan.push(plan)
         }
@@ -37,7 +38,6 @@ exports.getMedical = async (req, res) => {
                 name: medicalLeave[key].name,
                 reason: medicalLeave[key].reason,
                 date: new Date(medicalLeave[key].from).toDateString() + ' - ' + new Date(medicalLeave[key].to).toDateString()
-
             }
             newMedicalLeave.push(leave)
         }
@@ -56,7 +56,8 @@ exports.getMedical = async (req, res) => {
                 clinicName: clinicList[key].clinicName,
                 latitude: clinicList[key].latitude,
                 longitude: clinicList[key].longitude,
-                name: clinicList[key].name
+                name: clinicList[key].name,
+                id: clinicList[key]._id
             }
             newClinicList.push(clinic)
         }
@@ -76,7 +77,8 @@ exports.getMedical = async (req, res) => {
                 description: insuranceCoverage[key].description,
                 contactPerson: insuranceCoverage[key].contactPerson,
                 contactNumber: insuranceCoverage[key].contactNumber,
-                name: insuranceCoverage[key].name
+                name: insuranceCoverage[key].name,
+                id: insuranceCoverage[key]._id
             }
             newInsuranceCoverage.push(insurance)
         }
@@ -178,6 +180,63 @@ exports.postInsurance = async (req, res) => {
         console.log(response.data)
     }).catch((error) => {
         console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+exports.editplan = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/medicalPlan";
+    var cookie = get_cookies(req)["authcookie"];
+    var { id, medicalPlanName, medicalCardFront, medicalCardBack} = req.body
+    
+    if(id.length == 24)
+    {id = id.split(" ");}
+
+    var data = { id, medicalPlanName, medicalCardFront, medicalCardBack}
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.put(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        //console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+exports.editclinic = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/clinicList";
+    var cookie = get_cookies(req)["authcookie"];
+    var { id,clinicName,longitude,latitude } = req.body
+    
+    if(id.length == 24)
+    {id = id.split(" ");}
+
+    var data = { id,clinicName,longitude,latitude }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.put(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        //console.log(error)
+        return error;
+    })       
+    return res.redirect('/medical');
+}
+exports.editinsurance = async (req, res) => {   
+    url = "http://localhost:5000/api/admin/insuranceCoverage";
+    var cookie = get_cookies(req)["authcookie"];
+    var { id,typeofInsurance,description,contactPerson,contactNumber } = req.body
+    
+    if(id.length == 24)
+    {id = id.split(" ");}
+
+    var data = { id,typeofInsurance,description,contactPerson,contactNumber }
+    console.log(data)
+    var headers = {Authorization: "Bearer " + cookie};
+    await axios.put(url, data, {headers: headers}).then((response) => {
+        console.log(response.data)
+    }).catch((error) => {
+        //console.log(error)
         return error;
     })       
     return res.redirect('/medical');

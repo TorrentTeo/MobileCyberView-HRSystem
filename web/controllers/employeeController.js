@@ -162,12 +162,13 @@ exports.register = async (req, res) => {
 exports.putUser = async (req, res) => {   
     url = "http://localhost:5000/api/employee/account";
     var cookie = get_cookies(req)["authcookie"];
-    var {email,contact,emergencyContact} = req.body
+    var {id, email,contact,emergencyContact} = req.body
     
     if(id.length == 24)
     {id = id.split(" ");}
 
     var data = {
+        id,
         email,
         contact,
         emergencyContact
