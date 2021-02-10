@@ -200,24 +200,60 @@ exports.medicalPlanGetAll = async (req, res) => {
         res.status(500).json(error("Server error", res.statusCode));
     }
 };
+const multer = require('multer');
+
 
 exports.medicalPlanPost = async (req, res) => {
-    const { medicalPlanName, medicalCardFront, medicalCardBack, userid } = req.body;
+    
     try {
+        const storage = multer.diskStorage({
+            destination: function(req, file, cb) {
+              cb(null, '../uploads/');
+            },
+            filename: function(req, file, cb) {
+              cb(null, new Date().toISOString() + file.originalname);
+            }
+          });
+          
+        
+        const fileFilter = (req, file, cb) => {
+            // reject a file
+            if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+              cb(null, true);
+            } else {
+              cb(null, false);
+            }
+          };
+        
+        const upload = multer({
+            storage: storage,
+            limits: {
+              fileSize: 1024 * 1024 * 5
+            },
+            fileFilter: fileFilter
+          });
+            upload.array('medicalCardFront',12)
+            console.log("hello"+req.file)
+            const obj = { 
+                medicalPlanName: req.body.medicalPlanName, 
+                medicalCardFront: req.file.path ,
+                medicalCardBack:  req.file.path , 
+                userid: req.body.userid
+            }
             let username = [];
             for (i = 0; i < userid.length; i++) {
                 var [user] = await User.find({_id: userid[i]})
                 console.log(user)
                 username.push(user.name)
               }
-            let newEntry = new MedicalPlan({
+            obj = new MedicalPlan({
                 medicalPlanName,
                 medicalCardFront,
                 medicalCardBack,
                 userid,
                 name : username
             }) 
-            await newEntry.save();   
+            await obj.save();   
 
             res.status(201).json(success("New record added successfully!",
                 {

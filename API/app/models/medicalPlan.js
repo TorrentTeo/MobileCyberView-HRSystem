@@ -8,12 +8,10 @@ const medicalPlanSchema = new mongoose.Schema({
         required: true
     },
     medicalCardFront: {
-        type: Buffer,
-        required: true
+        type: String,
     },
     medicalCardBack: {
-        type: Buffer,
-        required: true
+        type: String,
     },
     userid:[{
         type: String,
