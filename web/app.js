@@ -13,7 +13,8 @@ const cookieParser = require("cookie-parser");
 const uuid = require('uuid');
 const {getlogin, postlogin,logout, auth} = require("./controllers/loginController")
 const {getFeed, postFeed, putFeed} = require("./controllers/homeController")
-const {getMedical, postClinic, postInsurance, postMedicalPlan} = require("./controllers/medicalController")
+const {getMedical, postClinic, postInsurance,
+     postMedicalPlan, editplan,editclinic,editinsurance} = require("./controllers/medicalController")
 
 const {getReward, postReward, putReward} = require("./controllers/rewardsController")
 
@@ -82,7 +83,9 @@ app.get('/medical', auth, getMedical)
 app.post('/postClinic', postClinic)
 app.post('/postInsurance', postInsurance)
 app.post('/postMedicalPlan', postMedicalPlan)
-
+app.post('/editplan', editplan)
+app.post('/editclinic', editclinic)
+app.post('/editinsurance', editinsurance)
 
 app.get('/contracts', getClientContracts)
 

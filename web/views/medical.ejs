@@ -18,8 +18,7 @@
       <div class="dropdown">
         <button type="button" class="button button1" id="addmedicplan" data-toggle="modal"
           data-target="#medicPlanModal">Add</button>
-        <button type="button" class="button button1" id="editmedicplan" data-toggle="modal"
-          data-target="#exampleModal1">Edit</button>
+          Edit <input class='toggleColumns' type="checkbox" data-target="column1" unchecked />
         <form action="" class="search-form">
           <input type="search" id="search_medplan" class="search-input" />
           <i class="fa fa-search"></i>
@@ -31,6 +30,7 @@
     <table class="table table-sortable" id="page-medplan">
       <thead>
         <tr>
+          <th class="column1" style="display:none">Edit</th>
           <th>Medical Plan</th>
           <th>Medical Card (Front)</th>
           <th>Medical Card (Back)</th>
@@ -84,15 +84,9 @@
     <tbody id="table_body_medrec">
       <% for(var i=0; i < data.medicalLeave.length; i++) { %>
         <tr>
-          <td>
-            <%= data.medicalLeave[i].name %>
-          </td>
-          <td>
-            <%= data.medicalLeave[i].reason %>
-          </td>
-          <td>
-            <%= data.medicalLeave[i].date %>
-          </td>
+          <td><%= data.medicalLeave[i].name %></td>
+          <td><%= data.medicalLeave[i].reason %></td>
+          <td><%= data.medicalLeave[i].date %></td>
         </tr>
         <% } %>
     </tbody>
@@ -107,8 +101,7 @@
     <div class="dropdown">
       <button type="button" class="button button1" id="addClinic" data-toggle="modal"
         data-target="#clinicModal">Add</button>
-      <button type="button" class="button button1" id="editClinic" data-toggle="modal"
-        data-target="#exampleModal3">Edit</button>
+        Edit <input class='toggleColumns' type="checkbox" data-target="column2" unchecked />
       <form action="" class="search-form">
         <input type="search" id="search_clist" class="search-input" />
         <i class="fa fa-search"></i>
@@ -120,6 +113,7 @@
   <table class="table table-sortable" id="page-clist">
     <thead>
       <tr>
+        <th class="column2" style="display:none">Edit</th>
         <th>Clinic</th>
         <th>Latitude</th>
         <th>Longitude</th>
@@ -129,17 +123,13 @@
     <tbody id="table_body_clist">
       <% for(var i=0; i < data.clinicList.length; i++) { %>
         <tr>
-          <td>
-            <%= data.clinicList[i].clinicName %>
-          </td>
-          <td>
-            <%= data.clinicList[i].latitude %>
-          </td>
-          <td>
-            <%= data.clinicList[i].longitude %>
-          </td>
-          <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.clinicList[i].name %>">Name
-              List</a></td>
+          <td class="column2" style="display:none"><button class="fa fa-pencil-square-o use-address"
+            id="editClinic" data-toggle="modal" data-target="#editclinic" aria-hidden="true" style="color: blue; position:relative"></button></td>
+          <td id="nx5" hidden><%= data.clinicList[i].id %></td>
+          <td id="nx6"><%= data.clinicList[i].clinicName %></td>
+          <td id="nx7"><%= data.clinicList[i].latitude %></td>
+          <td id="nx8"><%= data.clinicList[i].longitude %></td>
+          <td><a href="/medical" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%= data.clinicList[i].name %>">Name List</a></td>
         </tr>
         <% } %>
     </tbody>
@@ -154,8 +144,7 @@
     <div class="dropdown">
       <button type="button" class="button button1" id="addInsurance" data-toggle="modal"
         data-target="#insuranceModal">Add</button>
-      <button type="button" class="button button1" id="editInsurance" data-toggle="modal"
-        data-target="#exampleModal5">Edit</button>
+        Edit <input class='toggleColumns' type="checkbox" data-target="column3" unchecked />
       <form action="" class="search-form">
         <input type="search" id="search_insurance" class="search-input" />
         <i class="fa fa-search"></i>
@@ -167,6 +156,7 @@
   <table class="table" id="page-insurance">
     <thead>
       <tr>
+        <th class="column3" style="display:none">Edit</th>
         <th>Type of Insurance</th>
         <th>Description</th>
         <th>Contact Person</th>
@@ -177,20 +167,14 @@
     <tbody id="table_body_ins">
       <% for(var i=0; i < data.insuranceCoverage.length; i++) { %>
         <tr>
-          <td>
-            <%= data.insuranceCoverage[i].typeofInsurance %>
-          </td>
-          <td>
-            <%= data.insuranceCoverage[i].description %>
-          </td>
-          <td>
-            <%= data.insuranceCoverage[i].contactPerson %>
-          </td>
-          <td>
-            <%= data.insuranceCoverage[i].contactNumber %>
-          </td>
-          <td><a data-toggle="popover" title="Available for ..."
-              data-content="<%= data.insuranceCoverage[i].name %>">Name List</a></td>
+          <td class="column3" style="display:none"><button class="fa fa-pencil-square-o use-address"
+            id="editInsurance" data-toggle="modal" data-target="#editinsurance" aria-hidden="true" style="color: blue; position:relative"></button></td>
+          <td id="nx9" hidden><%= data.insuranceCoverage[i].id %></td>
+          <td id="nx10"><%= data.insuranceCoverage[i].typeofInsurance %></td>
+          <td id="nx11"><%= data.insuranceCoverage[i].description %></td>
+          <td id="nx12"><%= data.insuranceCoverage[i].contactPerson %></td>
+          <td id="nx13"><%= data.insuranceCoverage[i].contactNumber %></td>
+          <td><a href="/medical" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%= data.insuranceCoverage[i].name %>">Name List</a></td>
         </tr>
         <% } %>
     </tbody>

@@ -1,36 +1,35 @@
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit medical plan</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Medical Plan:</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Medical Card(Front):</label>
-              <input type="file" id="img" name="img" accept="image/*">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Medical Card(Back):</label>
-              <input type="file" id="img" name="img" accept="image/*">
-            </div>
-            <div class="form-group">
-                <label for="message-text" class="col-form-label">Available for:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
-        </div>
+<div class="modal fade" id="editplan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit reward</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </div>
+      <form action="/editplan" method="POST">
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="medicalPlanName" class="col-form-label">Medical Plan Name:</label>
+            <textarea type="text" class="form-control" id="nr2" name="medicalPlanName"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="medicalCardFront" class="col-form-label">Medical Card Front:</label>
+            <input type="file" class="form-control" id="nr3" name="medicalCardFront"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="medicalCardBack" class="col-form-label">Medical Card Back:</label>
+            <input type="file" class="form-control" id="nr4" name="medicalCardBack"></textarea>
+          </div>
+          <div class="form-group">
+            <textarea type="text" class="form-control" id="nr1" name="id" ></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
   </div>
+  </div>
+</div>

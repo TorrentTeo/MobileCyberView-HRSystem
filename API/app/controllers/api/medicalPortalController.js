@@ -235,20 +235,14 @@ exports.medicalPlanPost = async (req, res) => {
 
 exports.medicalPlanPut = async (req, res) => {
     try {   
-            const updateOps = {};
-            for (const ops of req.body) {
-            updateOps[ops.propName] = ops.value;
-            }
-            //Check whether the _id given is valid or not
-            let medicalplan = await MedicalPlan.findOne({
-                _id:req.params._id
-            });
-            if (!medicalplan) {
-                return res.status(404).json(error("_id not found in Medical Plan", res.statusCode));
-            }
+        const { id, medicalPlanName, medicalCardFront, medicalCardBack} = req.body;
             //Update medicalplan
-                medicalplan = await MedicalPlan.findByIdAndUpdate(medicalplan.id,{
-                    $set: updateOps
+               let medicalplan = await MedicalPlan.findByIdAndUpdate(id,{
+                    $set: { 
+                        medicalPlanName:medicalPlanName, 
+                        medicalCardFront:medicalCardFront, 
+                        medicalCardBack:medicalCardBack
+                    }
                 });
                 res.status(200).json(success("Edited successfully",
                 {     }, res.statusCode
@@ -378,20 +372,14 @@ exports.clinicListPost = async (req, res) => {
 
 exports.clinicListPut = async (req, res) => {
     try {   
-            const updateOps = {};
-            for (const ops of req.body) {
-            updateOps[ops.propName] = ops.value;
-            }
-            //Check whether the _id given is valid or not
-            let clinicList = await ClinicList.findOne({
-                _id:req.params._id
-            });
-            if (!clinicList) {
-                return res.status(404).json(error("_id not found in ClinicList", res.statusCode));
-            }
+            const { id,clinicName,longitude,latitude } = req.body;
             //Update clinicList
-                clinicList = await ClinicList.findByIdAndUpdate(clinicList.id,{
-                    $set: updateOps
+                clinicList = await ClinicList.findByIdAndUpdate(id,{
+                    $set: { 
+                        clinicName:clinicName,
+                        longitude:longitude,
+                        latitude:latitude
+                    }
                 });
                 res.status(200).json(success("Edited successfully",
                 {     }, res.statusCode
@@ -517,20 +505,15 @@ exports.insuranceCoveragePost = async (req, res) => {
 
 exports.insuranceCoveragePut = async (req, res) => {
     try {   
-            const updateOps = {};
-            for (const ops of req.body) {
-            updateOps[ops.propName] = ops.value;
-            }
-            //Check whether the _id given is valid or not
-            let insuranceCoverage = await InsuranceCoverage.findOne({
-                _id:req.params._id
-            });
-            if (!insuranceCoverage) {
-                return res.status(404).json(error("_id not found in InsuranceCoverage", res.statusCode));
-            }
+            const { id,typeofInsurance,description,contactPerson,contactNumber } =req.body;
             //Update insuranceCoverage
-                insuranceCoverage = await InsuranceCoverage.findByIdAndUpdate(insuranceCoverage.id,{
-                    $set: updateOps
+                insuranceCoverage = await InsuranceCoverage.findByIdAndUpdate(id,{
+                    $set: { 
+                        typeofInsurance:typeofInsurance,
+                        description:description,
+                        contactPerson:contactPerson,
+                        contactNumber:contactNumber
+                    }
                 });
                 res.status(200).json(success("Edited successfully",
                 {     }, res.statusCode

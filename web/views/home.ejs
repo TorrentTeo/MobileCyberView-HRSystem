@@ -16,7 +16,6 @@
   <div>
     <div>
       <h1>Feed</h1>
-
       <div class="dropdown">
         <button type="button" class="button button1" id="addNewFeed" data-toggle="modal" data-target="#feed">Add</button>
         Edit <input class='toggleColumns' type="checkbox" data-target="column1" unchecked />
@@ -25,9 +24,6 @@
           <i class="fa fa-search"></i>
         </form>
       </div>
-
-
-
       <br></br>
     </div>
 
@@ -41,7 +37,7 @@
           <th>Notify to ...</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="table_body_home">
         <% for(var i=0; i < data.feed.length; i++) { %>
             <td class="column1" style="display:none"><button class="fa fa-pencil-square-o use-address"
              id="editNewFeed" data-toggle="modal" data-target="#putfeed" aria-hidden="true" style="color: blue; position:relative"></button></td>
