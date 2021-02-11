@@ -118,3 +118,18 @@ exports.postActivities = async (req, res) => {
         return res.redirect('/calendar');
     })    
 };
+exports.editCalendar = async (req, res) =>{
+    url = "http://localhost:5000/api/admin/putcalendar";
+    var {id, time, activity }=  req.body
+    var data = {id:id, time: time, activity: activity } 
+    var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
+
+    await axios.post(url,data, {headers: headers}).then((response) => {
+        var resData = response.data;
+        console.log(resData)
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })       
+    return res.redirect('/calendar');
+}

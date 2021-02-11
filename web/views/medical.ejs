@@ -3,7 +3,6 @@
   <a href="http://localhost:3000/home">Home</a>
   <a href="http://localhost:3000/employee">Employee</a>
   <a href="http://localhost:3000/attendance">Attendance</a>
-  <a href="http://localhost:3000/benefit">Benefit</a>
   <a href="http://localhost:3000/calendar">Calendar</a>
   <a class="active" href="http://localhost:3000/medical">Medical Portal</a>
   <a href="http://localhost:3000/contracts">Contracts</a>
@@ -41,13 +40,17 @@
       <tbody id="table_body_medplan">
         <% for(var i=0; i < data.medicalPlan.length; i++) { %>
           <tr>
-            <td class="column1" style="display:none"><button class="fa fa-pencil-square-o use-address"
-              id="editMedicPlan" data-toggle="modal" data-target="#editplan" aria-hidden="true" style="color: blue; position:relative"></button></td>
-            <td id="nx1" hidden><%= data.medicalPlan[i].id %></td>
-            <td id="nx2"><%= data.medicalPlan[i].medicalPlanName %></td>
-            <td id="nx3"><%= data.medicalPlan[i].medicalCardFront %></td>
-            <td id="nx4"><%= data.medicalPlan[i].medicalCardBack %></td>
-            <td><a href="/medical" class= "whatever" data-toggle="popover" title="Available for ..." data-trigger="focus" data-content="<%= data.medicalPlan[i].name %>">Name List</a></td>
+            <td>
+              <%= data.medicalPlan[i].medicalPlanName %>
+            </td>
+            <td>
+              <img style="width: 160px;" src="<%= data.medicalPlan[i].medicalCardFront.trim("./public") %>" alt="">
+            </td>
+            <td>
+              <img style="width: 160px;" src="<%= data.medicalPlan[i].medicalCardBack.trim("./public") %>" alt="">
+            </td>
+            <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.medicalPlan[i].name %>">Name
+                List</a></td>
           </tr>
           <% } %>
       </tbody>

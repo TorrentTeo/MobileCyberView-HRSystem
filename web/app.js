@@ -23,7 +23,7 @@ const {getEmployee, postPerformance, putPerformance, register, putUser} = requir
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 
 
-const {getCalendar,approveLeave,denyLeave,postActivities} = require("./controllers/calendarController")
+const {getCalendar,approveLeave,denyLeave,postActivities,editCalendar} = require("./controllers/calendarController")
 
 const {getClientContracts} = require("./controllers/contractsController")
 
@@ -56,6 +56,7 @@ app.post('/home', auth ,postFeed);
 app.post('/putfeed', auth ,putFeed);
 
 app.get('/calendar', auth , getCalendar);
+app.post('/editcalendar', editCalendar);
 app.post('/activities', auth , postActivities);
 app.post('/approveLeave', auth , approveLeave);
 app.post('/denyLeave', auth , denyLeave);

@@ -23,16 +23,17 @@ exports.getAttendance = async (req, res) => {
         var resData = response.data;
         var attendanceResponse = resData.results.attendance;
         for(key in attendanceResponse){
-            // var days = datediff(parseDate(new Date(leaveRequests[key].from).toDateString()), parseDate(new Date(leaveRequests[key].to).toDateString()));
+            // var days = datediff(parseDate(new Date(leaveRequests[key].from).toDateString()), parseDate(new Date(leaveRequests[key].to).toDateString()));   
+            var seconds = ( new Date(attendanceResponse[key].timing).getTime()- new Date(attendanceResponse[key].createdAt).getTime()) / 1000
             try{
                 var attendance = {
                     name: attendanceResponse[key].name,
                     date: new Date(attendanceResponse[key].createdAt).toDateString(),
                     timein: new Date(attendanceResponse[key].createdAt).toISOString().split("T")[1].split(".")[0],
-                    timeout: new Date(attendanceResponse[key].timeout).toISOString().split("T")[1].split(".")[0],
+                    timeout: new Date(attendanceResponse[key].timing).toISOString().split("T")[1].split(".")[0],
                     longitude: attendanceResponse[key].longitude,
                     latitude: attendanceResponse[key].latitude,
-                    timing: attendanceResponse[key].timing, 
+                    timing:  secondsToHms(seconds), 
                     mc:  attendanceResponse[key].mc
                 }
             }catch(err){
@@ -55,5 +56,14 @@ exports.getAttendance = async (req, res) => {
         console.log(error)
         return error;
     })
-    
+}
+function secondsToHms(d) {
+    d = Number(d);
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var hDisplay = h > 0 ? h + (h == 1 ? " hr " : " hrs ") : "";
+    var mDisplay = m > 0 ? m + (m == 1 ? " min " : " mins ") : "";
+
+    // return hDisplay + mDisplay + sDisplay; 
+    return hDisplay + mDisplay;
 }

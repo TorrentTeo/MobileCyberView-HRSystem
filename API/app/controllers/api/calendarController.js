@@ -78,9 +78,8 @@ exports.putCalendar = async (req,res,next)=> {
         const errors = validationResult(req);
         if (!errors.isEmpty())
             return res.status(422).json(validation(errors.array()));
-        const { id, activity } = req.body;
-        let events = await Calendar.find({}).where('date').equals(date)
-        await Calendar.findByIdAndUpdate(id,{"activity": activity}, function(err, result){
+        var {id, time, activity }=  req.body
+        await Calendar.findByIdAndUpdate(id, {"activity": activity, "date": time}, function(err, result){
             if(err){
                 res.status(422).json(error("Error Updating Record", err, res.statusCode));
             }
