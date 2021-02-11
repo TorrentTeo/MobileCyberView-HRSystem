@@ -8,7 +8,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="/postMedicalPlan" method="POST">
+      <form action="/postMedicalPlan" method="POST" enctype='multipart/form-data' id="myForm">
         <div class="modal-body">
           <div class="form-group">
             <label for="medicalPlanName" class="col-form-label">Medical Plan:</label>
@@ -17,13 +17,13 @@
           <div class="form-group">
             <label class="col-form-label">Medical Card:</label>
             <p>Front</p>
-            <input type="file" name="medicalCardFront">
+            <input type="file" name="medicalCardFront" id="medicalCardFront">
           </div>
           <div class="form-group">
             <p>Back</p>
-            <input type="file" name="medicalCardBack">
+            <input type="file" name="medicalCardBack" id="medicalCardBack">
           </div>
-          <div>
+          <div> 
             <label for="userid" class="col-form-label">Available for:</label>
             <div class="m-search-group">
               <i class="fa2 fa-search" aria-hidden="true"></i>

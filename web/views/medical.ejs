@@ -44,10 +44,10 @@
               <%= data.medicalPlan[i].medicalPlanName %>
             </td>
             <td>
-              <%= data.medicalPlan[i].medicalCardFront %>
+              <img style="width: 160px;" src="<%= data.medicalPlan[i].medicalCardFront.trim("./public") %>" alt="">
             </td>
             <td>
-              <%= data.medicalPlan[i].medicalCardBack %>
+              <img style="width: 160px;" src="<%= data.medicalPlan[i].medicalCardBack.trim("./public") %>" alt="">
             </td>
             <td><a data-toggle="popover" title="Available for ..." data-content="<%= data.medicalPlan[i].name %>">Name
                 List</a></td>

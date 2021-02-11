@@ -204,6 +204,7 @@ exports.medicalPlanGetAll = async (req, res) => {
 exports.medicalPlanPost = async (req, res) => {
     const { medicalPlanName, medicalCardFront, medicalCardBack, userid } = req.body;
     try {
+            console.log(userid)
             let username = [];
             for (i = 0; i < userid.length; i++) {
                 var [user] = await User.find({_id: userid[i]})
