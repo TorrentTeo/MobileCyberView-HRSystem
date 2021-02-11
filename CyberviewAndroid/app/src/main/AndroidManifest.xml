@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cyberview_android1">
 
+    <uses-permission android:name="aandroid.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +21,8 @@
         <activity android:name=".Rewards" />
         <activity android:name=".Manage_Account" />
         <activity android:name=".Profile" />
+        <activity android:name=".Login" />
+
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"

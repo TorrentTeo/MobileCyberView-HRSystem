@@ -1,62 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="auto"
+    tools:context=".MainActivity"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".Login">
+    android:orientation="vertical">
+
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="180dp"
-        android:cropToPadding="false"
-        android:paddingBottom="30dp"
-        android:src="@drawable/cyberview" />
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cyberview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.203" />
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+    <ImageView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textAlignment="center" />
+        android:src="@drawable/main_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.823" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingBottom="10dp"
-        android:textAlignment="center" />
+        android:src="@drawable/circle1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circle2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="127dp"
-        android:layout_height="wrap_content"
-        android:text="Log In"
-        app:backgroundTint="#2ADC31" />
+        android:id="@+id/btn1"
+        android:layout_width="159dp"
+        android:layout_height="46dp"
+        android:background="@drawable/login_btn"
+        android:fontFamily="sans-serif"
+        android:text="Login"
+        android:textStyle="bold"
+        app:backgroundTint="@color/green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:clickable="true"
-        android:cursorVisible="true"
-        android:gravity="center"
-        android:text="Forgot Passsword"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#0126F4" />
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

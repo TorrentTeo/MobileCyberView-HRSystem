@@ -7,22 +7,30 @@
     android:gravity="center"
     tools:context=".Home">
 
+
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="# expiring at 12/12/2020"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="107dp" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="153dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.295" />
 
     <Button
         android:id="@+id/button4"
@@ -30,8 +38,11 @@
         android:layout_height="49dp"
         android:text="Apply Leave"
         app:backgroundTint="#11FA1B"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="586dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.847" />
 
     <Button
         android:id="@+id/button5"
@@ -39,27 +50,12 @@
         android:layout_height="50dp"
         android:text="Medical Leave History"
         app:backgroundTint="#12F81B"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="648dp" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#01F80B"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="1dp" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calendar"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="138dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintVertical_bias="0.129" />
 
     <TextView
         android:id="@+id/textView20"
@@ -67,8 +63,12 @@
         android:layout_height="wrap_content"
         android:text="Remaining Leaves:"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="74dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.064" />
 
     <TextView
         android:id="@+id/textView22"
@@ -76,15 +76,11 @@
         android:layout_height="wrap_content"
         android:text="Activities: "
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="514dp" />
-
-    <View
-        android:id="@+id/divider7"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="554dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.683" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

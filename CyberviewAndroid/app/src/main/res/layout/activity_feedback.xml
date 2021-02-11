@@ -12,16 +12,22 @@
         android:layout_width="345dp"
         android:layout_height="40dp"
         android:text="Others"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="250dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.338" />
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="345dp"
         android:layout_height="40dp"
         android:text="Work Related Complaint"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.28" />
 
     <EditText
         android:id="@+id/editTextTextPersonName5"
@@ -30,25 +36,12 @@
         android:ems="10"
         android:hint="Sample"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="349dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reviews"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:layout_editor_absoluteX="165dp"
-        tools:layout_editor_absoluteY="735dp" />
-
-    <View
-        android:id="@+id/divider5"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="716dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
 
     <TextView
         android:id="@+id/textView4"
@@ -56,27 +49,12 @@
         android:layout_height="wrap_content"
         android:text="Regarding :"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="79dp" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#01F80B"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="1dp" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feedback"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="12dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.119" />
 
     <Button
         android:id="@+id/button9"
@@ -84,16 +62,22 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         app:backgroundTint="#14F41D"
-        tools:layout_editor_absoluteX="165dp"
-        tools:layout_editor_absoluteY="648dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.653" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="345dp"
         android:layout_height="40dp"
         android:text="Work Environment"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="140dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.222" />
 
     <TextView
         android:id="@+id/textView32"
@@ -101,7 +85,11 @@
         android:layout_height="wrap_content"
         android:text="Content:"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="330dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.463" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
