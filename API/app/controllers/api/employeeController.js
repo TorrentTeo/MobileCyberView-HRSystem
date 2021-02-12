@@ -136,6 +136,32 @@ exports.getProfile = async (req, res) => {
         console.error(err.message);
         res.status(500).json(error("Server error", res.statusCode));
     }
+}
 
 
+exports.putAttendance = async (req, res) => {
+    const { time } = req.body;
+    try {   
+        const { id, time } = req.body;
+        //Check whether the _id given is valid or not
+        const filter = { userid: id, timing: "" };
+        const update = { timing: time };
+        //Update user data
+        let hasCode = await AttendanceMarking.find(filter).limit(1).sort({$natural:-1})
+        console.log(hasCode[0]._id)
+        let doc = await AttendanceMarking.findByIdAndUpdate(hasCode[0]._id, update, {
+            new: true
+          });
+
+            res.status(200).json(success("Edited successfully",
+            {
+                
+            },
+            res.statusCode
+        )
+    );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(error("Server error", res.statusCode));
+    }
 }
