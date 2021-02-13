@@ -8,10 +8,9 @@ exports.getAttendanceCode = async (req, res) => {
     await axios.get("http://localhost:5000/api/admin/Attendance", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var leaveRequests = resData.results.hasCode;
-        return res.status(200).json({leaveRequests});;
+        return res.status(200).json({success: true, message: "Success", leaveRequests});;
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.redirect('attendance', {error: true, message: error.message})
     })
 }
 
@@ -51,10 +50,9 @@ exports.getAttendance = async (req, res) => {
 
             newAttendanceResponse.push(attendance)
         }
-        res.render('attendance', {data: {attendance: newAttendanceResponse}})
+        res.render('attendance', {success: true, message: "Success", data: {attendance: newAttendanceResponse}})
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.redirect('attendance', {error: true, message: error.message})
     })
 }
 function secondsToHms(d) {

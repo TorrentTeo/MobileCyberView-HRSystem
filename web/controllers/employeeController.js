@@ -5,15 +5,10 @@ exports.getEmployee = async (req, res) => {
     var newEmployeeData = [];
     var data = req.body;
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
-    console.log(headers)
-
     await axios.get("http://localhost:5000/api/admin/AllEmployee", {headers: headers} , data).then((response) => {
         var resData = response.data;
         var employeeResponse = resData.results.user;
-
         for (key in employeeResponse) {
-
-         
                 var user = {
                     name: employeeResponse[key].name,
                     email: employeeResponse[key].email,
@@ -23,27 +18,18 @@ exports.getEmployee = async (req, res) => {
                     emergencyContact: employeeResponse[key].emergencyContact,
                     id: employeeResponse[key]._id,
                     verified: employeeResponse[key].verified,
-                }
-            
-            
+                }          
             newEmployeeData.push(user)
         }
-
-
-
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('employee', {error: true, message: error.message})
     })
     var newProfileData = [];
 
     await axios.get("http://localhost:5000/api/admin/allEmployeeProfile", {headers: headers} , data).then((response) => {
     var resData = response.data;
     var employeeProfile = resData.results.profile;
-
-    for (key in employeeProfile) {
-
-         
+    for (key in employeeProfile) {    
         var profile = {
             name: employeeProfile[key].name,
             category: employeeProfile[key].category,
@@ -52,15 +38,12 @@ exports.getEmployee = async (req, res) => {
             writtenBy: employeeProfile[key].writtenBy,
             id: employeeProfile[key]._id
         }
-    
-    
         newProfileData.push(profile)
 }
 
 
 }).catch((error) => {
-    console.log(error)
-    return error;
+    return res.render('employee', {error: true, message: error.message})
 })
 var newEmployee = [];
     await axios.get("http://localhost:5000/api/admin/AllEmployee", {headers: headers} ,data).then((response) => {
@@ -77,10 +60,9 @@ var newEmployee = [];
         }
         
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('employee', {error: true, message: error.message})
     })
-res.render('employee', {data: {employee: newEmployee, employeeResponse: newEmployeeData, employeeProfile: newProfileData }} )
+    res.render('employee',{success: true, message: "Success",data: {employee: newEmployee, employeeResponse: newEmployeeData, employeeProfile: newProfileData }} )
 
 }
 
@@ -98,16 +80,14 @@ exports.postPerformance = async (req, res) => {
         date,
         toWho 
     }
-
     console.log(data)
     var headers = {Authorization: "Bearer " + cookie};
     await axios.post(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
+        return res.redirect('/employee');
     }).catch((error) => {
-        //console.log(error)
-        return error;
+
+        return res.render('employee', {error: true, message: error.message})
     })       
-    return res.redirect('/employee');
 }
 exports.putPerformance = async (req, res) => {   
     url = "http://localhost:5000/api/employee/profile";
@@ -122,15 +102,13 @@ exports.putPerformance = async (req, res) => {
         description,
          id
         }
-    console.log(data)
+
     var headers = {Authorization: "Bearer " + cookie};
     await axios.put(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
+        return res.redirect('/employee');
     }).catch((error) => {
-        //console.log(error)
-        return error;
+        return res.render('employee', {error: true, message: error.message})
     })       
-    return res.redirect('/employee');
 }
 exports.register = async (req, res) => {   
     url = "http://localhost:5000/api/auth/register";
@@ -152,12 +130,11 @@ exports.register = async (req, res) => {
     console.log(data)
     var headers = {Authorization: "Bearer " + cookie};
     await axios.post(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
+        return res.redirect('/employee');
     }).catch((error) => {
-        //console.log(error)
-        return error;
+        return res.render('employee', {error: true, message: error.message})
     })       
-    return res.redirect('/employee');
+
 }
 exports.putUser = async (req, res) => {   
     url = "http://localhost:5000/api/employee/account";
@@ -176,10 +153,9 @@ exports.putUser = async (req, res) => {
     console.log(data)
     var headers = {Authorization: "Bearer " + cookie};
     await axios.put(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
+        return res.redirect('/employee');
     }).catch((error) => {
-        //console.log(error)
-        return error;
+        return res.render('employee', {error: true, message: error.message})
     })       
-    return res.redirect('/employee');
+   
 }
