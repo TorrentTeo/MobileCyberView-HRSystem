@@ -29,15 +29,14 @@ exports.postlogin = (req, res) => {
         res.cookie('authcookie',token,{ maxAge: 2 * 60 * 60 * 1000, httpOnly: true }) 
         res.redirect('/home');
     }).catch((error) => {
-        console.log("error")
-        console.error(error)
-        res.redirect('/');
+
+        res.redirect('/', {error:true, message:error.message});
     })
 };
 
 exports.logout = (req, res) => {
     req.session.destroy();
-    res.redirect('/');
+    res.redirect('/', {success:true, message: "Logout Successful"});
 }
 
 exports.auth = async (req,res, next) => {
@@ -47,11 +46,11 @@ exports.auth = async (req,res, next) => {
         var resData = response.data;
         console.log(resData)
         if(response.data.message == 'Unauthorized'){
-            res.redirect('/');
+            res.render('login', {error:true, message: "Unauthorized"});
         }
         next();
     }).catch((error) => {
-        // console.log(error)
-        res.redirect('/');
+
+        res.render('login', {error:true, message: "Unauthorized"});
     })
 }

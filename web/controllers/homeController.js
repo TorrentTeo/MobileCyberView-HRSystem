@@ -23,8 +23,7 @@ exports.getFeed = async (req, res) => {
         }
         
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('home', {error: true, message: error.message})
     })
 
     var newEmployee = [];
@@ -42,8 +41,7 @@ exports.getFeed = async (req, res) => {
         }
         
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('home', {error: true, message: error.message})
     })
     return res.render('home', {data: {feed: newFeed, employee: newEmployee}})
 }
@@ -65,7 +63,6 @@ exports.postFeed = async (req, res) => {
     console.log(data)
     var headers = {Authorization: "Bearer " + cookie};
     await axios.post(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
     }).catch((error) => {
         //console.log(error)
         return error;
@@ -85,13 +82,11 @@ exports.putFeed = async (req, res) => {
         content,
          id
         }
-    console.log(data)
     var headers = {Authorization: "Bearer " + cookie};
     await axios.put(url, data, {headers: headers}).then((response) => {
         console.log(response.data)
     }).catch((error) => {
-        //console.log(error)
-        return error;
+        return res.render('home', {error: true, message: error.message})
     })       
     return res.redirect('/home');
 }
