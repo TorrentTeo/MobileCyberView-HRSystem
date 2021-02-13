@@ -11,16 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Cyberview_Android1">
-        <activity android:name=".Feedback"></activity>
-        <activity android:name=".Contracting" />
-        <activity android:name=".MedicalPortal" />
-        <activity android:name=".Calendar" />
-        <activity android:name=".Attendance3" />
-        <activity android:name=".Attendance2" />
-        <activity android:name=".Attendance" />
-        <activity android:name=".Rewards" />
-        <activity android:name=".Manage_Account" />
-        <activity android:name=".Profile" />
         <activity android:name=".Login" />
 
         <activity
