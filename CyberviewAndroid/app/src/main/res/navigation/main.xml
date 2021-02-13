@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@id/nav_home"
+        android:name="com.example.cyberview_android1.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@id/nav_profile"
+        android:name="com.example.cyberview_android1.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@id/nav_manage"
+        android:name="com.example.cyberview_android1.ManageFragment"
+        android:label="Manage Account"
+        tools:layout="@layout/fragment_manage" />
+
+    <fragment
+        android:id="@id/nav_attendance"
+        android:name="com.example.cyberview_android1.AttendanceFragment"
+        android:label="Attendance"
+        tools:layout="@layout/fragment_attendance" />
+
+    <fragment
+        android:id="@id/nav_cal"
+        android:name="com.example.cyberview_android1.CalendarFragment"
+        android:label="Calendar"
+        tools:layout="@layout/fragment_calendar" />
+
+    <fragment
+        android:id="@id/nav_mp"
+        android:name="com.example.cyberview_android1.MedicalPortalFragment"
+        android:label="Medical Portal"
+        tools:layout="@layout/fragment_medical_portal" />
+
+    <fragment
+        android:id="@id/nav_mp"
+        android:name="com.example.cyberview_android1.MedicalPortalFragment"
+        android:label="Medical Portal"
+        tools:layout="@layout/fragment_medical_portal" />
+
+    <fragment
+        android:id="@id/nav_report"
+        android:name="com.example.cyberview_android1.ReportsFragment"
+        android:label="Reports"
+        tools:layout="@layout/fragment_reports" />
+
+    <fragment
+        android:id="@id/nav_contract"
+        android:name="com.example.cyberview_android1.ContractFragment"
+        android:label="Contracting"
+        tools:layout="@layout/fragment_contract" />
+
+    <fragment
+        android:id="@id/nav_feed"
+        android:name="com.example.cyberview_android1.FeedbackFragment"
+        android:label="Feedback"
+        tools:layout="@layout/fragment_feedback" />
+
+    <fragment
+        android:id="@id/nav_rew"
+        android:name="com.example.cyberview_android1.RewardFragment"
+        android:label="Rewards"
+        tools:layout="@layout/fragment_reward" />
+
+    <fragment
+        android:id="@id/nav_logout"
+        android:name="com.example.cyberview_android1.LogoutFragment"
+        android:label="Log out"
+        tools:layout="@layout/fragment_logout" />
+
+</navigation>

@@ -18,7 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 import android.view.View;
 import android.widget.TextView;
 
-public class Home extends AppCompatActivity {
+public class Main extends AppCompatActivity {
 
     //variables
     DrawerLayout drawerLayout;
