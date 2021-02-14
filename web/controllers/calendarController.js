@@ -26,8 +26,7 @@ exports.getCalendar = async (req, res) => {
         }
 
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.redirect('calendar', {error: true, message: error.message})
     })
 
 
@@ -47,8 +46,7 @@ exports.getCalendar = async (req, res) => {
         }
 
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.redirect('calendar', {error: true, message: error.message})
     })       
     var newAllLeaveDays = [];
     await axios.get("http://localhost:5000/api/admin/AllLeaveDays", {headers: headers} ,data).then((response) => {
@@ -66,10 +64,9 @@ exports.getCalendar = async (req, res) => {
         }
 
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.redirect('/calendar', {error: true, message: error.message})
     })  
-    return res.render('calendar', {data: {leaveRequests: newLeaveRequests, calendar: newCalendarRequests, leaveDays: newAllLeaveDays }})
+    return res.render('calendar', {success: true, message: "Success", data: {leaveRequests: newLeaveRequests, calendar: newCalendarRequests, leaveDays: newAllLeaveDays }})
 }
 
 exports.approveLeave = async (req, res) => {   
@@ -79,13 +76,11 @@ exports.approveLeave = async (req, res) => {
     console.log(data)
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
     await axios.put(url, data, {headers: headers}).then((response) => {
-        var resData = response.data;
-        console.log(resData)
+        return res.redirect('/calendar');
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.redirect('/calendar', {error: true, message: error.message})
     })       
-    return res.redirect('/calendar');
+
 }
 
 exports.denyLeave = async (req, res) => { 
@@ -95,13 +90,11 @@ exports.denyLeave = async (req, res) => {
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
 
     await axios.put(url,data, {headers: headers}).then((response) => {
-        var resData = response.data;
-        console.log(resData)
+        return res.redirect('/calendar');
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.redirect('/calendar', {error: true, message: error.message})
     })       
-    return res.redirect('/calendar');
+
 }
 
 exports.postActivities = async (req, res) => {
@@ -110,12 +103,9 @@ exports.postActivities = async (req, res) => {
     console.log(data)
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
     await axios.post(url,data, {headers: headers}).then((response) => {
-        var resData = response.data;
-        console.log(resData)
         return res.redirect('/calendar');
     }).catch((error) => {
-        console.log(error)
-        return res.redirect('/calendar');
+        return res.redirect('/calendar', {error: true, message: error.message})
     })    
 };
 exports.editCalendar = async (req, res) =>{
@@ -125,11 +115,9 @@ exports.editCalendar = async (req, res) =>{
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
 
     await axios.post(url,data, {headers: headers}).then((response) => {
-        var resData = response.data;
-        console.log(resData)
+        return res.redirect('/calendar');
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('/calendar', {error: true, message: error.message})
     })       
-    return res.redirect('/calendar');
+
 }

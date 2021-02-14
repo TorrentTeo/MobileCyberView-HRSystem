@@ -24,7 +24,6 @@ exports.getClientContracts = async (req, res) => {
         }
         return res.render('contracts', {data: {contracts: newContracts}})
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('contracts', {error: true, message: error.message})
     })    
 }

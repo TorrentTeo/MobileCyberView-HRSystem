@@ -4,19 +4,6 @@ var fs = require("fs");
 const path = require("path")
 var formidable = require("formidable");
 
-
-// var storage = multer.diskStorage({ 
-//     destination: function (req, file, cb) {  
-//         // Uploads is the Upload_folder_name 
-//         cb(null, "./publoc/uploads") 
-//     }, 
-//     filename: function (req, file, cb) { 
-//       cb(null, file.fieldname + "-" + Date.now()+
-//       path.extname(file.originalname)) 
-//     } 
-// });
-
-// var upload = multer({ storage: storage });
 exports.getMedical = async (req, res) => {
     var url = "http://localhost:5000/api/admin/allMedicalPlan";
     var cookie = get_cookies(req)["authcookie"];
@@ -39,8 +26,7 @@ exports.getMedical = async (req, res) => {
         }
 
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })
 
     var newMedicalLeave = [];
@@ -58,8 +44,7 @@ exports.getMedical = async (req, res) => {
             newMedicalLeave.push(leave)
         }
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })
 
     var newClinicList = [];
@@ -78,8 +63,7 @@ exports.getMedical = async (req, res) => {
             newClinicList.push(clinic)
         }
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })
 
     var newInsuranceCoverage = [];
@@ -99,8 +83,7 @@ exports.getMedical = async (req, res) => {
             newInsuranceCoverage.push(insurance)
         }
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })
 
     var newEmployee = [];
@@ -118,10 +101,9 @@ exports.getMedical = async (req, res) => {
         }
 
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })
-    return res.render('medical', { data: { employee: newEmployee, medicalPlan: newMedicalPlan, medicalLeave: newMedicalLeave, clinicList: newClinicList, insuranceCoverage: newInsuranceCoverage } })
+    return res.render('medical', {success: true, message: "Success", data: { employee: newEmployee, medicalPlan: newMedicalPlan, medicalLeave: newMedicalLeave, clinicList: newClinicList, insuranceCoverage: newInsuranceCoverage } })
 
 }
 
@@ -138,32 +120,32 @@ exports.postMedicalPlan = async (req, res) => {
         var medicalCardFrontPath = "./public/uploads/" + files.medicalCardFront.name + "-" + Date.now() + extension;
         fs.rename(files.medicalCardFront.path, medicalCardFrontPath, async (errorRename) => {
             if (errorRename)
-                console.log(errorRename)
+                return res.render('medical', {error: true, message: errorRename.message});
         });
 
         var extension = files.medicalCardBack.name.substr(files.medicalCardBack.name.lastIndexOf("."));
         var medicalCardBackPath = "./public/uploads/" + files.medicalCardBack.name + "-" + Date.now() + extension;
         fs.rename(files.medicalCardBack.path, medicalCardBackPath, async (errorRename) => {
             if (errorRename)
-                console.log(errorRename)
+                return res.render('medical', {error: true, message: errorRename.message});
         });
-        console.log(data)
+
         data = {
             medicalPlanName: fields.medicalPlanName,
             medicalCardFront: medicalCardFrontPath.replace('./public',''),
             medicalCardBack: medicalCardBackPath.replace('./public',''),
             userid: fields.userid.split(" ")
         }
-        console.log(data)
+  
             var headers = { Authorization: "Bearer " + cookie };
             await axios.post(url, data, { headers: headers }).then((response) => {
-                console.log(response.data)
+                return res.redirect('/medical');
             }).catch((error) => {
-                console.log(error)
-                return error;
+
+                return res.render('medical', {error: true, message: error.message});
             })
     });
-    return res.redirect('/medical');
+    
 }
 
 
@@ -180,15 +162,14 @@ exports.postClinic = async (req, res) => {
         latitude,
         userid
     }
-    console.log(data)
+
     var headers = { Authorization: "Bearer " + cookie };
     await axios.post(url, data, { headers: headers }).then((response) => {
-        console.log(response.data)
+        return res.redirect('/medical');
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })
-    return res.redirect('/medical');
+    
 }
 
 exports.postInsurance = async (req, res) => {
@@ -205,15 +186,13 @@ exports.postInsurance = async (req, res) => {
         contactNumber,
         userid
     }
-    console.log(data)
     var headers = { Authorization: "Bearer " + cookie };
     await axios.post(url, data, { headers: headers }).then((response) => {
-        console.log(response.data)
+        return res.redirect('/medical');
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })
-    return res.redirect('/medical');
+    
 }
 exports.editplan = async (req, res) => {   
     url = "http://localhost:5000/api/admin/medicalPlan";
@@ -224,15 +203,14 @@ exports.editplan = async (req, res) => {
     {id = id.split(" ");}
 
     var data = { id, medicalPlanName, medicalCardFront, medicalCardBack}
-    console.log(data)
+
     var headers = {Authorization: "Bearer " + cookie};
     await axios.put(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
+        return res.redirect('/medical');
     }).catch((error) => {
-        //console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })       
-    return res.redirect('/medical');
+
 }
 exports.editclinic = async (req, res) => {   
     url = "http://localhost:5000/api/admin/clinicList";
@@ -243,15 +221,14 @@ exports.editclinic = async (req, res) => {
     {id = id.split(" ");}
 
     var data = { id,clinicName,longitude,latitude }
-    console.log(data)
+
     var headers = {Authorization: "Bearer " + cookie};
     await axios.put(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
+        return res.redirect('/medical');
     }).catch((error) => {
-        //console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })       
-    return res.redirect('/medical');
+
 }
 exports.editinsurance = async (req, res) => {   
     url = "http://localhost:5000/api/admin/insuranceCoverage";
@@ -265,10 +242,9 @@ exports.editinsurance = async (req, res) => {
     console.log(data)
     var headers = {Authorization: "Bearer " + cookie};
     await axios.put(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
+        return res.redirect('/medical');
     }).catch((error) => {
-        //console.log(error)
-        return error;
+        return res.render('medical', {error: true, message: error.message})
     })       
-    return res.redirect('/medical');
+    
 }
