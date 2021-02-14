@@ -1,6 +1,6 @@
 const { success, error, validation } = require("../../helpers/responseApi");
 const ClientContract = require("../../models/clientContract");
-const Verification = require("../../models/Verification");
+const Verification = require("../../models/verification");
 const config = require('config');
 const { validationResult } = require("express-validator");
 const Leave = require("../../models/leaveApplication");

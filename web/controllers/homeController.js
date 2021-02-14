@@ -2,7 +2,7 @@ const axios = require('axios')
 const {get_cookies} = require("../common/cookieHelper")
 
 exports.getFeed = async (req, res) => {
-    var url = "http://localhost:5000/api/admin/allFeed";
+    var url = "https://cyber-view-api.herokuapp.com/api/admin/allFeed";
     var cookie = get_cookies(req)["authcookie"];
     var data = req.body;
     var headers = {Authorization: "Bearer " + cookie};
@@ -27,7 +27,7 @@ exports.getFeed = async (req, res) => {
     })
 
     var newEmployee = [];
-    await axios.get("http://localhost:5000/api/admin/AllEmployee", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/AllEmployee", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var employee = resData.results.user;
         for(key in employee){
@@ -47,7 +47,7 @@ exports.getFeed = async (req, res) => {
 }
 
 exports.postFeed = async (req, res) => {   
-    url = "http://localhost:5000/api/admin/feed";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/feed";
     var cookie = get_cookies(req)["authcookie"];
     var {feedType,content,userid,} = req.body
     
@@ -71,7 +71,7 @@ exports.postFeed = async (req, res) => {
 }
 
 exports.putFeed = async (req, res) => {   
-    url = "http://localhost:5000/api/admin/feed";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/feed";
     var cookie = get_cookies(req)["authcookie"];
     var { content, id} = req.body
     

@@ -8,7 +8,7 @@ exports.getClientContracts = async (req, res) => {
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
 
     var newContracts = [];
-    await axios.get("http://localhost:5000/api/admin/allclientcontract", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/allclientcontract", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var contracts = resData.results.contracts;
         console.log(contracts)

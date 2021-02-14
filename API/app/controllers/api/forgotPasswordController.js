@@ -1,7 +1,7 @@
 const { success, error, validation } = require("../../helpers/responseApi");
 const { randomString } = require("../../helpers/common");
 const User = require("../../models/User");
-const Verification = require("../../models/Verification");
+const Verification = require("../../models/verification");
 const bcrypt = require("bcryptjs");
 
 

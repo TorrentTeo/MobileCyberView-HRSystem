@@ -77,7 +77,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/insuranceCoverage/600fc9af6bb5a33e40ea7948",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/insuranceCoverage/600fc9af6bb5a33e40ea7948",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -115,7 +115,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/profile/600a878573db342354ce276b",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/profile/600a878573db342354ce276b",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -151,7 +151,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/profile/600bec939b01390c5804402f",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/profile/600bec939b01390c5804402f",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -188,7 +188,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/clinicList/600fd65f35a54a1b649468dd",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/clinicList/600fd65f35a54a1b649468dd",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -219,7 +219,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "",
-			"url": "http://localhost:5000/api/auth/verify/RNkg56UoFDb9qtMpjjUjD15ersejqrfkcPIlYd1J4qvAnm0leb",
+			"url": "https://cyber-view-api.herokuapp.com/api/auth/verify/RNkg56UoFDb9qtMpjjUjD15ersejqrfkcPIlYd1J4qvAnm0leb",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -242,7 +242,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "{\r\n    \"email\": \"teo@dickmaster.com\"\r\n}",
-			"url": "http://localhost:5000/api/password/forgot",
+			"url": "https://cyber-view-api.herokuapp.com/api/password/forgot",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -272,7 +272,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/medicalPlan/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/medicalPlan/",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -312,7 +312,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/account/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/account/",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -350,7 +350,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/allAccount/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/allAccount/",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -387,7 +387,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/reward/600ae939cf01734f3029f259",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/reward/600ae939cf01734f3029f259",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -424,7 +424,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/profile/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/profile/",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -460,7 +460,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/profile/600becf89b01390c58044030",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/profile/600becf89b01390c58044030",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -497,7 +497,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/profile/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/profile/",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -534,7 +534,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/account/60169a07c556e41a101c86d9",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/account/60169a07c556e41a101c86d9",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -571,7 +571,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/wallet/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/wallet/",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -606,7 +606,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/account",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/account",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -642,7 +642,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/clinicList/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/clinicList/",
 			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"queryParams": [],
 			"preRequestScript": null,
@@ -679,7 +679,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/reward/600ae939cf01734f3029f259",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/reward/600ae939cf01734f3029f259",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -716,7 +716,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/medicalLeave/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/medicalLeave/",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -750,7 +750,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "{\r\n    \"code\": \"12345\" \r\n}",
-			"url": "http://localhost:5000/api/employee/Attendance",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/Attendance",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -785,7 +785,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/reward/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/reward/",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -822,7 +822,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/reward/600ae939cf01734f3029f259",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/reward/600ae939cf01734f3029f259",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -859,7 +859,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/clinicList/600fd65f35a54a1b649468dd",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/clinicList/600fd65f35a54a1b649468dd",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -899,7 +899,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/medicalLeave/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/medicalLeave/",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -933,7 +933,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/auth/register",
+			"url": "https://cyber-view-api.herokuapp.com/api/auth/register",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -968,7 +968,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/medicalPlan/600fd7e9192b61652cf4353f",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/medicalPlan/600fd7e9192b61652cf4353f",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -1000,7 +1000,7 @@
 			"headers": "Content-Type: Application/Json\nAuthorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAwN2ZlOTczZGNlY2Y1M2I4MWIzZTYxIiwibmFtZSI6InRlbyBkaWNrbWFzdGVyIHNpeDkiLCJlbWFpbCI6InRlb0BkaWNrbWFzdGVyLmNvbSJ9LCJpYXQiOjE2MTExMzgwNjEsImV4cCI6MTYxMTE0MTY2MX0.0l6PHBU2mJfSe_6Ly1jOCgzRQDD2v90be2Xr5Mn19xw",
 			"data": [],
 			"rawModeData": "",
-			"url": "http://localhost:5000/api/auth",
+			"url": "https://cyber-view-api.herokuapp.com/api/auth",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -1035,7 +1035,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/account/600851e4b9807348a0fe9634",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/account/600851e4b9807348a0fe9634",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -1074,7 +1074,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/clinicList/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/clinicList/",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -1107,7 +1107,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "{\r\n    \"email\": \"teo@dickmaster.com\",\r\n    \"password\": \"somegaypassword\"\r\n}",
-			"url": "http://localhost:5000/api/auth/login",
+			"url": "https://cyber-view-api.herokuapp.com/api/auth/login",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -1137,7 +1137,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/insuranceCoverage/600fc9af6bb5a33e40ea7948",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/insuranceCoverage/600fc9af6bb5a33e40ea7948",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -1177,7 +1177,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/medicalPlan/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/medicalPlan/",
 			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"queryParams": [],
 			"preRequestScript": null,
@@ -1207,7 +1207,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "{\r\n    \"email\": \"teo@dickmaster.com\"\r\n}",
-			"url": "http://localhost:5000/api/auth/verify/resend",
+			"url": "https://cyber-view-api.herokuapp.com/api/auth/verify/resend",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -1237,7 +1237,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/reward/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/reward/",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -1273,7 +1273,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/insuranceCoverage/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/insuranceCoverage/",
 			"folder": "f9e5a141-802a-1194-49bd-5f3556e2bfbe",
 			"queryParams": [],
 			"preRequestScript": null,
@@ -1312,7 +1312,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/medicalPlan/600fd7e9192b61652cf4353f",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/medicalPlan/600fd7e9192b61652cf4353f",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -1350,7 +1350,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/employee/insuranceCoverage/",
+			"url": "https://cyber-view-api.herokuapp.com/api/employee/insuranceCoverage/",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],

@@ -24,10 +24,6 @@ public class StartPage extends AppCompatActivity {
                 Intent intent = new Intent(StartPage.this, Login.class);
                 startActivity(intent);
             }
-
-
         });
-
-
     }
 }

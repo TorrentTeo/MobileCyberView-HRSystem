@@ -7,7 +7,7 @@ const {
   login,
   resendVerification,
   getAuthenticatedUser,
-} = require("../../app/controllers/api/AuthController");
+} = require("../../app/controllers/api/authController");
 
 // Middleware
 const {
