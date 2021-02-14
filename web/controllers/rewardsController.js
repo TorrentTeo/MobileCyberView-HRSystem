@@ -2,7 +2,7 @@ const axios = require('axios')
 const {get_cookies} = require("../common/cookieHelper")
 
 exports.getReward = async (req, res) => {
-    var url = "http://localhost:5000/api/admin/allReward";
+    var url = "https://cyber-view-api.herokuapp.com/api/admin/allReward";
     var cookie = get_cookies(req)["authcookie"];
     var data = req.body;
     var headers = {Authorization: "Bearer " + cookie};
@@ -28,7 +28,7 @@ exports.getReward = async (req, res) => {
     })
 
     var newEmployee = [];
-    await axios.get("http://localhost:5000/api/admin/AllEmployee", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/AllEmployee", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var employee = resData.results.user;
         for(key in employee){
@@ -50,7 +50,7 @@ exports.getReward = async (req, res) => {
 }
 
 exports.postReward = async (req, res) => {   
-    url = "http://localhost:5000/api/admin/reward";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/reward";
     var cookie = get_cookies(req)["authcookie"];
     var {name, description, validFrom, expiryDate, userid} = req.body
     if(userid.length == 24)
@@ -73,7 +73,7 @@ exports.postReward = async (req, res) => {
 }
 
 exports.putReward = async (req, res) => {   
-    url = "http://localhost:5000/api/admin/reward";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/reward";
     var cookie = get_cookies(req)["authcookie"];
     var {name, description, id} = req.body
     

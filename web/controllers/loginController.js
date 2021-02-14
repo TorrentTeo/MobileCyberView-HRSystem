@@ -9,7 +9,7 @@ exports.postlogin = (req, res) => {
     var { username, pass } = req.body;
     if(!username || !pass)
         res.render('login',{ error: true, message: "Username & password are required" })
-    axios.post('http://localhost:5000/api/auth/login', {
+    axios.post('https://cyber-view-api.herokuapp.com/api/auth/login', {
         email: username,
         password: pass
     }).then((response) => {
@@ -29,20 +29,19 @@ exports.postlogin = (req, res) => {
         res.cookie('authcookie',token,{ maxAge: 2 * 60 * 60 * 1000, httpOnly: true }) 
         res.redirect('/home');
     }).catch((error) => {
-
-        res.redirect('/', {error:true, message:error.message});
+        res.render('login', {error:true, message:error.message});
     })
 };
 
 exports.logout = (req, res) => {
     req.session.destroy();
-    res.redirect('/', {success:true, message: "Logout Successful"});
+    res.redirect('/');
 }
 
 exports.auth = async (req,res, next) => {
     var data = req.body;
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
-    await axios.get("http://localhost:5000/api/admin/Attendance", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/Attendance", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         console.log(resData)
         if(response.data.message == 'Unauthorized'){

@@ -5,7 +5,7 @@ const path = require("path")
 var formidable = require("formidable");
 
 exports.getMedical = async (req, res) => {
-    var url = "http://localhost:5000/api/admin/allMedicalPlan";
+    var url = "https://cyber-view-api.herokuapp.com/api/admin/allMedicalPlan";
     var cookie = get_cookies(req)["authcookie"];
     var data = req.body;
     var headers = { Authorization: "Bearer " + cookie };
@@ -30,7 +30,7 @@ exports.getMedical = async (req, res) => {
     })
 
     var newMedicalLeave = [];
-    await axios.get("http://localhost:5000/api/admin/allmedicalLeave", { headers: headers }, data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/allmedicalLeave", { headers: headers }, data).then((response) => {
 
         var resData = response.data;
         var medicalLeave = resData.results.leave;
@@ -48,7 +48,7 @@ exports.getMedical = async (req, res) => {
     })
 
     var newClinicList = [];
-    await axios.get("http://localhost:5000/api/admin/allClinicList", { headers: headers }, data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/allClinicList", { headers: headers }, data).then((response) => {
 
         var resData = response.data;
         var clinicList = resData.results.clinicList;
@@ -67,7 +67,7 @@ exports.getMedical = async (req, res) => {
     })
 
     var newInsuranceCoverage = [];
-    await axios.get("http://localhost:5000/api/admin/allinsurancecoverage", { headers: headers }, data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/allinsurancecoverage", { headers: headers }, data).then((response) => {
 
         var resData = response.data;
         var insuranceCoverage = resData.results.insurance;
@@ -87,7 +87,7 @@ exports.getMedical = async (req, res) => {
     })
 
     var newEmployee = [];
-    await axios.get("http://localhost:5000/api/admin/AllEmployee", { headers: headers }, data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/AllEmployee", { headers: headers }, data).then((response) => {
         var resData = response.data;
         var employee = resData.results.user;
         for (key in employee) {
@@ -108,7 +108,7 @@ exports.getMedical = async (req, res) => {
 }
 
 exports.postMedicalPlan = async (req, res) => {
-    url = "http://localhost:5000/api/admin/medicalPlan";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/medicalPlan";
     var cookie = get_cookies(req)["authcookie"];
     var formData = new formidable.IncomingForm();
     var data = {}
@@ -150,7 +150,7 @@ exports.postMedicalPlan = async (req, res) => {
 
 
 exports.postClinic = async (req, res) => {
-    url = "http://localhost:5000/api/admin/clinicList";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/clinicList";
     var cookie = get_cookies(req)["authcookie"];
     var { clinicName, longitude, latitude, userid } = req.body
 
@@ -173,7 +173,7 @@ exports.postClinic = async (req, res) => {
 }
 
 exports.postInsurance = async (req, res) => {
-    url = "http://localhost:5000/api/admin/insuranceCoverage";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/insuranceCoverage";
     var cookie = get_cookies(req)["authcookie"];
     var { typeofInsurance, description, contactPerson, contactNumber, userid } = req.body
 
@@ -195,7 +195,7 @@ exports.postInsurance = async (req, res) => {
     
 }
 exports.editplan = async (req, res) => {   
-    url = "http://localhost:5000/api/admin/medicalPlan";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/medicalPlan";
     var cookie = get_cookies(req)["authcookie"];
     var { id, medicalPlanName, medicalCardFront, medicalCardBack} = req.body
     
@@ -213,7 +213,7 @@ exports.editplan = async (req, res) => {
 
 }
 exports.editclinic = async (req, res) => {   
-    url = "http://localhost:5000/api/admin/clinicList";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/clinicList";
     var cookie = get_cookies(req)["authcookie"];
     var { id,clinicName,longitude,latitude } = req.body
     
@@ -231,7 +231,7 @@ exports.editclinic = async (req, res) => {
 
 }
 exports.editinsurance = async (req, res) => {   
-    url = "http://localhost:5000/api/admin/insuranceCoverage";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/insuranceCoverage";
     var cookie = get_cookies(req)["authcookie"];
     var { id,typeofInsurance,description,contactPerson,contactNumber } = req.body
     

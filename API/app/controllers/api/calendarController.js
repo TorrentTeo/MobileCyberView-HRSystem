@@ -1,6 +1,6 @@
 const { success, error, validation } = require("../../helpers/responseApi");
 const Calendar = require("../../models/calendar");
-const Verification = require("../../models/Verification");
+const Verification = require("../../models/verification");
 const config = require('config');
 const { validationResult } = require("express-validator");
 

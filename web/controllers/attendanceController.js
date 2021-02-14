@@ -5,7 +5,7 @@ const {daysBetween} = require("../common/dateHelper")
 exports.getAttendanceCode = async (req, res) => {
     var data = req.body;
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
-    await axios.get("http://localhost:5000/api/admin/Attendance", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/Attendance", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var leaveRequests = resData.results.hasCode;
         return res.status(200).json({success: true, message: "Success", leaveRequests});;
@@ -18,7 +18,7 @@ exports.getAttendance = async (req, res) => {
     var newAttendanceResponse = [];
     var data = req.body;
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
-    await axios.get("http://localhost:5000/api/admin/AllAttendance", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/AllAttendance", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var attendanceResponse = resData.results.attendance;
         for(key in attendanceResponse){

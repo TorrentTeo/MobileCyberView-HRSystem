@@ -4,7 +4,7 @@ const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
-const Verification = require("../../models/Verification");
+const Verification = require("../../models/verification");
 const config = require('config');
 var http = require('http');
 var fs = require('fs');
@@ -145,7 +145,10 @@ exports.login = async (req, res) => {
                 id: user._id,
                 name: user.name,
                 email: user.email,
-                role: user.role
+                role: user.role,
+                contact: user.contact,
+                emergencyContact: user.emergencyContact,
+                joinedDate: user.createdAt
             },
         };
 
@@ -160,11 +163,14 @@ exports.login = async (req, res) => {
                     .status(200)
                     .json(success("Login success", { token, 
                         user: {
-                            id: user._id, 
-                            name: user.name, 
-                            email: user.email, 
-                            role: user.role
-                        } 
+                            id: user._id,
+                            name: user.name,
+                            email: user.email,
+                            role: user.role,
+                            contact: user.contact,
+                            emergencyContact: user.emergencyContact,
+                            joinedDate: user.createdAt
+                        }
                     }, res.statusCode));
             }
         );
