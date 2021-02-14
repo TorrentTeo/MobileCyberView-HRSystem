@@ -7,7 +7,7 @@ exports.getCalendar = async (req, res) => {
     var data = req.body;
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
     var newLeaveRequests = [];
-    await axios.get("http://localhost:5000/api/admin/AllLeave", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/AllLeave", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var leaveRequests = resData.results.leave;
         for(key in leaveRequests){
@@ -31,7 +31,7 @@ exports.getCalendar = async (req, res) => {
 
 
     var newCalendarRequests = [];
-    await axios.get("http://localhost:5000/api/employee/Allcalendar", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/employee/Allcalendar", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var calendarRequests = resData.results.calendar;
         for(key in calendarRequests){
@@ -49,7 +49,7 @@ exports.getCalendar = async (req, res) => {
         return res.redirect('calendar', {error: true, message: error.message})
     })       
     var newAllLeaveDays = [];
-    await axios.get("http://localhost:5000/api/admin/AllLeaveDays", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/AllLeaveDays", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var allLeaveDays = resData.results.leaveDays;
         for(key in allLeaveDays){
@@ -70,7 +70,7 @@ exports.getCalendar = async (req, res) => {
 }
 
 exports.approveLeave = async (req, res) => {   
-    url = "http://localhost:5000/api/admin/approveLeave";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/approveLeave";
     var {id, days, userid}=  req.body
     var data = { id:id, days:days, userid:userid} 
     console.log(data)
@@ -84,7 +84,7 @@ exports.approveLeave = async (req, res) => {
 }
 
 exports.denyLeave = async (req, res) => { 
-    url = "http://localhost:5000/api/admin/denyLeave";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/denyLeave";
     var {id}=  req.body
     var data = {id:id} 
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
@@ -98,7 +98,7 @@ exports.denyLeave = async (req, res) => {
 }
 
 exports.postActivities = async (req, res) => {
-    url = "http://localhost:5000/api/admin/calendar";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/calendar";
     var data = { activity, date } = req.body
     console.log(data)
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
@@ -109,7 +109,7 @@ exports.postActivities = async (req, res) => {
     })    
 };
 exports.editCalendar = async (req, res) =>{
-    url = "http://localhost:5000/api/admin/putcalendar";
+    url = "https://cyber-view-api.herokuapp.com/api/admin/putcalendar";
     var {id, time, activity }=  req.body
     var data = {id:id, time: time, activity: activity } 
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};

@@ -4,7 +4,7 @@ const connectToMongoDB = require("./config/db");
 const { makeAttendanceCode, randomString, leaveDays } = require("./app/helpers/common")
 var LeaveDays = require("./app/models/leaveDays")
 const User = require("./app/models/User");
-const calendar = require("./app/models/calendar");
+
 // Accept incoming request
 app.use(express.json({ extended: false }));
 
@@ -18,9 +18,11 @@ app.use("/api/employee", require("./routes/api/employee"));
 app.use("/api/admin", require("./routes/api/admin"));
 
 
-var port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server running on port: ` + port));
+app.listen(process.env.PORT || 5000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
+
 
 
 makeAttendanceCode(randomString(5).toUpperCase());

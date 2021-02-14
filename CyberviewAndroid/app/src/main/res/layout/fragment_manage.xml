@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:text="Name: "
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" android:id="@+id/userName" />
 
 
         </LinearLayout>
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="Phone:  "
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" android:id="@+id/userPhone" />
 
 
         </LinearLayout>
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:text="Email:  "
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" android:id="@+id/userEmail" />
 
 
         </LinearLayout>
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:text="Emergency Contact:  "
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" android:id="@+id/userEmergencyContact"/>
 
 
         </LinearLayout>
@@ -129,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:text="Joined Date:  "
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" android:id="@+id/userJoinedDate"/>
 
 
         </LinearLayout>

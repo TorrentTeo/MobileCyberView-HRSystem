@@ -4,7 +4,7 @@ const router = require("express").Router();
 const {
   forgot,
   reset
-} = require("../../app/controllers/api/ForgotPasswordController");
+} = require("../../app/controllers/api/forgotPasswordController");
 
 // Routes
 router.post("/forgot", forgot);
