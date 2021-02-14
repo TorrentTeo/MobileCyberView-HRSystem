@@ -22,11 +22,9 @@ exports.getReward = async (req, res) => {
                 id: reward[key]._id            
             }
             newReward.push(rewards)
-        }
-        
+        }     
     }).catch((error) => {
-        console.log(error)
-        return error;
+        return res.render('rewards', {error: true, message: error.message})
     })
 
     var newEmployee = [];
@@ -41,23 +39,22 @@ exports.getReward = async (req, res) => {
                 _id: employee[key]._id
             }
             newEmployee.push(employees)
-        }
         
+        }
+
     }).catch((error) => {
         console.log(error)
-        return error;
+        return res.render('rewards', {error: true, message: error.message})
     })
-    return res.render('rewards', {data: {reward: newReward, employee: newEmployee}})
+    return res.render('rewards', {success: true, message: "Success",  data: {reward: newReward, employee: newEmployee}})
 }
 
 exports.postReward = async (req, res) => {   
     url = "http://localhost:5000/api/admin/reward";
     var cookie = get_cookies(req)["authcookie"];
     var {name, description, validFrom, expiryDate, userid} = req.body
-    
     if(userid.length == 24)
     {userid = userid.split(" ");}
-
     var data = {
          name,
          description,
@@ -65,15 +62,14 @@ exports.postReward = async (req, res) => {
          expiryDate,
          userid
         }
-    console.log(data)
     var headers = {Authorization: "Bearer " + cookie};
     await axios.post(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
+        return res.redirect('/rewards');
     }).catch((error) => {
         //console.log(error)
-        return error;
+        return res.render('rewards', {error: true, message: error.message})
     })       
-    return res.redirect('/rewards');
+
 }
 
 exports.putReward = async (req, res) => {   
@@ -89,13 +85,13 @@ exports.putReward = async (req, res) => {
          description,
          id
         }
-    console.log(data)
+
     var headers = {Authorization: "Bearer " + cookie};
     await axios.put(url, data, {headers: headers}).then((response) => {
-        console.log(response.data)
+        return res.redirect('/rewards');
     }).catch((error) => {
         //console.log(error)
-        return error;
+        return res.render('rewards', {error: true, message: error.message})
     })       
-    return res.redirect('/rewards');
+    
 }

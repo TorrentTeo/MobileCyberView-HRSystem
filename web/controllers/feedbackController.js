@@ -23,7 +23,7 @@ exports.getFeedback = async (req, res) => {
             newFeedbacks.push(feedback)
         }      
     }).catch((error) => {
-        console.log(error)
+        return res.render('feedback', {error: true, message: error.message})
     });
     return res.render('feedback', { data: { feedbacks: newFeedbacks }})
 }

@@ -8,11 +8,11 @@ const medicalPlanSchema = new mongoose.Schema({
         required: true
     },
     medicalCardFront: {
-        type: Buffer,
+        type: String,
         required: true
     },
     medicalCardBack: {
-        type: Buffer,
+        type: String,
         required: true
     },
     userid:[{

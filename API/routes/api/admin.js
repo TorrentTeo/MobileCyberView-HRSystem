@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { dashboard, attendance, getAttendanceCode, getAllAttendance , getAllEmployee, getProfile} = require("../../app/controllers/api/employeeController");
+const { dashboard, attendance, getAttendanceCode, getAllAttendance , getAllEmployee, getProfile, putAttendance} = require("../../app/controllers/api/employeeController");
 const { getAllLeave, getLeave, postLeave, putLeave, deleteLeave, denyLeave, approveLeave,getAllLeaveDays } = require("../../app/controllers/api/leaveController");
 const {getCalendar, postCalendar, putCalendar, deleteCalendar, getAllCalendar} = require("../../app/controllers/api/calendarController")
 
@@ -24,6 +24,7 @@ router.get("/", auth, dashboard);
 router.post("/Attendance", auth, attendance);
 router.get("/Attendance", auth, getAttendanceCode);
 router.get("/AllAttendance", auth, adminOnly, getAllAttendance)
+router.put("/Attendance", auth, putAttendance);
 
 // employee
 router.get("/AllEmployee", auth, adminOnly, getAllEmployee)
@@ -47,7 +48,7 @@ router.get("/allclientcontract", auth, getAllClientContracts);
 router.get("/calendar", auth, getCalendar)
 router.get("/allcalendar", auth, getAllCalendar)
 router.post("/calendar", auth, postCalendar)
-router.put("/calendar", auth, putCalendar)
+router.post("/putcalendar", auth, putCalendar)
 router.delete("/calendar", auth, deleteCalendar)
 
 //reward routes with wallet
