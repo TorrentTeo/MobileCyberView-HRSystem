@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cyberview_android1">
 
-    <uses-permission android:name="aandroid.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +17,7 @@
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.Cyberview_Android1.NoActionBar" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".StartPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
