@@ -1,4 +1,4 @@
-package com.example.cyberview_android1;
+package com.example.cyberview_android1.Fragments;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import static android.content.Context.MODE_PRIVATE;
+
+import com.example.cyberview_android1.R;
 
 
 public class ManageFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.cyberview_android1;
+package com.example.cyberview_android1.Fragments;
 
 import android.os.Bundle;
 
@@ -8,21 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cyberview_android1.R;
 
-public class MedicalPortalFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+public class CalendarFragment extends Fragment {
 
-    public MedicalPortalFragment() {
+
+
+    public CalendarFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_medical_portal, container, false);
+        return inflater.inflate(R.layout.fragment_calendar, container, false);
     }
 }

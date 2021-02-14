@@ -1,4 +1,4 @@
-package com.example.cyberview_android1;
+package com.example.cyberview_android1.Fragments;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
