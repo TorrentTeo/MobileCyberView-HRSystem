@@ -1,10 +1,11 @@
 {
     "jwtSecret": "ApplicationSecret",
-    "DbConnectionString": "mongodb://localhost/HRMS",
-    "ApiRoute": "http://localhost:5000/api/",
-    "ApiTest": "http://localhost:5000/api/",
+    "DbConnectionString": "mongodb+srv://admin:P1234s1234@cluster0.8flzg.mongodb.net/HRMS?retryWrites=true&w=majority",
+    "ApiRoute": "https://cyber-view-api.herokuapp.com/api/",
+    "ApiTest": "https://cyber-view-api.herokuapp.com/api/",
     "Email": "cyberview.hrms@gmail.com",
     "EmailPassword": "P@ss1234",
     "EmailProvider": "gmail", 
-    "anualLeaveDays": 10
+    "anualLeaveDays": 10,
+    "DbPassword": "P1234s1234"
 }

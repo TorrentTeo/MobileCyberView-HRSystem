@@ -5,7 +5,7 @@ exports.getEmployee = async (req, res) => {
     var newEmployeeData = [];
     var data = req.body;
     var headers = {Authorization: "Bearer " + get_cookies(req)["authcookie"]};
-    await axios.get("http://localhost:5000/api/admin/AllEmployee", {headers: headers} , data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/AllEmployee", {headers: headers} , data).then((response) => {
         var resData = response.data;
         var employeeResponse = resData.results.user;
         for (key in employeeResponse) {
@@ -26,7 +26,7 @@ exports.getEmployee = async (req, res) => {
     })
     var newProfileData = [];
 
-    await axios.get("http://localhost:5000/api/admin/allEmployeeProfile", {headers: headers} , data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/allEmployeeProfile", {headers: headers} , data).then((response) => {
     var resData = response.data;
     var employeeProfile = resData.results.profile;
     for (key in employeeProfile) {    
@@ -46,7 +46,7 @@ exports.getEmployee = async (req, res) => {
     return res.render('employee', {error: true, message: error.message})
 })
 var newEmployee = [];
-    await axios.get("http://localhost:5000/api/admin/AllEmployee", {headers: headers} ,data).then((response) => {
+    await axios.get("https://cyber-view-api.herokuapp.com/api/admin/AllEmployee", {headers: headers} ,data).then((response) => {
         var resData = response.data;
         var employee = resData.results.user;
         for(key in employee){
@@ -62,12 +62,12 @@ var newEmployee = [];
     }).catch((error) => {
         return res.render('employee', {error: true, message: error.message})
     })
-    res.render('employee',{success: true, message: "Success",data: {employee: newEmployee, employeeResponse: newEmployeeData, employeeProfile: newProfileData }} )
+    res.render('employee',{success: true, message: "Success", data: {employee: newEmployee, employeeResponse: newEmployeeData, employeeProfile: newProfileData }} )
 
 }
 
 exports.postPerformance = async (req, res) => {   
-    url = "http://localhost:5000/api/employee/profile";
+    url = "https://cyber-view-api.herokuapp.com/api/employee/profile";
     var cookie = get_cookies(req)["authcookie"];
     var { category, description, date, toWho } = req.body
     
@@ -90,7 +90,7 @@ exports.postPerformance = async (req, res) => {
     })       
 }
 exports.putPerformance = async (req, res) => {   
-    url = "http://localhost:5000/api/employee/profile";
+    url = "https://cyber-view-api.herokuapp.com/api/employee/profile";
     var cookie = get_cookies(req)["authcookie"];
     var {id,category,description} = req.body
     
@@ -111,7 +111,7 @@ exports.putPerformance = async (req, res) => {
     })       
 }
 exports.register = async (req, res) => {   
-    url = "http://localhost:5000/api/auth/register";
+    url = "https://cyber-view-api.herokuapp.com/api/auth/register";
     var cookie = get_cookies(req)["authcookie"];
     var {name,email,password,role,contact,emergencyContact} = req.body
     
@@ -137,7 +137,7 @@ exports.register = async (req, res) => {
 
 }
 exports.putUser = async (req, res) => {   
-    url = "http://localhost:5000/api/employee/account";
+    url = "https://cyber-view-api.herokuapp.com/api/employee/account";
     var cookie = get_cookies(req)["authcookie"];
     var {id, email,contact,emergencyContact} = req.body
     

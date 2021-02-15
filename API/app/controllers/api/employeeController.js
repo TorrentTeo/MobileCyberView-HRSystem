@@ -1,7 +1,7 @@
 const { success, error, validation } = require("../../helpers/responseApi");
 const AttendanceCode = require("../../models/attendanceCode");
 const AttendanceMarking = require("../../models/attendanceMarking");
-const Verification = require("../../models/Verification");
+const Verification = require("../../models/verification");
 const config = require('config');
 const User = require("../../models/User");
 const Profile = require("../../models/profile");
