@@ -142,6 +142,7 @@ public class CalendarFragment extends Fragment {
         API requests = new API();
         HashMap<String, String > params = new HashMap<>();
         params.put("date", date);
+
         try {
             JSONObject Jobject = requests.postRequest("employee/getcalendar", params ,obj);
             JSONObject result = Jobject.getJSONObject("results");
