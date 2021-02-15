@@ -52,8 +52,11 @@ public class RewardFragment extends Fragment {
             JSONObject Jobject = requests.getHttpResponse("employee/reward", obj);
             JSONObject result = Jobject.getJSONObject("results");
             JSONObject reward = result.getJSONObject("reward");
+
             ArrayList<String> rewardList = new ArrayList<String>();
+
             Iterator<String> keys = reward.keys();
+
             while(keys.hasNext()) {
                 String key = keys.next();
                 if (reward.get(key) instanceof JSONObject) {
@@ -61,6 +64,7 @@ public class RewardFragment extends Fragment {
                     rewardList.add(rewardItem.getString("name"));
                 }
             }
+
             rewardListView = (ListView) RootView.findViewById(R.id.rewards);
             final ArrayAdapter<String> adapter = new ArrayAdapter
                     (getActivity(), android.R.layout.simple_list_item_1, rewardList);
@@ -69,6 +73,7 @@ public class RewardFragment extends Fragment {
             JSONObject Jobject2 = requests.getHttpResponse("employee/wallet", obj);
             JSONObject result2 = Jobject2.getJSONObject("results");
             JSONArray wallet = result2.getJSONArray("wallet");
+
             int point = 0;
             for (int i = 0; i < wallet.length(); ++i) {
                 JSONObject rec = wallet.getJSONObject(i);
@@ -79,8 +84,6 @@ public class RewardFragment extends Fragment {
         }catch (Exception e){
             Log.i("Error","Failed to connect: "+e.getMessage());
         }
-
-
         return RootView;
     }
 }
