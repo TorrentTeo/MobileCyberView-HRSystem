@@ -40,6 +40,8 @@
       <tbody id="table_body_medplan">
         <% for(var i=0; i < data.medicalPlan.length; i++) { %>
           <tr>
+            <td class="column1" style="display:none"><button class="fa fa-pencil-square-o use-address"
+              id="editMedicalPlan" data-toggle="modal" data-target="#editplan" aria-hidden="true" style="color: blue; position:relative"></button></td>
             <td>
               <%= data.medicalPlan[i].medicalPlanName %>
             </td>

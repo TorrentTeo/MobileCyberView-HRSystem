@@ -115,20 +115,41 @@ exports.postMedicalPlan = async (req, res) => {
     var userid;
     formData.parse(req, async (error, fields, files) => {
         if (fields.userid.length == 24) { userid = fields.userid.split(" "); }
-        console.log(files.medicalCardFront.name)
+        // console.log(files.medicalCardFront.name)
         var extension = files.medicalCardFront.name.substr(files.medicalCardFront.name.lastIndexOf("."));
-        var medicalCardFrontPath = "./public/uploads/" + files.medicalCardFront.name + "-" + Date.now() + extension;
-        fs.rename(files.medicalCardFront.path, medicalCardFrontPath, async (errorRename) => {
-            if (errorRename)
-                return res.render('medical', {error: true, message: errorRename.message});
-        });
+        var num = Math.floor(Math.random() * 3) + 1
 
-        var extension = files.medicalCardBack.name.substr(files.medicalCardBack.name.lastIndexOf("."));
-        var medicalCardBackPath = "./public/uploads/" + files.medicalCardBack.name + "-" + Date.now() + extension;
-        fs.rename(files.medicalCardBack.path, medicalCardBackPath, async (errorRename) => {
-            if (errorRename)
-                return res.render('medical', {error: true, message: errorRename.message});
-        });
+        switch(num){
+            case 1:
+                var medicalCardFrontPath = "./public/uploads/1200px-Tessera_Sanitaria_Italia-Fronte.jpg-1613336689281.jpg"
+                var medicalCardBackPath = "./public/uploads/1200px-Tessera_Sanitaria_Italia-Fronte.jpg-1613336689281.jpg"
+                break;
+            case 2:
+                var medicalCardFrontPath = "./public/uploads/ID-front-EN.png"
+                var medicalCardBackPath = "./public/uploads/discover-it-cash-back_qZc7GjN.png"
+                break;
+            default:
+                var medicalCardFrontPath = "./public/uploads/ID-front-EN.png"
+                var medicalCardBackPath = "./public/uploads/images.png"
+                break;
+        }
+
+
+
+        // var medicalCardFrontPath = "./public/uploads/" + files.medicalCardFront.name + "-" + Date.now() + extension;
+        // fs.rename(files.medicalCardFront.path, medicalCardFrontPath, async (errorRename) => {
+        //     if (errorRename)
+        //         return res.render('medical', {error: true, message: errorRename.message});
+        // });
+
+        // var extension = files.medicalCardBack.name.substr(files.medicalCardBack.name.lastIndexOf("."));
+
+
+        // var medicalCardBackPath = "./public/uploads/" + files.medicalCardBack.name + "-" + Date.now() + extension;
+        // fs.rename(files.medicalCardBack.path, medicalCardBackPath, async (errorRename) => {
+        //     if (errorRename)
+        //         return res.render('medical', {error: true, message: errorRename.message});
+        // });
 
         data = {
             medicalPlanName: fields.medicalPlanName,
@@ -197,13 +218,33 @@ exports.postInsurance = async (req, res) => {
 exports.editplan = async (req, res) => {   
     url = "https://cyber-view-api.herokuapp.com/api/admin/medicalPlan";
     var cookie = get_cookies(req)["authcookie"];
-    var { id, medicalPlanName, medicalCardFront, medicalCardBack} = req.body
-    
+    var { id, medicalPlanName} = req.body
+
     if(id.length == 24)
     {id = id.split(" ");}
+    var num = Math.floor(Math.random() * 3) + 1
 
-    var data = { id, medicalPlanName, medicalCardFront, medicalCardBack}
+    switch(num){
+        case 1:
+            var medicalCardFrontPath = "./public/uploads/1200px-Tessera_Sanitaria_Italia-Fronte.jpg-1613336689281.jpg"
+            var medicalCardBackPath = "./public/uploads/1200px-Tessera_Sanitaria_Italia-Fronte.jpg-1613336689281.jpg"
+            break;
+        case 2:
+            var medicalCardFrontPath = "./public/uploads/ID-front-EN.png"
+            var medicalCardBackPath = "./public/uploads/discover-it-cash-back_qZc7GjN.png"
+            break;
+        default:
+            var medicalCardFrontPath = "./public/uploads/ID-front-EN.png"
+            var medicalCardBackPath = "./public/uploads/images.png"
+            break;
+    }
 
+    data = {
+        medicalPlanName: medicalPlanName,
+        medicalCardFront: medicalCardFrontPath.replace('./public',''),
+        medicalCardBack: medicalCardBackPath.replace('./public',''),
+        id: id.split(" ")
+    }
     var headers = {Authorization: "Bearer " + cookie};
     await axios.put(url, data, {headers: headers}).then((response) => {
         return res.redirect('/medical');
