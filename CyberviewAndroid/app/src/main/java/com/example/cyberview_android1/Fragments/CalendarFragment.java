@@ -1,5 +1,6 @@
 package com.example.cyberview_android1.Fragments;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -9,11 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.cyberview_android1.Login;
 import com.example.cyberview_android1.R;
+import com.example.cyberview_android1.StartPage;
 import com.example.cyberview_android1.connectivity.API;
 import com.example.cyberview_android1.models.LoginModel;
 import com.google.gson.Gson;
@@ -33,11 +37,12 @@ import java.util.TimeZone;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class CalendarFragment extends Fragment {
+public class CalendarFragment<applyLeave> extends Fragment {
     long selectedDate;
     SharedPreferences myPrefs;
     ListView activitiesListView;
     TextView textView8, textView9;
+
 
     public CalendarFragment() {
         // Required empty public constructor
@@ -152,4 +157,6 @@ public class CalendarFragment extends Fragment {
             throw e;
         }
     }
-}
+
+
+    }
