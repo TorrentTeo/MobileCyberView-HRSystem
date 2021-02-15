@@ -106,7 +106,43 @@ public class API {
                 .post(body)
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
-                .header("Authorization ", "Bearer " + loginModel.getToken())
+                .header("Authorization", "Bearer " + loginModel.getToken())
+                .build();
+        try {
+            Response res = client.newCall(request).execute();
+            String jsonData = res.body().string();
+            Jobject = new JSONObject(jsonData);
+        } catch (JSONException e) {
+            Log.i("Error","Failed to connect: "+e.getMessage());
+        }
+        return Jobject;
+    }
+
+    public JSONObject putRequest(String url, HashMap<String, String> params, LoginModel loginModel) throws IOException {
+
+        MediaType MEDIA_TYPE = MediaType.parse("application/json");
+
+        OkHttpClient client = new OkHttpClient();
+        JSONObject postdata = new JSONObject();
+        if(params != null){
+            try {
+                for (String param : params.keySet()) {
+                    postdata.put(param, params.get(param));
+                }
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
+
+        RequestBody body = RequestBody.create(MEDIA_TYPE, postdata.toString());
+        Request request = new Request.Builder()
+                .url(API() + url)
+                .put(body)
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + loginModel.getToken())
                 .build();
         try {
             Response res = client.newCall(request).execute();
