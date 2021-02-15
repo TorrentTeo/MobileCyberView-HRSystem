@@ -49,6 +49,32 @@ public class API {
         }
         return Jobject;
     }
+    public JSONObject getHttpResponseWithParams(String url, HashMap<String, String> params,  LoginModel loginModel) throws IOException {
+        MediaType MEDIA_TYPE = MediaType.parse("application/json");
+        OkHttpClient client = new OkHttpClient();
+
+        try {
+            JSONObject postdata = new JSONObject();
+            for (String param : params.keySet()) {
+                postdata.put(param, params.get(param));
+            }
+            RequestBody body = RequestBody.create(MEDIA_TYPE, postdata.toString());
+            Request request = new Request.Builder()
+                    .url(API() + url)
+                    .post(body)
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + loginModel.getToken())
+                    .build();
+            Response res = client.newCall(request).execute();
+            String jsonData = res.body().string();
+            Jobject = new JSONObject(jsonData);
+        } catch (JSONException e) {
+            Log.i("Error","Failed to connect: "+e.getMessage());
+        }
+        return Jobject;
+    }
+
 
     public JSONObject postLoginRequest(String url, HashMap<String, String> params) throws IOException {
 
