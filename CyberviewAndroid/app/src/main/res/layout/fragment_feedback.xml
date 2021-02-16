@@ -37,13 +37,13 @@
             android:layout_height="76dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Content" />
+            android:hint="content" />
+
 
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit Feedback" />
-
     </LinearLayout>
 </FrameLayout>

@@ -40,11 +40,6 @@
         android:label="Medical Portal"
         tools:layout="@layout/fragment_medical_portal" />
 
-    <fragment
-        android:id="@id/nav_mp"
-        android:name="com.example.cyberview_android1.Fragments.MedicalPortalFragment"
-        android:label="Medical Portal"
-        tools:layout="@layout/fragment_medical_portal" />
 
     <fragment
         android:id="@id/nav_contract"
@@ -67,7 +62,6 @@
     <fragment
         android:id="@id/nav_logout"
         android:name="com.example.cyberview_android1.Fragments.LogoutFragment"
-        android:label="Log out"
-        tools:layout="@layout/fragment_logout" />
+        android:label="Log out"/>
 
 </navigation>

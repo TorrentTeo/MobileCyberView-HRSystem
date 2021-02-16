@@ -28,8 +28,8 @@
 
         <CalendarView
             android:id="@+id/simpleCalendarView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="307dp"
             android:outlineSpotShadowColor="@color/design_default_color_primary_dark" />
 
         <TextView
@@ -42,8 +42,16 @@
         <ListView
             android:id="@+id/activities"
             android:layout_width="match_parent"
-            android:layout_height="213dp" />
-
-
+            android:layout_height="126dp" />
+        <Button
+            android:id="@+id/applyLeave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="APPLY LEAVE" />
+        <Button
+            android:id="@+id/medicalLeaveHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MEDICAL LEAVE HISTORY" />
     </LinearLayout>
 </FrameLayout>

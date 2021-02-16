@@ -2,6 +2,7 @@ package com.example.cyberview_android1;
 
 import android.os.Bundle;
 
+import com.example.cyberview_android1.Fragments.CalendarFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -43,8 +45,7 @@ public class Main extends AppCompatActivity {
 
         NavController navController = Navigation.findNavController(this,R.id.navHostFrag);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-
-
     }
+
+
 }
