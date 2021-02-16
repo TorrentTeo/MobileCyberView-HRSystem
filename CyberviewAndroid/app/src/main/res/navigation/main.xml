@@ -47,12 +47,6 @@
         tools:layout="@layout/fragment_medical_portal" />
 
     <fragment
-        android:id="@id/nav_report"
-        android:name="com.example.cyberview_android1.Fragments.ReportsFragment"
-        android:label="Reports"
-        tools:layout="@layout/fragment_reports" />
-
-    <fragment
         android:id="@id/nav_contract"
         android:name="com.example.cyberview_android1.Fragments.ContractFragment"
         android:label="Contracting"
