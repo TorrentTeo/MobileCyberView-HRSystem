@@ -1,5 +1,6 @@
 package com.example.cyberview_android1.Fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -42,6 +44,8 @@ public class CalendarFragment<applyLeave> extends Fragment {
     SharedPreferences myPrefs;
     ListView activitiesListView;
     TextView textView8, textView9;
+    Activity context;
+
 
 
     public CalendarFragment() {
@@ -53,6 +57,7 @@ public class CalendarFragment<applyLeave> extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         myPrefs = this.getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        context=getActivity();
         View RootView =  inflater.inflate(R.layout.fragment_calendar, container, false);
         CalendarView simpleCalendarView = (CalendarView) RootView.findViewById(R.id.simpleCalendarView); // get the reference of CalendarView
         selectedDate = simpleCalendarView.getDate();
@@ -157,6 +162,25 @@ public class CalendarFragment<applyLeave> extends Fragment {
             throw e;
         }
     }
+    public void onStart(){
+        super.onStart();
+        Button bt=(Button)context.findViewById(R.id.applyLeave);
+        Button bt2=(Button)context.findViewById(R.id.medicalLeaveHistory);
+        bt.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent intent=new Intent(context, apply_leave.class);
+                startActivity(intent);
+            }
 
+        }
+        );
+        bt2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent intent=new Intent(context, medicalleave_history.class);
+                startActivity(intent);
+            }
 
+        }
+        );
     }
+}
