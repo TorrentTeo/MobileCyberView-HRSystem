@@ -1,21 +1,23 @@
 package com.example.cyberview_android1.Fragments;
 
 import android.app.AlertDialog;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import android.provider.DocumentsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.cyberview_android1.R;
@@ -23,20 +25,13 @@ import com.example.cyberview_android1.connectivity.API;
 import com.example.cyberview_android1.models.LoginModel;
 import com.google.gson.Gson;
 
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.util.HashMap;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -53,6 +48,7 @@ public class ProfileFragment extends Fragment {
     TextView skillsText;
     TextView eduText;
     TextView reviewsText;
+
 
 
     public ProfileFragment() {
@@ -136,41 +132,108 @@ public class ProfileFragment extends Fragment {
             listView7.setAdapter(adapter7);
 
 
-            Button btn1 = RootView.findViewById(R.id.addBtn1);
-
-            btn1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Gson gson = new Gson();
-                    String jsonData = myPrefs.getString("LoginModel", "");
-                    LoginModel obj = gson.fromJson(jsonData, LoginModel.class);
-                    API requests = new API();
-
-
-
-                }
-            });
-
-            listView3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Gson gson = new Gson();
-                    String jsonData = myPrefs.getString("LoginModel", "");
-                    LoginModel obj = gson.fromJson(jsonData, LoginModel.class);
-                    API requests = new API();
-
-
-
-
-
-                }
-            });
-
+           
 
         } catch (Exception e) {
             Log.i("Error","Failed to connect: "+e.getMessage());
 
         }
+        Button btn1 = RootView.findViewById(R.id.addBtn1);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                alert.setView(R.layout.add_fragment);
+                alert.setTitle("Add");
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                alert.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Gson gson = new Gson();
+                        String loginModel = myPrefs.getString("LoginModel", "");
+                        LoginModel loginModel1 = gson.fromJson(loginModel, LoginModel.class);
+                        API requests = new API();
+                        //Category
+
+
+
+                        //Description
+                        EditText addAchievement = (EditText) RootView.findViewById(R.id.addAchievement);
+//                            addTraining = (EditText) RootView.findViewById(R.id.addTraining);
+//                            addSkills = (EditText) RootView.findViewById(R.id.addSkills);
+//                            addEdu = (EditText) RootView.findViewById(R.id.addEdu);
+//                            addReviews = (EditText) RootView.findViewById(R.id.addReviews);
+                        String achievement = addAchievement.getText().toString();
+//                            String training = addTraining.getText().toString();
+//                            String skills = addSkills.getText().toString();
+//                            String edu = addEdu.getText().toString();
+//                            String reviews = addReviews.getText().toString();
+                        HashMap<String, String> params = new HashMap<>();
+//                            String desc;
+
+                        try {
+                            params.put("description", achievement);
+
+
+                            JSONObject res = requests.postRequest("employee/profile",params,loginModel1);
+                            boolean error = res.getBoolean("error");
+
+                            if (error) {
+                                new AlertDialog.Builder(getContext())
+                                        .setTitle("OOPS")
+                                        .setMessage("Something went wrong please try again, if the problem persists contact the admin")
+                                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                // Continue with delete operation
+                                            }
+                                        })
+                                        // A null listener allows the button to dismiss the dialog and take no further action.
+                                        .setNegativeButton(android.R.string.no, null)
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
+                            } else {
+                                new AlertDialog.Builder(getContext())
+                                        .setTitle("Success")
+                                        .setMessage("Contract Submitted Successfully")
+
+                                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                                        // The dialog is automatically dismissed when a dialog button is clicked.
+                                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                // Continue with delete operation
+                                            }
+                                        })
+                                        // A null listener allows the button to dismiss the dialog and take no further action.
+                                        .setNegativeButton(android.R.string.no, null)
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+
+                alert.show();
+
+
+
+
+            }
+        });
 
 
         // Inflate the layout for this fragment
