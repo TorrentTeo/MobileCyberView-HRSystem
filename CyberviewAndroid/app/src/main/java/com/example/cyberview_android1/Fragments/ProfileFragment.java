@@ -166,7 +166,7 @@ public class ProfileFragment extends Fragment {
 
 
                         //Description
-                        EditText addAchievement = (EditText) RootView.findViewById(R.id.addAchievement);
+                        EditText addAchievement = (EditText) RootView.findViewById(R.id.add_box);
 //                            addTraining = (EditText) RootView.findViewById(R.id.addTraining);
 //                            addSkills = (EditText) RootView.findViewById(R.id.addSkills);
 //                            addEdu = (EditText) RootView.findViewById(R.id.addEdu);

@@ -11,12 +11,12 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/numberOfDays"
+            android:id="@+id/endDate"
             android:layout_width="match_parent"
             android:layout_height="76dp"
             android:ems="10"
-            android:hint="Number of Days"
-            android:inputType="textPersonName"
+            android:hint="End Date"
+            android:inputType="date"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="76dp"
             android:ems="10"
-            android:hint="Status"
+            android:hint="Description"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,6 +44,7 @@
             android:layout_height="58dp"
             android:ems="10"
             android:inputType="date"
+            android:hint="Start Date"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
